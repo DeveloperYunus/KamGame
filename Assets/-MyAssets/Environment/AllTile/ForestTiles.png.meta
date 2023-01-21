@@ -1,0 +1,551 @@
+fileFormatVersion: 2
+guid: 97b79a9d046d169468a630c6e7133ead
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ForestTiles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3cbabe75c3550f4384283a1b0733921
+      internalID: 2007953106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7b03b6521f55f447a79ad835a13b027
+      internalID: -1497757886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd5354d1e3cd404b9bb1d6c7b10a31a
+      internalID: 262386492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b979980184c3f4da29592cbee9b3c2
+      internalID: 744192342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: 128, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f7ca94e4795b544bf11a9d4250715e
+      internalID: 1077352217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93cc1de727576684eabafeaedf79005a
+      internalID: -783273668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c6a5190e22b634bb8975b8fc19b1c9
+      internalID: -787212080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 128, y: 128}
+        - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2480f420211266e4fb8055c707feef11
+      internalID: -497050917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f9e291f0b868141ae18f4af84ef2c0
+      internalID: -1419813609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_9
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bda8da28787a449a91666d7ba5baf6
+      internalID: 64118009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b19d5f43a93ae74ebae35c28ef22b3b
+      internalID: -1592509979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479169755da0f6b4e8239f543847b950
+      internalID: 1296325076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_12
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2dd620fe6589245966364ed3da51c2
+      internalID: -2126387215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestTiles_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      physicsShape:
+      - - {x: -128, y: 128}
+        - {x: -128, y: -128}
+        - {x: 128, y: -128}
+        - {x: 128, y: 128}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1016fdf51ba5e9145b110a5c3c6158cd
+      internalID: -262080474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ForestTiles_6: -787212080
+      ForestTiles_5: -783273668
+      ForestTiles_2: 262386492
+      ForestTiles_1: -1497757886
+      ForestTiles_13: -262080474
+      ForestTiles_7: -497050917
+      ForestTiles_12: -2126387215
+      ForestTiles_8: -1419813609
+      ForestTiles_3: 744192342
+      ForestTiles_9: 64118009
+      ForestTiles_11: 1296325076
+      ForestTiles_0: 2007953106
+      ForestTiles_10: -1592509979
+      ForestTiles_4: 1077352217
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

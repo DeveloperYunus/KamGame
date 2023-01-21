@@ -1,0 +1,49 @@
+	NOTLAR
+
+1- Ranged ve Melee boslarýn blade ismindeki silahlarýnýn adýný deðiþtirme sakýn (onlarýn ismi ile fonksiyon çalýþýyor)
+
+Melee Boss'un kafasý yansýn ve üzerinden gecerken ahsar versin
+
+BOSS AI
+Enemylerden xp ler düþsün ve yavaþca bize gelsin. Bar'ý doldurunca seviye alalým
+Environment oluþturma sistemleri
+Background ve parallax effect
+--> First leveldan önce tüm tasarýmsal çizimlerin tamamlanýp prefablara eklenmesi (sonradan deðiþtirmek zor oluyor)
+First level'ýn tamamlanmasý
+Seri üretim levellar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

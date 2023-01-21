@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TilesAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: -1419813609, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: 64118009, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: -787212080, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: -497050917, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: 1077352217, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: 1296325076, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: -783273668, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: -1592509979, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: 262386492, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: -262080474, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: 744192342, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: -2126387215, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: 2007953106, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  - {fileID: -1497757886, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ForestTiles_8
+  - ForestTiles_9
+  - ForestTiles_6
+  - ForestTiles_7
+  - ForestTiles_4
+  - ForestTiles_11
+  - ForestTiles_5
+  - ForestTiles_10
+  - ForestTiles_2
+  - ForestTiles_13
+  - ForestTiles_3
+  - ForestTiles_12
+  - ForestTiles_0
+  - ForestTiles_1
+  m_RenderDataMap: {}
+  m_Tag: TilesAtlas
+  m_IsVariant: 0
