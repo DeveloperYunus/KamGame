@@ -25,10 +25,10 @@ public class KamAttack : MonoBehaviour
     public float trapDmg;
     GameObject groundedTrap;
 
-    [Header("Trap")]
+    [Header("Barrier")]
     public ParticleSystem barrier;
     public float barrierDuration;
-    bool isBarrierActv;
+    public bool isBarrierActv;
 
     void Start()
     {
@@ -108,14 +108,41 @@ public class KamAttack : MonoBehaviour
 
         GameObject a = Instantiate(bolt, staffMuzzle.position, Quaternion.identity);
         a.GetComponent<Rigidbody2D>().velocity = direction * boltSpeed;
-        a.GetComponent<Bolt>().damage = boltDmg;
+        a.GetComponent<Bolt>().damage = boltDmg * PlayerPrefs.GetInt("bolt");
     }
     void NormalThunderEvent()
     {
-        Vector2 targetPos = colliderr.GetComponent<ThunderRadius>().ClosestEnemy();
+        /*Vector2 targetPos = colliderr.GetComponent<ThunderRadius>().ClosestEnemy();
 
         GameObject a = Instantiate(thunder, targetPos, Quaternion.Euler(0, 0, 0));
-        a.GetComponent<Thunder>().damage = thunderDmg;
+        a.GetComponent<Thunder>().damage = thunderDmg * PlayerPrefs.GetInt("thunder");*/
+
+        List<GameObject> enemies = colliderr.GetComponent<ThunderRadius>().ClosestEnemy();
+
+        if (enemies.Count != 0)//icerde adam varsa ona hasar ver
+        {
+            if (PlayerPrefs.GetInt("thunder") != 5)
+            {
+
+                GameObject b = Instantiate(thunder, enemies[0].transform.position, Quaternion.Euler(0, 0, 0));
+                b.GetComponent<Thunder>().damage = thunderDmg * PlayerPrefs.GetInt("thunder");
+                colliderr.GetComponent<ThunderRadius>().enemy.Clear();//burada sýfýrlýyoz ki sonraki yýldýrýmlarda önceki verilerde bulunan adamlarý baz almasýn
+                return;
+            }
+            int a = enemies.Count;
+            for (int i = 0; i < a; i++)
+            {
+
+                GameObject b = Instantiate(thunder, enemies[i].transform.position, Quaternion.Euler(0, 0, 0));
+                b.GetComponent<Thunder>().damage = thunderDmg * PlayerPrefs.GetInt("thunder");
+            }
+        }
+        else//icerde adam yoksa baktýðýn yöne vur
+        {
+            GameObject a = Instantiate(thunder, new Vector2(transform.position.x + (2.5f * kc.facingRight), transform.position.y - 1.6f), Quaternion.Euler(0, 0, 0));
+            a.GetComponent<Thunder>().damage = thunderDmg * PlayerPrefs.GetInt("thunder");
+        }
+        colliderr.GetComponent<ThunderRadius>().enemy.Clear();//burada sýfýrlýyoz ki sonraki yýldýrýmlarda önceki verilerde bulunan adamlarý baz almasýn
     }
     void NormalTrapEvent()
     {
@@ -126,7 +153,7 @@ public class KamAttack : MonoBehaviour
         if (groundedTrap) Destroy(groundedTrap, 0.2f);
         
         GameObject a = Instantiate(trap, hit.point, Quaternion.identity);
-        a.GetComponent<ElecTrap>().damage = trapDmg;
+        a.GetComponent<ElecTrap>().damage = trapDmg * PlayerPrefs.GetInt("trap");
         groundedTrap = a;
     }
     void NormalBarrier()
@@ -138,7 +165,7 @@ public class KamAttack : MonoBehaviour
 
     IEnumerator BarrierDuration()
     {
-        yield return new WaitForSeconds(barrierDuration);
+        yield return new WaitForSeconds(barrierDuration * PlayerPrefs.GetInt("barrier"));
         isBarrierActv = false;
         barrier.Stop();
     }

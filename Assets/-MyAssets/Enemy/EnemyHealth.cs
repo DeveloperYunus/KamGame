@@ -13,9 +13,14 @@ public class EnemyHealth : MonoBehaviour
     public TextMeshProUGUI hpTxt;
 
     float percentArmour;
+    float defaultDrag;
+
+    [Header("Experinece")]
+    [Tooltip("Enemy ölünce kazanacaðýmýz tecrübe puaný")]public float expValue;
 
     void Start()
     {
+        defaultDrag = GetComponent<Rigidbody2D>().drag;
         percentArmour = armour * 0.01f;
 
         sl.maxValue = health;
@@ -25,9 +30,15 @@ public class EnemyHealth : MonoBehaviour
 
     public void GetDamage(float damage, int dmgKing)                //bolt = 1, thunder = 2, elecTrap = 3
     {
+        if (dmgKing == 3) 
+        {
+            GetComponent<Rigidbody2D>().drag = 15;
+            StartCoroutine(ResetDrag(3f));
+        }
+
         float dmg = damage - damage * percentArmour;
         health -= dmg;
-        ShowDmgTxt(dmg);
+        ShowDmgTxt(-dmg);
 
         if (health <= 0)
         {
@@ -46,6 +57,14 @@ public class EnemyHealth : MonoBehaviour
 
     void Die() 
     {
+        KamHealth.instance.ShowExp(expValue);
+
         Destroy(gameObject, 0.2f);
+    }
+
+    IEnumerator ResetDrag(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GetComponent<Rigidbody2D>().drag = defaultDrag;
     }
 }

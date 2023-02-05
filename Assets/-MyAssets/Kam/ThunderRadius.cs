@@ -9,7 +9,7 @@ public class ThunderRadius : MonoBehaviour
     [HideInInspector] public bool collIsActive;
 
     CircleCollider2D colliderr;
-    List<GameObject> enemy = new();
+    [HideInInspector]public List<GameObject> enemy = new();
     Vector2 enemyHolder;
     float radius;
 
@@ -37,20 +37,21 @@ public class ThunderRadius : MonoBehaviour
         }
     }
 
-    public Vector2 ClosestEnemy()
+    public List<GameObject> ClosestEnemy()
     {
-        if (enemy.Count == 0)
+        /*if (enemy.Count == 0)
         {
             enemyHolder = new Vector2(transform.position.x + (2.5f * kc.facingRight), transform.position.y - 1.6f);
         }
         else
-            enemyHolder = new Vector2(enemy[0].transform.position.x, enemy[0].transform.position.y);
+        {
+            enemyHolder = enemy[0].transform.position;
+        }*/
 
         radius = 0;
         colliderr.radius = 0;
         colliderr.enabled = false;
         collIsActive = false;
-        enemy.Clear();
-        return enemyHolder;
+        return enemy;
     }
 }

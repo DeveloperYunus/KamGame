@@ -46,9 +46,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.06821442}
   serializedVersion: 2
-  m_Radius: 0.723966
+  m_Radius: 0.7012291
 --- !u!50 &1980787980
 Rigidbody2D:
   serializedVersion: 4
@@ -784,7 +784,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -948,18 +948,11 @@ MonoBehaviour:
   nextWaypointDistance: 2
   seekTime: 0.5
   seeRange: 11
-  jumpHeight: 0.7
-  jumpForce: 5
-  groundCheckPos: {fileID: 3648301426989797839}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
   swordColl: {fileID: 6079400883779215342}
   fireBall: {fileID: 1648301384536504856, guid: 6592c249539795c4389332e337ba0fdc, type: 3}
   muzzle: {fileID: 3648301426989797839}
   atkDamage: 1
   atkSpeed: 1.5
-  pushStrong: 4
 --- !u!114 &1970788491328979767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,6 +969,7 @@ MonoBehaviour:
   armour: 20
   sl: {fileID: 9093852621208392639}
   hpTxt: {fileID: 7174249947476243985}
+  expValue: 60
 --- !u!1 &8752335698700395092
 GameObject:
   m_ObjectHideFlags: 0

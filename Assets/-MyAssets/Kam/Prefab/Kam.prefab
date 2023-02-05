@@ -46,7 +46,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.23779964}
-  m_Size: {x: 1.4142554, y: 2.1804485}
+  m_Size: {x: 1.2901835, y: 2.1804485}
   m_Direction: 0
 --- !u!1 &397785008338817744
 GameObject:
@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63296fd41697aee41878b883f5a43ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  jumpForce: 6
+  speed: 5
+  jumpForce: 6.5
   extraJump: 1
   checkRadius: 0.2
   groundCheck: {fileID: 397785008357815652}
@@ -188,15 +188,15 @@ MonoBehaviour:
   animTransition: 0
   bolt: {fileID: 34450224196497443, guid: 3d62495a417f7da4ab47dc5d2359f9df, type: 3}
   boltSpeed: 8
-  boltDmg: 10
+  boltDmg: 5
   staffMuzzle: {fileID: 1296502970723571807}
   thunder: {fileID: 2453398110593388708, guid: 3e97259ebe3c3aa488bfbf17b9a54cae, type: 3}
-  thunderDmg: 50
+  thunderDmg: 15
   colliderr: {fileID: 5762907090782431153}
   trap: {fileID: 2757603918175465230, guid: db8bfbd168f55f943b477345fa380c3d, type: 3}
-  trapDmg: 70
+  trapDmg: 20
   barrier: {fileID: 5762907091324199469}
-  barrierDuration: 5
+  barrierDuration: 2
 --- !u!114 &6066957544677329320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,8 +211,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 120
   armour: 20
-  sl: {fileID: 0}
+  hpSl: {fileID: 0}
   hpTxt: {fileID: 0}
+  expSl: {fileID: 0}
+  expTxt: {fileID: 0}
+  skillPTxt: {fileID: 0}
+  addedExp: {fileID: 0}
 --- !u!1 &397785008357815659
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +272,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397785010299650298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 0.274, z: 0}
+  m_LocalPosition: {x: 2, y: 0.274, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,7 +333,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970306863566}
-  m_LocalRotation: {x: 0, y: 0, z: 0.6605218, w: 0.7508068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.66052127, w: 0.75080734}
   m_LocalPosition: {x: 1.8781661, y: 0.0026374012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -362,7 +366,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970328485920}
-  m_LocalRotation: {x: 0, y: 0, z: 0.98990166, w: 0.14175588}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9899018, w: 0.1417552}
   m_LocalPosition: {x: 3.98, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -613,8 +617,8 @@ MonoBehaviour:
   - {fileID: 1296502971817482859}
   - {fileID: 1296502970787904730}
   m_Bounds:
-    m_Center: {x: 0.3639989, y: -0.13522577, z: 0}
-    m_Extent: {x: 4.457659, y: 7.5084205, z: 0}
+    m_Center: {x: 0.36400175, y: -0.13521433, z: 0}
+    m_Extent: {x: 4.4576616, y: 7.5084243, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -810,7 +814,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970938125818}
-  m_LocalRotation: {x: -0, y: -0, z: 0.006725222, w: 0.99997747}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0067252507, w: 0.9999774}
   m_LocalPosition: {x: 1.85, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1106,6 +1110,7 @@ MonoBehaviour:
   kc: {fileID: 397785008338817746}
   thunderRange: 5.5
   collIsActive: 0
+  enemy: []
 --- !u!1 &5762907091324199507
 GameObject:
   m_ObjectHideFlags: 0

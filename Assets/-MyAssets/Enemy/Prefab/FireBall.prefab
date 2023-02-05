@@ -14494,7 +14494,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireExp: {fileID: 5056815621271878580}
   damage: 0
+  dmgKind: 0
   destroyTime: 5
+  canDmg: 0
 --- !u!1 &1648301385196594585
 GameObject:
   m_ObjectHideFlags: 0

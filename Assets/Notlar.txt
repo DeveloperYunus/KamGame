@@ -1,49 +1,28 @@
+	PLAYER PREFS
+
+1- PlayerPrefs.SetFloat("expValue", exp);					KamHealth
+2- PlayerPrefs.SetInt("skillPoint", skillPoint);			KamHealth, PauseMenu
+3- PlayerPrefs.GetInt("bolt");								PauseMenu
+4- PlayerPrefs.GetInt("thunder");							PauseMenu
+5- PlayerPrefs.GetInt("trap");								PauseMenu
+6- PlayerPrefs.GetInt("barrier");							PauseMenu
+7- PlayerPrefs.SetInt("language", index);					PauseMenu
+	
 	NOTLAR
 
 1- Ranged ve Melee boslarýn blade ismindeki silahlarýnýn adýný deðiþtirme sakýn (onlarýn ismi ile fonksiyon çalýþýyor)
+2- Oyuna ilk kez baþlarken bütün yetenekleri 1 seviyesine getir yoksa hic hasar atmazlar (anlamzsan -> kamAttak içindeki saldýrý fonksiyonlarýna bak)
 
-Melee Boss'un kafasý yansýn ve üzerinden gecerken ahsar versin
 
-BOSS AI
-Enemylerden xp ler düþsün ve yavaþca bize gelsin. Bar'ý doldurunca seviye alalým
+
+	GÖREVLER
+
+11 Hikaye cümlesi yaz
+
 Environment oluþturma sistemleri
 Background ve parallax effect
---> First leveldan önce tüm tasarýmsal çizimlerin tamamlanýp prefablara eklenmesi (sonradan deðiþtirmek zor oluyor)
-First level'ýn tamamlanmasý
-Seri üretim levellar
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+First leveldan önce tüm tasarýmsal çizimlerin tamamlanýp prefablara eklenmesi (sonradan deðiþtirmek zor oluyor)
+	First level'ýn tamamlanmasý
+	Seri üretim levellar

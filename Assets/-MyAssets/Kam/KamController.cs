@@ -89,16 +89,27 @@ public class KamController : MonoBehaviour
 
         if (canMove)
         {
-            if (facingRight == -1 && moveInput > 0.1)       FlipFace();
-            else if (facingRight == 1 && moveInput < -0.1)  FlipFace();
+            //if (facingRight == -1 && moveInput > 0.1)       FlipFace();
+            //else if (facingRight == 1 && moveInput < -0.1)  FlipFace();
+            if (facingRight == -1 && rb.velocity.x > 0.1)       FlipFace();     //ateþ ederken yön deðiþtirsin diye bu 2. satýrlarý kullandýk
+            else if (facingRight == 1 && rb.velocity.x < -0.1)  FlipFace();
 
-            if (goRight == 1)       moveInput = Mathf.Lerp(moveInput, 1, 0.25f);
-            else if (goLeft == -1)  moveInput = Mathf.Lerp(moveInput, -1, 0.25f);
-            else                    moveInput = Mathf.Lerp(moveInput, 0, 0.25f);
-       
-            rb.velocity = new Vector2(moveInput * speed * animSlow * slow, rb.velocity.y);
+            if (goRight == 1)       moveInput = Mathf.Lerp(moveInput, 1, 0.15f);
+            else if (goLeft == -1)  moveInput = Mathf.Lerp(moveInput, -1, 0.15f);
+            else                    moveInput = Mathf.Lerp(moveInput, 0, 0.2f);
 
-            //anim.speed = 1 * animSlow;                                                                            //animasyonlarýn hýzýný ayarlar
+            if (isGrounded)
+            {
+                rb.velocity = new Vector2(moveInput * speed * animSlow * slow, rb.velocity.y);           //bunun sayesinde hýz her zamana sýfý normal fizik sstemlerini bozuyor o yüzden alttakini kullandýk
+                rb.drag = 0;
+            }
+            else
+            {
+                rb.AddForce(new Vector2(moveInput * speed * 60 * Time.deltaTime * animSlow * slow, 0));
+                rb.drag = 0.8f;
+            }
+
+            //anim.speed = 1 * animSlow;                                                               //animasyonlarýn hýzýný ayarlar
             anim.SetFloat("speedx", Mathf.Abs(rb.velocity.x));
             anim.SetFloat("speedy", rb.velocity.y);
         }        
@@ -108,11 +119,13 @@ public class KamController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.velocity = jumpForce * Vector2.up * slow;
+            rb.velocity = new Vector2 (rb.velocity.x, jumpForce* slow);
+            //rb.AddForce(jumpForce * Vector2.up * slow);
         }
         else if (extraJump > 0)
         {
-            rb.velocity = jumpForce * Vector2.up * slow;
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce * slow);
+            //rb.AddForce(jumpForce * Vector2.up * slow);
             extraJump--;
         }
     }
@@ -157,8 +170,7 @@ public class KamController : MonoBehaviour
         yield return new WaitForSeconds(time);
         slow = 1;
     }
-
-    public IEnumerator StopWalkAndPush(float time, Vector2 direction, float strong)
+    public IEnumerator StopWalkAndPush(float time, Vector2 direction, float strong)     //sýnýf bosslarýnýn bizi itmesi için
     {
         canMove= false;
         FirstOOP.Push(rb, direction, strong);

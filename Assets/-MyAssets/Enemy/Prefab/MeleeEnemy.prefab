@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474020454971288}
-  m_LocalRotation: {x: -0, y: -0, z: -0.14010358, w: 0.9901369}
+  m_LocalRotation: {x: -0, y: -0, z: -0.14010328, w: 0.9901369}
   m_LocalPosition: {x: 3.44, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 406834607346479457}
   m_Layer: 0
   m_Name: Melee(Child)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,8 +384,8 @@ MonoBehaviour:
   - {fileID: 8949474020979017436}
   - {fileID: 8949474021103149106}
   m_Bounds:
-    m_Center: {x: 0.034443855, y: 0.18313074, z: 0}
-    m_Extent: {x: 3.0468025, y: 3.4931312, z: 0}
+    m_Center: {x: 0.034443617, y: 0.18313074, z: 0}
+    m_Extent: {x: 3.046805, y: 3.4931312, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -485,7 +485,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474020979017439}
-  m_LocalRotation: {x: 0, y: 0, z: -0.95953494, w: -0.2815897}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9595348, w: -0.28158996}
   m_LocalPosition: {x: 1.8803462, y: 1.2479261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -517,7 +517,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474020982563094}
-  m_LocalRotation: {x: 0, y: 0, z: 0.625545, w: 0.7801881}
+  m_LocalRotation: {x: 0, y: 0, z: 0.62554497, w: 0.7801882}
   m_LocalPosition: {x: 1.723099, y: 0.04772371, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1183,7 +1183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474022209834185}
-  m_LocalRotation: {x: -0, y: -0, z: -0.52852154, w: 0.8489199}
+  m_LocalRotation: {x: -0, y: -0, z: -0.52852166, w: 0.84891987}
   m_LocalPosition: {x: 2.7273989, y: 0.02475972, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1251,7 +1251,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474022388089519}
-  m_LocalRotation: {x: 0, y: 0, z: 0.99318093, w: 0.11658357}
+  m_LocalRotation: {x: 0, y: 0, z: 0.99318093, w: 0.11658331}
   m_LocalPosition: {x: 1.8634334, y: -0.93611753, z: 0}
   m_LocalScale: {x: 1.1237, y: 1.1237, z: 1.1237}
   m_ConstrainProportionsScale: 0
@@ -1370,7 +1370,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   swordColl: {fileID: 8949474020488036014}
-  atkDamage: 10
+  atkDamage: 2
   atkSpeed: 1.5
 --- !u!114 &8949474022396302908
 MonoBehaviour:
@@ -1384,7 +1384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 35
   armour: 20
   sl: {fileID: 8949474021724929458}
   hpTxt: {fileID: 8949474021929481747}
+  expValue: 5

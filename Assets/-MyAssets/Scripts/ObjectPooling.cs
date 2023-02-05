@@ -5,18 +5,20 @@ using UnityEngine;
 public class ObjectPooling
 {
     private GameObject prefab;
+    private Transform parent;
     private Stack<GameObject> objeHavuzu = new Stack<GameObject>();
 
-    public ObjectPooling(GameObject prefab)
+    public ObjectPooling(GameObject prefab, Transform parent)
     {
         this.prefab = prefab;
+        this.parent = parent;   
     }
 
     public void HavuzuDoldur(int miktar)
     {
         for (int i = 0; i < miktar; i++)
         {
-            GameObject obje = Object.Instantiate(prefab);
+            GameObject obje = Object.Instantiate(prefab, parent);
             HavuzaObjeEkle(obje);
         }
         //Debug.Log(objeHavuzu.Count);
