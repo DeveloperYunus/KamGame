@@ -196,23 +196,35 @@ public class PauseMenu : MonoBehaviour
     }
     public string RegenTips()//sonradan bu kısım çeşitlendirilecek
     {
-        int a = Random.Range(1, 16);
+        int a = Random.Range(1, 10);
 
         if (PlayerPrefs.GetInt("language") == 0)        //tr
         {
             return a switch
             {
-                1 => "\n\n      Bir varmış ormanda yaşayan bir adam varmış ve herkese yardım eder ama ortalıklarda gözükmezmiş.",
-                2 => "",
-                3 => "",
-                4 => "",
-                5 => "",
-                6 => "",
-                7 => "",
-                8 => "",
-                9 => "",
-                10 => "",
-                11 => "",
+                1 => "\n\n      1. Asya bozkırlarındaki göçebe halkların koruyucusu ve yol göstericisi Kamlar... " +
+                "Bizim hikayemizde ise bu mistik ve gizemli kişilerden 'Yıldırım' adındaki yaşı bilinmez bir üstadın münzevi hayatını anlatmakta.",
+
+                2 => "\n\n      2. Ustasının kendisine aktardığı öğretiler ışığında kendisini ve sonraki nesilleri tüketmek için bekleyen ateşi, oda beklemekte.",
+
+                3 => "\n\n      3. Ve Kam artık farkında, bunu ağaçların gölgesinde, havanın boğukluğunda ve hayvanların gözlerinde görüüyor, hepsi korku ve umutsuzluk içinde. " +
+                "Sabırla bekleyen ve kendisininde sabırla beklediği ateş sonunda zuhur etti.",
+
+                4 => "\n\n      4. Açaba hangisi daha kötüdür, bu tehlike ile ne zaman yüzleşeceğini bilememek mi? Yoksa vakti geldiğinde nasıl yüzleşeceğini bilememek mi? " +
+                "Ya ustası Raad olsa ne yapardı?",
+
+                5 => "\n\n      5. Ya ustasının anlattığı ve bu yok oluşu önlemek için defetmek gereken Haçkaar. Güçlerini ve zayıflıklarını bile bilmiyordu Kam.",
+
+                6 => "\n\n      6. Bunun gibi onlarca soru kafasını, bu olayların sonucunun nasıl bir yıkım olabileceği ise ruhunu rahatsız edip duruyordu... " +
+                "Kam artık yola çıkmalıydı.",
+
+                7 => "\n\n      7. Yola çıkmazsa eğer kim durduracaktı bu felaketi, feda etmezse eğer kendisini, şahsıyla beraber nice bedenleri, helak edecekti bu cehennem köleleri",
+
+                8 => "\n\n      8. Artık birtek hedefi ve canından başka kaybedek bir mülkü olmayan Yıldırım -ki canıda Tanrıya emanetti- " +
+                "şüphe ve endişelerini gelecekte def edeceği düşmanları gibi yere serişti.",
+
+                9 => "\n\n      9. Gelin Yıldırım Kam'ın bundan sonraki hikayesine bizzat beraber şahit olalım.",
+
                 _ => "\n\n      Biraz soluklanayım, ben yaşlı bir adamım.",
             };
         }
@@ -220,17 +232,29 @@ public class PauseMenu : MonoBehaviour
         {
             return a switch
             {
-                1 => "\n\n      Bir varmış ormanda yaşayan bir adam varmış ve herkese yardım eder ama ortalıklarda gözükmezmiş.",
-                2 => "",
-                3 => "",
-                4 => "",
-                5 => "",
-                6 => "",
-                7 => "",
-                8 => "",
-                9 => "",
-                10 => "",
-                11 => "",
+                1 => "\n\n      1. Kamlar, the protector and guide of the nomadic peoples in the steppes of Asia... " +
+                "In our story, it tells the ascetic life of an unknown master named 'Yıldırım' from these mystical and mysterious people.",
+
+                2 => "\n\n      2. In the light of the teachings that his master has passed on to him, the fire that awaits him and the next generations to consume is waiting in him.",
+
+                3 => "\n\n      3. And Kam is now aware, seeing it in the shade of trees, in the muffle of the air, and in the eyes of animals, all in fear and despair." +
+                "The fire, which had been patiently waiting and which he himself had been waiting patiently for, finally appeared.",
+
+                4 => "\n\n      4. Which is worse, not knowing when to face this danger? Or not knowing how to face it when the time comes? " +
+                "What if his master was Raad, what would he do?",
+
+                5 => "\n\n      5. Either the Haçkaar that his master told him and that he had to fight off to prevent this destruction. Kam didn't even know their strengths and weaknesses.",
+
+                6 => "\n\n      6. Dozens of questions like this were bothering his mind, and how the result of these events could be devastated, bothered his soul... " +
+                "Kam had to hit the road now.",
+
+                7 => "\n\n      7. If he did not set out, who would stop this catastrophe, if he did not sacrifice himself, many bodies along with his person, these hellish slaves would perish.",
+
+                8 => "\n\n      8. Yıldırım, who no longer has a single target and no property to lose but his life -which is entrusted to God- " +
+                "spread his doubts and anxieties as enemies he would dispel in the future.",
+
+                9 => "\n\n      9. Let's witness Yıldırım Kam's next story together.",
+
                 _ => "\n\n      Let me take a breather, I'm an old man.",
             };
         }

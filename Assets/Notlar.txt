@@ -12,7 +12,7 @@
 
 1- Ranged ve Melee boslarýn blade ismindeki silahlarýnýn adýný deðiþtirme sakýn (onlarýn ismi ile fonksiyon çalýþýyor)
 2- Oyuna ilk kez baþlarken bütün yetenekleri 1 seviyesine getir yoksa hic hasar atmazlar (anlamzsan -> kamAttak içindeki saldýrý fonksiyonlarýna bak)
-
+3- Kam = yýldýrým, Kam = Raad, BOSS = Haçkaar
 
 
 	GÖREVLER
