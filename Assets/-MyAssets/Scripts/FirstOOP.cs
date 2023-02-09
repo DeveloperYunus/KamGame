@@ -29,7 +29,11 @@ public class FirstOOP : MonoBehaviour
         rb2.velocity = strong * direction;
     }
 
-
+    public static bool FiftyChance()
+    {
+        if (Random.Range(0, 2) == 0) return false;
+        else                         return true;
+    }
 
 
 

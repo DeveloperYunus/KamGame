@@ -17,11 +17,9 @@
 
 	GÖREVLER
 
-11 Hikaye cümlesi yaz
-
-Environment oluþturma sistemleri
-Background ve parallax effect
-
+Yerden çýkan kazýklarý,
+Tepelerden düþen taþlarý 
+	bahadýrdan al ve buna entegre at
 
 First leveldan önce tüm tasarýmsal çizimlerin tamamlanýp prefablara eklenmesi (sonradan deðiþtirmek zor oluyor)
 	First level'ýn tamamlanmasý
