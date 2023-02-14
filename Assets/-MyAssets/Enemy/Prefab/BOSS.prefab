@@ -19292,11 +19292,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5685477905266950162}
   - component: {fileID: 4751943454522029925}
-  - component: {fileID: 4751943454522029924}
   - component: {fileID: 757425130978323342}
   - component: {fileID: 4306507523844769888}
   - component: {fileID: 1300796603075505053}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BOSS
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -19343,22 +19342,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &4751943454522029924
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1009666535756909757}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.14987755, y: 0.61845493}
-  m_Size: {x: 2.7124786, y: 5.6055927}
-  m_Direction: 0
 --- !u!114 &757425130978323342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19407,11 +19390,10 @@ MonoBehaviour:
   swordColl: {fileID: 1086681896514561245}
   fireBall: {fileID: 3898168114219470250, guid: dc439ec6f44cf0f4baa9863d5395d696, type: 3}
   muzzle: {fileID: 1543559668}
-  atkDamage: 5
+  atkDamage: 30
   atkSpeed: 2.5
   meteor: {fileID: 7435714842919811885, guid: f396433cf7ea7904fbe3ec1c73c233cf, type: 3}
   meteorDamage: 8
-  originPos: {x: 12.57, y: -9.9}
   yatayRng: 10
   numOfMeteor: 10
   speedX: 4
@@ -19427,7 +19409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 300
   armour: 30
   sl: {fileID: 1086681895525195291}
   hpTxt: {fileID: 1086681896239512894}
@@ -19724,7 +19706,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19779,9 +19761,10 @@ GameObject:
   - component: {fileID: 1086681895907174822}
   - component: {fileID: 1086681895907174823}
   - component: {fileID: 1086681895907174827}
+  - component: {fileID: 1947590018}
   m_Layer: 0
   m_Name: BOSS (Child)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19842,7 +19825,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 970188356767df243a51e8cf7235868d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19875,8 +19858,8 @@ MonoBehaviour:
   - {fileID: 1086681894804842037}
   - {fileID: 1086681896331601735}
   m_Bounds:
-    m_Center: {x: 0.35922956, y: 2.9002647, z: 0}
-    m_Extent: {x: 5.6551337, y: 7.2789726, z: 0}
+    m_Center: {x: 0.35920668, y: 2.900261, z: 0}
+    m_Extent: {x: 5.6551414, y: 7.2789726, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -19915,6 +19898,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &1947590018
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086681895907174820}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3592067, y: 1.5790315}
+  m_Size: {x: 6.7905254, y: 13.653906}
+  m_Direction: 0
 --- !u!1 &1086681896232157364
 GameObject:
   m_ObjectHideFlags: 0
@@ -19973,8 +19972,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1256521107
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!114 &1086681896232157369
 MonoBehaviour:

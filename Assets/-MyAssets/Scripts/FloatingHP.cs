@@ -6,7 +6,6 @@ public class FloatingHP : MonoBehaviour
 {
     public GameObject hpText;
     public int objCountInPool;
-    public Color darkRed;
 
     public static ObjectPooling hpTextPool;
 

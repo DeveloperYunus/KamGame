@@ -11,16 +11,20 @@
 	NOTLAR
 
 1- Ranged ve Melee boslarýn blade ismindeki silahlarýnýn adýný deðiþtirme sakýn (onlarýn ismi ile fonksiyon çalýþýyor)
-2- Oyuna ilk kez baþlarken bütün yetenekleri 1 seviyesine getir yoksa hic hasar atmazlar (anlamzsan -> kamAttak içindeki saldýrý fonksiyonlarýna bak)
+2- Oyuna ilk kez baþlarken bütün yetenekleri 1 seviyesine getir yoksa hic hasar atmazlar (anlamazsan -> kamAttak içindeki saldýrý fonksiyonlarýna bak)
 3- Kam = yýldýrým, Kam = Raad, BOSS = Haçkaar
+4- Sadece melee, meleeBos ve ranged spike ile yavaþlýyor
+5- Maðaralarda kullanýlan farklý renkdeki zemin imalat ýrasýnda belli olsun renklendirilmiþtir, buil alýnýrken renk beyaza çekilecektir (Maðara içindeki zeminde çimen gözükmesin diye)
+6- Falling rock TransparenFX katmanýna alýndý
+7- Bütün mermiler meteorlar falan ignore raycast katmanýnda
+8- Kam en fazla 4 blok týrmanabiliyor
 
 
-	GÖREVLER
 
-Yerden çýkan kazýklarý,
-Tepelerden düþen taþlarý 
-	bahadýrdan al ve buna entegre at
+GÖREVLER
 
-First leveldan önce tüm tasarýmsal çizimlerin tamamlanýp prefablara eklenmesi (sonradan deðiþtirmek zor oluyor)
-	First level'ýn tamamlanmasý
-	Seri üretim levellar
+	3- Camera boyutunu ve takip sistemini çöz yön deðiþtirirken atlama yapýyor
+
+Ölünce yeniden doðma sistemi oluþtur
+
+Yukarýdakiler bitince herþeyi tekrardan test et :D

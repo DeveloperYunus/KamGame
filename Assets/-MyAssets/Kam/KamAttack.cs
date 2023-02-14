@@ -28,7 +28,7 @@ public class KamAttack : MonoBehaviour
     [Header("Barrier")]
     public ParticleSystem barrier;
     public float barrierDuration;
-    public bool isBarrierActv;
+    [HideInInspector]public bool isBarrierActv;
 
     void Start()
     {

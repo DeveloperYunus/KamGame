@@ -15,7 +15,7 @@ public class KamController : MonoBehaviour
 
     Rigidbody2D rb;
     float moveInput;
-    [HideInInspector] public float slow;                                                        //hasar alýnca yavaþlamasý için
+    [HideInInspector] public float slow;                                                        //hasar alýnca yavaþlamasý için (spike slow buna dahil)
     [HideInInspector] public int facingRight;
     [HideInInspector] public bool isGrounded;
     [HideInInspector] public bool canMove;
@@ -23,7 +23,7 @@ public class KamController : MonoBehaviour
     int extraJumpValue;
 
     Animator anim;
-    [HideInInspector] public float animSlow;                                                                       //saldýrýp hasar alýrken yavaþla.
+    [HideInInspector] public float animSlow;                                                    //saldýrýken yavaþlamasý için
 
     void Start()
     {
@@ -109,7 +109,7 @@ public class KamController : MonoBehaviour
                 rb.drag = 0.8f;
             }
 
-            //anim.speed = 1 * animSlow;                                                               //animasyonlarýn hýzýný ayarlar
+            anim.speed = slow;                                                               //animasyonlarýn hýzýný ayarlar
             anim.SetFloat("speedx", Mathf.Abs(rb.velocity.x));
             anim.SetFloat("speedy", rb.velocity.y);
         }        

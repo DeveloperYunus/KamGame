@@ -17,6 +17,7 @@ public class KamHealth : MonoBehaviour
     Vector2 enmySwordPos;
     float pushStrong;
     float percentArmour;
+    float hpRegenTime;
 
     [Header("Experince")]
     public Slider expSl;
@@ -28,6 +29,7 @@ public class KamHealth : MonoBehaviour
     void Start()
     {
         instance = this;
+        hpRegenTime = 0;
 
         anim = GetComponent<Animator>();
         kc = GetComponent<KamController>();
@@ -37,7 +39,16 @@ public class KamHealth : MonoBehaviour
         hpSl.maxValue = health;
         hpSl.value = health;
     }
-
+    private void Update()
+    {
+        if (Time.time > hpRegenTime) 
+        {
+            hpRegenTime += 0.5f;
+            health += 2;
+            hpSl.value = health;
+            hpTxt.text = health.ToString("0.##");
+        }
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("EnmySword"))

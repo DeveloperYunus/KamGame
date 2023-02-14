@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6154390925562668216}
   - component: {fileID: 6447183622997837636}
   - component: {fileID: 2392818421491693079}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5410325229196781205}
   - component: {fileID: 7639978642240560700}
   - component: {fileID: 2815942228388321776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4901,7 +4901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 59529029557953170}
   - component: {fileID: 4180876732225952028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HPSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4994,7 +4994,7 @@ GameObject:
   - component: {fileID: 5560575016396702715}
   - component: {fileID: 117055120954868949}
   - component: {fileID: 3680820389446338598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5040,7 +5040,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1256521107
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &117055120954868949
@@ -5079,7 +5079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  m_BlockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5094,7 +5094,7 @@ GameObject:
   - component: {fileID: 8906570635363249616}
   - component: {fileID: 1371010059987619875}
   - component: {fileID: 1245524406846008525}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HPTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5227,7 +5227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1718714004848369898}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5264,12 +5264,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2194023383858621444}
-  - component: {fileID: 3050103920356564729}
   - component: {fileID: 3050103920356564730}
   - component: {fileID: 3050103920356564728}
   - component: {fileID: 3050103920356564727}
   - component: {fileID: 3050103920356564726}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ranged
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5295,22 +5294,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &3050103920356564729
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3494965602625591444}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.27951956}
-  m_Size: {x: 0.837663, y: 2.0973024}
-  m_Direction: 0
 --- !u!50 &3050103920356564730
 Rigidbody2D:
   serializedVersion: 4
@@ -5372,11 +5355,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a76742afef77749ab05813d89028f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  atkRange: 8
+  speed: 3.7
+  atkRange: 7
   nextWaypointDistance: 1.7
   seekTime: 0.5
   seeRange: 10
+  slow: 0
   jumpHeight: 0.7
   jumpForce: 4.3
   groundCheckPos: {fileID: 2891216109631065157}
@@ -5385,7 +5369,7 @@ MonoBehaviour:
     m_Bits: 64
   fireBall: {fileID: 1648301384536504856, guid: 6592c249539795c4389332e337ba0fdc, type: 3}
   muzzle: {fileID: 7894040832138141593}
-  atkDamage: 30
+  atkDamage: 15
   atkSpeed: 2
 --- !u!114 &3050103920356564726
 MonoBehaviour:
@@ -5415,9 +5399,10 @@ GameObject:
   - component: {fileID: 2364315153878327457}
   - component: {fileID: 7718926762069435041}
   - component: {fileID: 5513217957866993127}
-  m_Layer: 0
+  - component: {fileID: 6175996401986523988}
+  m_Layer: 8
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5510,6 +5495,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &6175996401986523988
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3783368102357022393}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -1.1046687}
+  m_Size: {x: 3.0759587, y: 7.8750863}
+  m_Direction: 0
 --- !u!1 &4029896900856049507
 GameObject:
   m_ObjectHideFlags: 0
@@ -5521,7 +5522,7 @@ GameObject:
   - component: {fileID: 709558030468839836}
   - component: {fileID: 3324672850109918471}
   - component: {fileID: 7953920570095458004}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireBallGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10333,7 +10334,7 @@ GameObject:
   - component: {fileID: 1593346837775084459}
   - component: {fileID: 29120315311204098}
   - component: {fileID: 3608574093630951646}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireBallSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15145,7 +15146,7 @@ GameObject:
   - component: {fileID: 8428013809385239943}
   - component: {fileID: 2011968286643317373}
   - component: {fileID: 8504763006609096174}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireBallGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19957,7 +19958,7 @@ GameObject:
   - component: {fileID: 1206106247272349552}
   - component: {fileID: 5497750518093324823}
   - component: {fileID: 3566293334608988676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19980,7 +19981,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20031,7 +20032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2891216109631065157}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -20062,7 +20063,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7894040832138141593}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Muzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,6 +11,7 @@ public class MeleeAI : MonoBehaviour
     public float nextWaypointDistance;              //gideceðimiz noktaya ne kadar yakýn olunca duralým
     public float seekTime;
     public float seeRange;
+    [HideInInspector]public float slow;                              //hasar alýnca yada spike içindeyken yavaþlamasý için
 
     Path path;
     Seeker seeker;
@@ -38,6 +39,7 @@ public class MeleeAI : MonoBehaviour
 
     void Start()
     {
+        slow = 1;
         speed *= 100;
         jumpForce *= 100;
         jumpEnabled = false;
@@ -77,6 +79,7 @@ public class MeleeAI : MonoBehaviour
     void FixedUpdate()
     {
         anim.SetFloat("speedx", Mathf.Abs(rb.velocity.x));
+        anim.speed = slow;
 
         if (!target) 
             return;
@@ -98,11 +101,11 @@ public class MeleeAI : MonoBehaviour
             currentWaypoint++;
 
 
-        rb.AddForce(new Vector2(speed * Time.deltaTime * direction.x, 0));
+        rb.AddForce(new Vector2(speed * slow * Time.deltaTime * direction.x, 0));
 
         if (isGrounded && jumpEnabled && direction.y > jumpHeight)
         {
-            rb.AddForce(Vector2.up * jumpForce);
+            rb.AddForce(jumpForce * slow * Vector2.up);
             jumpEnabled = false;
             Invoke(nameof(JumpReset), 1.5f);
         }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474020454971289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Solver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474020454971288}
-  m_LocalRotation: {x: -0, y: -0, z: -0.14010328, w: 0.9901369}
+  m_LocalRotation: {x: -0, y: -0, z: -0.140104, w: 0.9901368}
   m_LocalPosition: {x: 3.44, y: 0.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8949474020488036015}
   - component: {fileID: 8949474020488036012}
   - component: {fileID: 8949474020488036013}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwordCollider
   m_TagString: EnmySword
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8949474020613159592}
   - component: {fileID: 8949474020613159595}
   - component: {fileID: 8949474020613159594}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,8 +164,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1256521107
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &8949474020613159595
 MonoBehaviour:
@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8949474020854151137}
   - component: {fileID: 8949474020854151136}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RSSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 8949474020920264168}
   - component: {fileID: 8949474020920264169}
   - component: {fileID: 406834607346479457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Melee(Child)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -885168492, guid: 27636ff8f6330114090756d92ac7a00e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -384,8 +384,8 @@ MonoBehaviour:
   - {fileID: 8949474020979017436}
   - {fileID: 8949474021103149106}
   m_Bounds:
-    m_Center: {x: 0.034443617, y: 0.18313074, z: 0}
-    m_Extent: {x: 3.046805, y: 3.4931312, z: 0}
+    m_Center: {x: 0.034442425, y: 0.18312931, z: 0}
+    m_Extent: {x: 3.0468063, y: 3.4931297, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474020979017436}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474020979017439}
-  m_LocalRotation: {x: 0, y: 0, z: -0.9595348, w: -0.28158996}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9595345, w: -0.28159118}
   m_LocalPosition: {x: 1.8803462, y: 1.2479261, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -503,7 +503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474020982563095}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RArm_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -517,7 +517,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474020982563094}
-  m_LocalRotation: {x: 0, y: 0, z: 0.62554497, w: 0.7801882}
+  m_LocalRotation: {x: 0, y: 0, z: 0.62554455, w: 0.78018844}
   m_LocalPosition: {x: 1.723099, y: 0.04772371, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -536,7 +536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474021093620134}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -567,7 +567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474021103149106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RArm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474021103149109}
-  m_LocalRotation: {x: 0, y: 0, z: 0.4907887, w: 0.8712787}
+  m_LocalRotation: {x: 0, y: 0, z: 0.4907904, w: 0.8712777}
   m_LocalPosition: {x: 1.9234673, y: -0.020920381, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -599,7 +599,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474021188205494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -633,7 +633,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474021223592902}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RSSolver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 8949474021300336669}
   - component: {fileID: 8949474021300336667}
   - component: {fileID: 8949474021300336666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8949474021670673106}
   - component: {fileID: 8949474021670673109}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LSSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8949474021724929461}
   - component: {fileID: 8949474021724929458}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HPSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -898,7 +898,7 @@ GameObject:
   - component: {fileID: 8949474021929481745}
   - component: {fileID: 8949474021929481744}
   - component: {fileID: 8949474021929481747}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HPTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1031,7 +1031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474021936440860}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LSSolver_Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474022057574955}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1095,7 +1095,7 @@ GameObject:
   - component: {fileID: 8949474022206300306}
   - component: {fileID: 8949474022206300304}
   - component: {fileID: 8949474022206300307}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1169,7 +1169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474022209834182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RSSolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1183,7 +1183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474022209834185}
-  m_LocalRotation: {x: -0, y: -0, z: -0.52852166, w: 0.84891987}
+  m_LocalRotation: {x: -0, y: -0, z: -0.5285217, w: 0.8489198}
   m_LocalPosition: {x: 2.7273989, y: 0.02475972, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1200,7 +1200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474022233323270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949474022388089516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RShoulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1251,7 +1251,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8949474022388089519}
-  m_LocalRotation: {x: 0, y: 0, z: 0.99318093, w: 0.11658331}
+  m_LocalRotation: {x: 0, y: 0, z: 0.993181, w: 0.11658286}
   m_LocalPosition: {x: 1.8634334, y: -0.93611753, z: 0}
   m_LocalScale: {x: 1.1237, y: 1.1237, z: 1.1237}
   m_ConstrainProportionsScale: 0
@@ -1273,7 +1273,7 @@ GameObject:
   - component: {fileID: 8949474022396302882}
   - component: {fileID: 8949474022396302910}
   - component: {fileID: 8949474022396302908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MeleeEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1359,10 +1359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961937f456cee034a86d7e5d1cd656c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3.7
   nextWaypointDistance: 1.7
   seekTime: 0.5
-  seeRange: 6
+  seeRange: 3.25
+  slow: 0
   jumpHeight: 0.7
   jumpForce: 4.3
   groundCheckPos: {fileID: 8949474021093620134}
@@ -1370,7 +1371,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   swordColl: {fileID: 8949474020488036014}
-  atkDamage: 2
+  atkDamage: 10
   atkSpeed: 1.5
 --- !u!114 &8949474022396302908
 MonoBehaviour:

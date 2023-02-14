@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
@@ -10,7 +9,7 @@ public class BOSSAI : MonoBehaviour
     Transform target;
     public float speed;
     public float /*meleeRange,*/ rangedRange;
-    public float nextWaypointDistance;              //gideceðimiz noktaya ne kadar yakýn olunca duralým
+    public float nextWaypointDistance;                          //gideceðimiz noktaya ne kadar yakýn olunca duralým
     public float seekTime;
     public float seeRange;
 
@@ -19,13 +18,13 @@ public class BOSSAI : MonoBehaviour
     Rigidbody2D rb;
     Transform enemyBody;
     Vector3 startPos;
-    int currentWaypoint = 0;                        //mevcut gideceðimiz nokta
-    float rangedRngS, meleeRngS, seRngSquare, bodyScale;            //menzilli ve yakýncý saldýrý menzillerinin karesi
+    int currentWaypoint = 0;                                    //mevcut gideceðimiz nokta
+    float rangedRngS, meleeRngS, seRngSquare, bodyScale;        //menzilli ve yakýncý saldýrý menzillerinin karesi
     float lineerDrag;
 
     [Header("Stats")]
-    public GameObject swordColl;                //MeleeAI saldýrý için
-    public GameObject fireBall;                 //ranged saldýrý için
+    public GameObject swordColl;                                //MeleeAI saldýrý için
+    public GameObject fireBall;                                 //ranged saldýrý için
     public Transform muzzle;
     public float atkDamage;
     public float atkSpeed;
@@ -35,19 +34,17 @@ public class BOSSAI : MonoBehaviour
     bool canAtk;
     bool chaseCase;
 
-    int bossPhase, whichAtk;                //whichAtk = normal saldýrýmý yoksa meteor düþmesi mi
+    int bossPhase, whichAtk;                                    //whichAtk = normal saldýrýmý yoksa meteor düþmesi mi
 
 
     [Header("Falling Meteors")]
     public GameObject meteor;
     public float meteorDamage;
-
-    public Vector2 originPos;                       //meteorlarýn düþmeye baþlayacaðý merkez nokta
-    public float yatayRng;                          //meteorlarýn yataydaki düþecekleri aralýk
-    public int numOfMeteor;                         //(+-2) tek seferde düþecek meteor sayýsý.
+    public float yatayRng;                                      //meteorlarýn yataydaki düþecekleri aralýk
+    public int numOfMeteor;                                     //(+-2) tek seferde düþecek meteor sayýsý.
     public float speedX;
 
-
+    Vector2 originPos;                                          //meteorlarýn düþmeye baþlayacaðý merkez nokta eskiden biz belirliyoduk þimdi belli bir yükseklikte sabit
 
     void Start()
     {
@@ -59,6 +56,7 @@ public class BOSSAI : MonoBehaviour
         rangedRngS = rangedRange * rangedRange;
         //meleeRngS = meleeRange * meleeRange;
         seRngSquare = seeRange * seeRange;
+        originPos = transform.position + new Vector3(0, 10, 0);
 
         target = GameObject.Find("Kam").transform;
         seeker = GetComponent<Seeker>();
@@ -281,6 +279,6 @@ public class BOSSAI : MonoBehaviour
         //Gizmos.DrawLine(transform.position, target.position + new Vector3(0, 0.3f, 0));
 
         Gizmos.color = Color.yellow;        //meteorlar için
-        Gizmos.DrawLine(new(originPos.x - yatayRng, originPos.y), new(originPos.x + yatayRng, originPos.y));
+        Gizmos.DrawLine(new(transform.position.x - yatayRng, transform.position.y + 10), new(transform.position.x + yatayRng, transform.position.y + 10));
     }
 }

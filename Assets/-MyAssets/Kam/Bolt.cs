@@ -14,8 +14,7 @@ public class Bolt : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            if (other.GetComponent<EnemyHealth>()) other.GetComponent<EnemyHealth>().GetDamage(damage, 1);    //collider kendisindede parent objesindede olabiliyor 
-            else other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 1);
+            other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 1);
         }
         Explode();
     }
