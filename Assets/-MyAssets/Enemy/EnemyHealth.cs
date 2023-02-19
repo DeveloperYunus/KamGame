@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void GetDamage(float damage, int dmgKing)                //bolt = 1, thunder = 2, elecTrap = 3
     {
-        if (dmgKing == 3) 
+        if (dmgKing == 3 && PlayerPrefs.GetInt("trap") == 5)
         {
             GetComponent<Rigidbody2D>().drag = 15;
             StartCoroutine(ResetDrag(3f));

@@ -7,6 +7,7 @@
 5- PlayerPrefs.GetInt("trap");								PauseMenu
 6- PlayerPrefs.GetInt("barrier");							PauseMenu
 7- PlayerPrefs.SetInt("language", index);					PauseMenu
+8- PlayerPrefs.GetInt("level", 1);							KamHealth - kam ýn seviyesi (en fazla 20 olur)
 	
 	NOTLAR
 
@@ -22,9 +23,20 @@
 
 
 GÖREVLER
+	
+	UI larý yerleþtýr ve kodlarýný bitir
+	Kam ve Düþman UI larý 5 sn gözüksün, sonra fade zamanla 0 olsun
+	Kam level aldýktan sonra can ve zýrh deðerlerini güncelle
 
-	3- Camera boyutunu ve takip sistemini çöz yön deðiþtirirken atlama yapýyor
+	Karanlýk bölümlerde Kam ýn asasýnda ýþýk olsun
 
-Ölünce yeniden doðma sistemi oluþtur
 
-Yukarýdakiler bitince herþeyi tekrardan test et :D
+
+
+HATIRALAR (Temizlenmiþ Buglar)
+
+	1- Enemy bulletlar birbirlerini patlatýyor
+	2- Elecktrap in particle effect'ini uzunlamasýna deðil top þeklinde yap
+	3- Bolt iç içe düþmanlardan ikisinede hasar veriyor kalsýnmý kaldýralýmmý ---> Kalsýn
+	4- Boltlar duvarlarýn içinde spawn oluyor
+	5- Thunder max seviyede iç içe rakiplere katlanarak vuruyor, skill max olunca alan hasarý özelliði kaldýr.

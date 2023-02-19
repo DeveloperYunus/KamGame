@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class FirstOOP : MonoBehaviour
 {
@@ -35,7 +37,21 @@ public class FirstOOP : MonoBehaviour
         else                         return true;
     }
 
+    /// <param name="lightt">Kuvvet uygulanacak rigidbody </param>
+    /// <param name="diff">Iþýkdaki artýþ ve azalýþýn miktarý </param>
 
+    public static void LightSparkling(Light2D lightt, float lMax, float lMin, float lNrml, float diff)
+    {
+        if (FirstOOP.FiftyChance())
+        {
+            lightt.intensity += diff;
+        }
+        else
+        {
+            lightt.intensity -= diff;
+        }
 
-
+        if (lightt.intensity > lMax || lightt.intensity < lMin)
+            lightt.intensity = lNrml;
+    }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1411502818}
   - component: {fileID: 1411502816}
   m_Layer: 0
-  m_Name: MetalCircle (2)
+  m_Name: MetalCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,6 +358,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  CMCamLeft: {fileID: 0}
+  CMCamRight: {fileID: 0}
   slow: 0
   facingRight: 0
   isGrounded: 0
@@ -380,6 +382,7 @@ MonoBehaviour:
   boltSpeed: 8
   boltDmg: 9
   staffMuzzle: {fileID: 1296502970723571807}
+  muzzleInGround: 0
   thunder: {fileID: 2453398110593388708, guid: 3e97259ebe3c3aa488bfbf17b9a54cae, type: 3}
   thunderDmg: 20
   colliderr: {fileID: 5762907090782431153}
@@ -400,14 +403,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c22278e11bb13b4aba14e715d1eb9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
-  armour: 50
+  health: 100
+  armour: 10
   hpSl: {fileID: 0}
   hpTxt: {fileID: 0}
   expSl: {fileID: 0}
   expTxt: {fileID: 0}
   skillPTxt: {fileID: 0}
   addedExp: {fileID: 0}
+  transitionPnl: {fileID: 0}
 --- !u!1 &397785008357815659
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +467,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397785010299650298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0.274, z: 0}
+  m_LocalPosition: {x: 3, y: 0.274, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -524,7 +528,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970306863566}
-  m_LocalRotation: {x: 5.1503374e-10, y: -5.725149e-10, z: 0.6605206, w: 0.7508079}
+  m_LocalRotation: {x: 5.150336e-10, y: -5.725148e-10, z: 0.66052085, w: 0.7508078}
   m_LocalPosition: {x: 1.8781661, y: 0.0026374012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -557,7 +561,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970328485920}
-  m_LocalRotation: {x: -5.3082844e-10, y: -1.11399265e-10, z: 0.9899017, w: 0.14175569}
+  m_LocalRotation: {x: -5.3082844e-10, y: -1.11399355e-10, z: 0.98990166, w: 0.14175585}
   m_LocalPosition: {x: 3.98, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -809,8 +813,8 @@ MonoBehaviour:
   - {fileID: 1296502971817482859}
   - {fileID: 1296502970787904730}
   m_Bounds:
-    m_Center: {x: 0.36399746, y: -0.13521862, z: -0.0000000071593895}
-    m_Extent: {x: 4.4576583, y: 7.508421, z: 0.000000025207736}
+    m_Center: {x: 0.36399794, y: -0.13521862, z: -0.000000017474067}
+    m_Extent: {x: 4.457659, y: 7.508421, z: 0.000000016646387}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -930,7 +934,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1296502970723571807}
-  m_Layer: 0
+  - component: {fileID: 573149037}
+  - component: {fileID: 573149038}
+  m_Layer: 1
   m_Name: StaffMuzzle
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -952,6 +958,35 @@ Transform:
   m_Father: {fileID: 1296502970594699003}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &573149037
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296502970723571806}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.6700206, y: -2.5853736}
+  serializedVersion: 2
+  m_Radius: 2.7234907
+--- !u!114 &573149038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296502970723571806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2fabe6d6a20d8c43bad1707d2d16fe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ka: {fileID: 397785008338817742}
 --- !u!1 &1296502970787904729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,7 +1042,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970938125818}
-  m_LocalRotation: {x: -5.0969434e-10, y: 6.385324e-10, z: 0.0067265024, w: 0.99997735}
+  m_LocalRotation: {x: -5.0969423e-10, y: 6.3853217e-10, z: 0.006726502, w: 0.99997735}
   m_LocalPosition: {x: 1.85, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1315,6 +1350,7 @@ GameObject:
   - component: {fileID: 5762907091324199470}
   - component: {fileID: 5762907091324199469}
   - component: {fileID: 5762907091324199468}
+  - component: {fileID: 817134595}
   m_Layer: 0
   m_Name: BarrierSparksRound
   m_TagString: Untagged
@@ -6118,6 +6154,85 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &817134595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5762907091324199507}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 1
+  m_FalloffIntensity: 0.6
+  m_Color: {r: 0, g: 0.9411764, b: 1, a: 1}
+  m_Intensity: 0.3
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 00000000035f62ac93fde44a
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 2
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &5762907091629437218
 GameObject:
   m_ObjectHideFlags: 0

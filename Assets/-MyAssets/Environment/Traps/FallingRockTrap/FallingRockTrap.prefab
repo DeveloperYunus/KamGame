@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 165279498004532613}
   - component: {fileID: 165279498004532612}
   - component: {fileID: 165279498004532634}
-  m_Layer: 2
+  m_Layer: 1
   m_Name: FallingRockPE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4891,7 +4891,7 @@ GameObject:
   - component: {fileID: 165279496787908287}
   - component: {fileID: 165279496787908286}
   - component: {fileID: 165279496787908281}
-  m_Layer: 2
+  m_Layer: 1
   m_Name: FallingRockTrap
   m_TagString: Meteor
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -4927,7 +4927,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -1.5551357}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4938,7 +4938,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.110551, y: 3.8528128}
+  m_Size: {x: 5.110551, y: 6.963084}
   m_EdgeRadius: 0
 --- !u!114 &165279496787908281
 MonoBehaviour:
@@ -4975,7 +4975,7 @@ GameObject:
   - component: {fileID: 165279497449386551}
   - component: {fileID: 165279497449386549}
   - component: {fileID: 165279497449386548}
-  m_Layer: 2
+  m_Layer: 1
   m_Name: FallingStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

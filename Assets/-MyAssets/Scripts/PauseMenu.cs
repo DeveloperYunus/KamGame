@@ -118,12 +118,14 @@ public class PauseMenu : MonoBehaviour
 
                 case 1:
                     returnTxt = "<color=#53ecec>YILDIRIM</color> (E Tuþu)\n\n   En yakýndaki cehennem kölesinin kafasýna alan hasarý vuran bir yýldýrým gönderir\n\n" +
-                        "<size=33>Maximum Seviyede (5), menzildeki tüm düþmanlara vurur</size>\n\nHasar  ";
+                        "<size=33>Maximum Seviyede (5), hasar yarýya düþer ancak menzildeki tüm düþmanlara vurur</size>\n\nHasar  ";
 
                     if (PlayerPrefs.GetInt("thunder") != 5)
                         returnTxt += ka.thunderDmg * PlayerPrefs.GetInt("thunder") + "  >>  " + ka.thunderDmg * (PlayerPrefs.GetInt("thunder") + 1);
+                    else if (PlayerPrefs.GetInt("thunder") == 4)
+                        returnTxt += ka.thunderDmg * PlayerPrefs.GetInt("thunder") + "  >>  " + ka.thunderDmg * 0.5f * (PlayerPrefs.GetInt("thunder") + 1);
                     else
-                        returnTxt += "<color=#53ecec>" + ka.thunderDmg * PlayerPrefs.GetInt("thunder") + "</color>" + "  (Max)";
+                        returnTxt += "<color=#53ecec>" + ka.thunderDmg * PlayerPrefs.GetInt("thunder") * 0.5f + "</color>" + "  (Max)";
                     break;
 
                 case 2:
@@ -138,7 +140,7 @@ public class PauseMenu : MonoBehaviour
 
                 case 3:
                     returnTxt = "<color=#53ecec>BARÝYER</color> (Q Tuþu)\n\n    Kam kendisini enerji alaný ile kuþatýr ve hasar göremez hale gelir\n\n" +
-                        "<size=33>Maximum Seviyede (5) alýnan hasarý cana çevirir</size>\n\nSüre  ";
+                        "<size=33>Maximum Seviyede (5), alýnan hasarý cana çevirir</size>\n\nSüre  ";
 
                     if (PlayerPrefs.GetInt("barrier") != 5)
                         returnTxt += ka.barrierDuration * PlayerPrefs.GetInt("barrier") + "  >>  " + ka.barrierDuration * (PlayerPrefs.GetInt("barrier") + 1) + " saniye  (Max)";
@@ -162,12 +164,14 @@ public class PauseMenu : MonoBehaviour
 
                 case 1:
                     returnTxt = "<color=#53ecec>Lightning</color> (E Key)\n\n    Kam sends a lightning bolt to the head of the nearest hell slave that hits field damage.\n\n" +
-                        "<size=33>At Maximum Level (5), it hits all enemies in the range</size>\n\nDamage  ";
+                        "<size=33>At Maximum Level (5), damage reduce to half but it hits all enemies in the range</size>\n\nDamage  ";
 
                     if (PlayerPrefs.GetInt("thunder") != 5)
                         returnTxt += ka.thunderDmg * PlayerPrefs.GetInt("thunder") + "  >>  " + ka.thunderDmg * (PlayerPrefs.GetInt("thunder") + 1);
+                    else if (PlayerPrefs.GetInt("thunder") == 4)
+                        returnTxt += ka.thunderDmg * PlayerPrefs.GetInt("thunder") + "  >>  " + ka.thunderDmg * 0.5f * (PlayerPrefs.GetInt("thunder") + 1);
                     else
-                        returnTxt += "<color=#53ecec>" + ka.thunderDmg * PlayerPrefs.GetInt("thunder") + "</color>" + "  (Max)";
+                        returnTxt += "<color=#53ecec>" + ka.thunderDmg * PlayerPrefs.GetInt("thunder") * 0.5f + "</color>" + "  (Max)";
                     break;
 
                 case 2:
@@ -182,7 +186,7 @@ public class PauseMenu : MonoBehaviour
 
                 case 3:
                     returnTxt = "<color=#53ecec>Barrier</color> (Q Key)\n\n     Kam surrounds itself with the energy field and becomes undamaged.\n\n" +
-                        "<size=33>At Maximum Level (5) convert damage received to life</size>\n\nTime  ";
+                        "<size=33>At Maximum Level (5), convert damage received to life</size>\n\nTime  ";
 
                     if (PlayerPrefs.GetInt("barrier") != 5)
                         returnTxt += ka.barrierDuration * PlayerPrefs.GetInt("barrier") + "  >>  " + ka.barrierDuration * (PlayerPrefs.GetInt("barrier") + 1) + " second  (Max)";
@@ -259,7 +263,6 @@ public class PauseMenu : MonoBehaviour
             };
         }
     }
-
 
     public void SelectLanguage(int index)                //0 = Turkish, 1 = English, ...
     {

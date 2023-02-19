@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.Collections;
 using System.ComponentModel;
 using TMPro;
 using UnityEngine;
@@ -26,25 +27,39 @@ public class KamHealth : MonoBehaviour
     float exp;
     public static KamHealth instance;
 
+    [Header("Die / Level")]
+    public GameObject transitionPnl;
+    public static bool dead;
+
+    int dieTime;
+
     void Start()
     {
         instance = this;
+        dead = false;
         hpRegenTime = 0;
+        dieTime = 0;
 
         anim = GetComponent<Animator>();
         kc = GetComponent<KamController>();
-        percentArmour = armour * 0.01f;
         exp = PlayerPrefs.GetFloat("exp");
 
+        health = 100 + 15 * PlayerPrefs.GetInt("level", 1);
+        armour = 10 + 2 * PlayerPrefs.GetInt("level", 1);
+        percentArmour = armour * 0.01f;
         hpSl.maxValue = health;
         hpSl.value = health;
     }
     private void Update()
     {
-        if (Time.time > hpRegenTime) 
+        if (Time.time > hpRegenTime && health < hpSl.maxValue)
         {
             hpRegenTime += 0.5f;
             health += 2;
+
+            if (health > hpSl.maxValue) 
+                health = hpSl.maxValue;
+
             hpSl.value = health;
             hpTxt.text = health.ToString("0.##");
         }
@@ -110,10 +125,10 @@ public class KamHealth : MonoBehaviour
             if (health <= 0)
             {
                 health = 0;
-                Die();
+                StartCoroutine(Die());
             }
         }
-        else if (PlayerPrefs.GetInt("barrier") ==5)
+        else if (PlayerPrefs.GetInt("barrier") == 5)
         {
             float dmg = damage - damage * percentArmour;               //hesaplama bir kez yapýlsýn diye bir deðiþkene atandý
             health += dmg;
@@ -135,30 +150,55 @@ public class KamHealth : MonoBehaviour
     }
     public void ShowExp(float expValue)
     {
-        exp += expValue;
-
-        if (exp > 100)
+        if (PlayerPrefs.GetInt("level", 1) < 20)    //Kam maximum 20 sv olabilir
         {
-            exp -= 100;
-            PlayerPrefs.SetInt("skillPoint", PlayerPrefs.GetInt("skillPoint"));
+            exp += expValue;
+
+            if (exp > 100)
+            {
+                exp -= 100;
+                PlayerPrefs.SetInt("skillPoint", PlayerPrefs.GetInt("skillPoint"));
+                PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level", 1) + 1);
+            }
+
+            expTxt.text = exp.ToString();
+            skillPTxt.text = PlayerPrefs.GetInt("skillPoint").ToString();
+            addedExp.text = "+ " + expValue.ToString();
+            PlayerPrefs.SetFloat("expValue", exp);
+
+            addedExp.GetComponent<RectTransform>().DOKill(false);
+            addedExp.GetComponent<RectTransform>().DOScale(1.2f, 0.4f).SetEase(Ease.OutBack);
+            addedExp.GetComponent<RectTransform>().DOScale(1f, 0.6f).SetDelay(0.5f);
+
+            expSl.GetComponent<CanvasGroup>().DOKill(false);
+            expSl.GetComponent<CanvasGroup>().DOFade(1, 0.3f);
+            expSl.GetComponent<CanvasGroup>().DOFade(0, 2f).SetDelay(4f);
         }
-
-        expTxt.text = exp.ToString();
-        skillPTxt.text = PlayerPrefs.GetInt("skillPoint").ToString();
-        addedExp.text = "+ " + expValue.ToString();
-        PlayerPrefs.SetFloat("expValue", exp);
-        
-        addedExp.GetComponent<RectTransform>().DOKill(false);
-        addedExp.GetComponent<RectTransform>().DOScale(1.2f, 0.4f).SetEase(Ease.OutBack);
-        addedExp.GetComponent<RectTransform>().DOScale(1f, 0.6f).SetDelay(0.5f);
-
-        expSl.GetComponent<CanvasGroup>().DOKill(false);
-        expSl.GetComponent<CanvasGroup>().DOFade(1, 0.3f);
-        expSl.GetComponent<CanvasGroup>().DOFade(0, 2f).SetDelay(4f);
     }
 
-    void Die()
+    IEnumerator Die()
     {
-        Destroy(gameObject, 0.1f);
+        Time.timeScale = 0.5f;
+        dead = true;
+        dieTime++;
+
+        yield return new WaitForSeconds(0.5f);
+        transitionPnl.GetComponent<RectTransform>().DOScale(1, 0);
+        transitionPnl.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
+
+        yield return new WaitForSeconds(0.6f);
+        if (dieTime == 3)
+            //level seçme menüsüne git
+        GetComponent<Transform>().position = CheckPntSys.checkPnt;
+        GetComponent<KamAttack>().RebornBarrier(3);                         //öldükten sonra doðunca 3 sn hasar almasýn
+
+        health = hpSl.maxValue;
+        hpSl.value = health;
+        hpTxt.text = health.ToString("0.##");
+
+        Time.timeScale = 1;
+        yield return new WaitForSeconds(1f);
+        transitionPnl.GetComponent<RectTransform>().DOScale(0, 0).SetDelay(0.5f);
+        transitionPnl.GetComponent<CanvasGroup>().DOFade(0, 0.2f).SetDelay(0.3f);
     }
 }

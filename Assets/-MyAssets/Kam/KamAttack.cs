@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class KamAttack : MonoBehaviour
 {
@@ -13,7 +15,9 @@ public class KamAttack : MonoBehaviour
     public float boltSpeed;
     public float boltDmg;
     public Transform staffMuzzle;
+
     Vector3 worldPos;
+    [HideInInspector] public bool muzzleInGround;
 
     [Header("Thunder")]
     public GameObject thunder;
@@ -28,15 +32,26 @@ public class KamAttack : MonoBehaviour
     [Header("Barrier")]
     public ParticleSystem barrier;
     public float barrierDuration;
+
+    Light2D lightt;
+    float time, lightMax, lightMin, lightNrml;
     [HideInInspector]public bool isBarrierActv;
 
     void Start()
     {
         groundedTrap = null;
+        isBarrierActv = false;
+        muzzleInGround = false;
+        animTransition = 0;
+
         anim = GetComponent<Animator>();
         kc = GetComponent<KamController>();
-        animTransition = 0;
-        isBarrierActv = false;
+        lightt = barrier.GetComponent<Light2D>();
+
+        time = 0;
+        lightNrml = lightt.intensity;
+        lightMin = lightNrml - 0.2f;
+        lightMax = lightNrml + 0.2f;
     }
     void Update()
     {
@@ -72,6 +87,13 @@ public class KamAttack : MonoBehaviour
                 Trap();
         }
         else animTransition -= Time.deltaTime;
+
+
+        if (isBarrierActv && time < Time.time)
+        {
+            time += 0.15f;
+            FirstOOP.LightSparkling(lightt, lightMax, lightMin, lightNrml, 0.05f);
+        }
     }
 
     void NormalAttack()
@@ -101,14 +123,22 @@ public class KamAttack : MonoBehaviour
 
     void NormalAttackEvent()//animasyonun içerisindeki event için
     {
-        Vector3 difference = worldPos - staffMuzzle.position;                                                   
-        float distance = difference.magnitude;
-        Vector2 direction = difference / distance;
-        direction.Normalize();
-
         GameObject a = Instantiate(bolt, staffMuzzle.position, Quaternion.identity);
-        a.GetComponent<Rigidbody2D>().velocity = direction * boltSpeed;
-        a.GetComponent<Bolt>().damage = boltDmg * PlayerPrefs.GetInt("bolt");
+
+        if (!muzzleInGround)
+        {
+            Vector3 difference = worldPos - staffMuzzle.position;
+            float distance = difference.magnitude;
+            Vector2 direction = difference / distance;
+            direction.Normalize();
+
+            a.GetComponent<Rigidbody2D>().velocity = direction * boltSpeed;
+            a.GetComponent<Bolt>().damage = boltDmg * PlayerPrefs.GetInt("bolt");
+        }
+        else
+        {
+            a.GetComponent<Bolt>().Explode();
+        }
     }
     void NormalThunderEvent()
     {
@@ -123,7 +153,6 @@ public class KamAttack : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("thunder") != 5)
             {
-
                 GameObject b = Instantiate(thunder, enemies[0].transform.position, Quaternion.Euler(0, 0, 0));
                 b.GetComponent<Thunder>().damage = thunderDmg * PlayerPrefs.GetInt("thunder");
                 colliderr.GetComponent<ThunderRadius>().enemy.Clear();//burada sýfýrlýyoz ki sonraki yýldýrýmlarda önceki verilerde bulunan adamlarý baz almasýn
@@ -134,7 +163,7 @@ public class KamAttack : MonoBehaviour
             {
 
                 GameObject b = Instantiate(thunder, enemies[i].transform.position, Quaternion.Euler(0, 0, 0));
-                b.GetComponent<Thunder>().damage = thunderDmg * PlayerPrefs.GetInt("thunder");
+                b.GetComponent<Thunder>().damage = thunderDmg * PlayerPrefs.GetInt("thunder") * 0.5f;
             }
         }
         else//icerde adam yoksa baktýðýn yöne vur
@@ -159,14 +188,25 @@ public class KamAttack : MonoBehaviour
     void NormalBarrier()
     {
         isBarrierActv = true;
+        lightt.enabled = true;
         barrier.Play();
-        StartCoroutine(BarrierDuration());
+
+        StartCoroutine(BarrierDuration(barrierDuration * PlayerPrefs.GetInt("barrier")));
+    }
+    public void RebornBarrier(float time)
+    {
+        isBarrierActv = true;
+        lightt.enabled = true;
+        barrier.Play();
+
+        StartCoroutine(BarrierDuration(time));
     }
 
-    IEnumerator BarrierDuration()
+    public IEnumerator BarrierDuration(float time)
     {
-        yield return new WaitForSeconds(barrierDuration * PlayerPrefs.GetInt("barrier"));
+        yield return new WaitForSeconds(time);
         isBarrierActv = false;
+        lightt.enabled = false;
         barrier.Stop();
     }
 }

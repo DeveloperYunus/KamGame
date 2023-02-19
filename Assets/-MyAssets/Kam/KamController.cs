@@ -12,6 +12,7 @@ public class KamController : MonoBehaviour
     public float checkRadius;
     public Transform groundCheck;
     public LayerMask whatIsGround;
+    public GameObject CMCamLeft, CMCamRight;
 
     Rigidbody2D rb;
     float moveInput;
@@ -138,8 +139,16 @@ public class KamController : MonoBehaviour
             Scaler.x *= -1;
             transform.localScale = Scaler;
 
-            //cmvc.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 2f;     //x damping yada ofset böyle deðiþtirilir
-            //Invoke(nameof(CamOfsettSmooth),1.1f);
+            if (facingRight > 0)
+            {
+                CMCamLeft.SetActive(false);
+                CMCamRight.SetActive(true);
+            }
+            else
+            {
+                CMCamLeft.SetActive(true);
+                CMCamRight.SetActive(false);
+            }
         }
     }
 
@@ -181,3 +190,5 @@ public class KamController : MonoBehaviour
         StartCoroutine(SetSlow(0.6f, 0.4f));
     }
 }
+
+//cmvc.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 2f;     //x damping yada ofset böyle deðiþtirilir
