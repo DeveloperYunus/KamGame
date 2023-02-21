@@ -1,28 +1,40 @@
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
-using System.Drawing;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public TextMeshProUGUI[] skillsLevel;
-    public TextMeshProUGUI skillDesc, skillPoint, upgradeTxt, quitTxt, restartTxt;
+    public TextMeshProUGUI skillDesc, upgradeTxt, quitTxt, restartTxt;
 
     KamAttack ka;
     string skillHolder, returnTxt;                                            //skill ID holder
     int skillID;
     bool isPaused;
 
+
+    [Header("Kam XP")]
+    public Slider xpSl;
+    public TextMeshProUGUI level, currentXP, skillPnt;
+
+    [Header("Cooldown Image")]
+    public Image[] cldwnImg;
+
+
     private void Start()
     {
         isPaused = false;
         skillHolder = null;
+        xpSl.maxValue = 100;
 
         ka = GameObject.Find("Kam").GetComponent<KamAttack>();
 
         gameObject.GetComponent<RectTransform>().DOScale(0f, 0f);
         gameObject.GetComponent<CanvasGroup>().DOFade(0, 0f);
 
+        RegenXPBar();
+        OpenSkillImg();
         RegenTexts();
     }
     private void Update()
@@ -34,6 +46,7 @@ public class PauseMenu : MonoBehaviour
 
             if (!isPaused)      //þu anda kapalý o zaman açýlsýn
             {
+                RegenXPBar();
                 gameObject.GetComponent<RectTransform>().DOScale(1f, 0f);
                 gameObject.GetComponent<CanvasGroup>().DOFade(1, 0.2f).SetUpdate(true);
             }
@@ -84,6 +97,7 @@ public class PauseMenu : MonoBehaviour
             PlayerPrefs.SetInt(skillHolder, PlayerPrefs.GetInt(skillHolder) + 1);
             PlayerPrefs.SetInt("skillPoint", PlayerPrefs.GetInt("skillPoint") - 1);
 
+            OpenSkillImg();
             RegenTexts(skillID);
         }
     }
@@ -94,7 +108,7 @@ public class PauseMenu : MonoBehaviour
         skillsLevel[2].text = PlayerPrefs.GetInt("trap").ToString();
         skillsLevel[3].text = PlayerPrefs.GetInt("barrier").ToString();
 
-        skillPoint.text = PlayerPrefs.GetInt("skillPoint").ToString();
+        skillPnt.text = "+ " + PlayerPrefs.GetInt("skillPoint").ToString();
 
         if (skillID == -1)      //skill yok tavsiye ver veya hikaye anlat
             skillDesc.text = RegenTips();
@@ -206,62 +220,76 @@ public class PauseMenu : MonoBehaviour
         {
             return a switch
             {
-                1 => "\n\n      1. Asya bozkýrlarýndaki göçebe halklarýn koruyucusu ve yol göstericisi Kamlar... " +
+                1 => "\n      1. Asya bozkýrlarýndaki göçebe halklarýn koruyucusu ve yol göstericisi Kamlar... " +
                 "Bizim hikayemizde ise bu mistik ve gizemli kiþilerden 'Yýldýrým' adýndaki yaþý bilinmez bir üstadýn münzevi hayatýný anlatmakta.",
 
-                2 => "\n\n      2. Ustasýnýn kendisine aktardýðý öðretiler ýþýðýnda kendisini ve sonraki nesilleri tüketmek için bekleyen ateþi, oda beklemekte.",
+                2 => "\n      2. Ustasýnýn kendisine aktardýðý öðretiler ýþýðýnda kendisini ve sonraki nesilleri tüketmek için bekleyen ateþi, oda beklemekte.",
 
-                3 => "\n\n      3. Ve Kam artýk farkýnda, bunu aðaçlarýn gölgesinde, havanýn boðukluðunda ve hayvanlarýn gözlerinde görüüyor, hepsi korku ve umutsuzluk içinde. " +
+                3 => "\n      3. Ve Kam artýk farkýnda, bunu aðaçlarýn gölgesinde, havanýn boðukluðunda ve hayvanlarýn gözlerinde görüüyor, hepsi korku ve umutsuzluk içinde. " +
                 "Sabýrla bekleyen ve kendisininde sabýrla beklediði ateþ sonunda zuhur etti.",
 
-                4 => "\n\n      4. Açaba hangisi daha kötüdür, bu tehlike ile ne zaman yüzleþeceðini bilememek mi? Yoksa vakti geldiðinde nasýl yüzleþeceðini bilememek mi? " +
+                4 => "\n      4. Açaba hangisi daha kötüdür, bu tehlike ile ne zaman yüzleþeceðini bilememek mi? Yoksa vakti geldiðinde nasýl yüzleþeceðini bilememek mi? " +
                 "Ya ustasý Raad olsa ne yapardý?",
 
-                5 => "\n\n      5. Ya ustasýnýn anlattýðý ve bu yok oluþu önlemek için defetmek gereken Haçkaar. Güçlerini ve zayýflýklarýný bile bilmiyordu Kam.",
+                5 => "\n      5. Ya ustasýnýn anlattýðý ve bu yok oluþu önlemek için defetmek gereken Haçkaar. Güçlerini ve zayýflýklarýný bile bilmiyordu Kam.",
 
-                6 => "\n\n      6. Bunun gibi onlarca soru kafasýný, bu olaylarýn sonucunun nasýl bir yýkým olabileceði ise ruhunu rahatsýz edip duruyordu... " +
+                6 => "\n      6. Bunun gibi onlarca soru kafasýný, bu olaylarýn sonucunun nasýl bir yýkým olabileceði ise ruhunu rahatsýz edip duruyordu... " +
                 "Kam artýk yola çýkmalýydý.",
 
-                7 => "\n\n      7. Yola çýkmazsa eðer kim durduracaktý bu felaketi, feda etmezse eðer kendisini, þahsýyla beraber nice bedenleri, helak edecekti bu cehennem köleleri",
+                7 => "\n      7. Yola çýkmazsa eðer kim durduracaktý bu felaketi, feda etmezse eðer kendisini, þahsýyla beraber nice bedenleri, helak edecekti bu cehennem köleleri",
 
-                8 => "\n\n      8. Artýk birtek hedefi ve canýndan baþka kaybedek bir mülkü olmayan Yýldýrým -ki canýda Tanrýya emanetti- " +
-                "þüphe ve endiþelerini gelecekte def edeceði düþmanlarý gibi yere seriþti.",
+                8 => "\n      8. Artýk birtek hedefi ve canýndan baþka kaybedek bir mülkü olmayan Yýldýrým - ki canýda Tanrýya emanetti - " +
+                "þüphe ve endiþelerini gelecekte def edeceði düþmanlarý gibi yere sermiþti.",
 
-                9 => "\n\n      9. Gelin Yýldýrým Kam'ýn bundan sonraki hikayesine bizzat beraber þahit olalým.",
+                9 => "\n      9. Gelin Yýldýrým Kam'ýn bundan sonraki hikayesine bizzat beraber þahit olalým.",
 
-                _ => "\n\n      Biraz soluklanayým, ben yaþlý bir adamým.",
+                _ => "\n      Biraz soluklanayým, ben yaþlý bir adamým.",
             };
         }
         else     //eng
         {
             return a switch
             {
-                1 => "\n\n      1. Kamlar, the protector and guide of the nomadic peoples in the steppes of Asia... " +
+                1 => "\n      1. Kamlar, the protector and guide of the nomadic peoples in the steppes of Asia... " +
                 "In our story, it tells the ascetic life of an unknown master named 'Yýldýrým' from these mystical and mysterious people.",
 
-                2 => "\n\n      2. In the light of the teachings that his master has passed on to him, the fire that awaits him and the next generations to consume is waiting in him.",
+                2 => "\n      2. In the light of the teachings that his master has passed on to him, the fire that awaits him and the next generations to consume is waiting in him.",
 
-                3 => "\n\n      3. And Kam is now aware, seeing it in the shade of trees, in the muffle of the air, and in the eyes of animals, all in fear and despair." +
+                3 => "\n      3. And Kam is now aware, seeing it in the shade of trees, in the muffle of the air, and in the eyes of animals, all in fear and despair." +
                 "The fire, which had been patiently waiting and which he himself had been waiting patiently for, finally appeared.",
 
-                4 => "\n\n      4. Which is worse, not knowing when to face this danger? Or not knowing how to face it when the time comes? " +
+                4 => "\n      4. Which is worse, not knowing when to face this danger? Or not knowing how to face it when the time comes? " +
                 "What if his master was Raad, what would he do?",
 
-                5 => "\n\n      5. Either the Haçkaar that his master told him and that he had to fight off to prevent this destruction. Kam didn't even know their strengths and weaknesses.",
+                5 => "\n      5. Either the Haçkaar that his master told him and that he had to fight off to prevent this destruction. Kam didn't even know their strengths and weaknesses.",
 
-                6 => "\n\n      6. Dozens of questions like this were bothering his mind, and how the result of these events could be devastated, bothered his soul... " +
+                6 => "\n      6. Dozens of questions like this were bothering his mind, and how the result of these events could be devastated, bothered his soul... " +
                 "Kam had to hit the road now.",
 
-                7 => "\n\n      7. If he did not set out, who would stop this catastrophe, if he did not sacrifice himself, many bodies along with his person, these hellish slaves would perish.",
+                7 => "\n      7. If he did not set out, who would stop this catastrophe, if he did not sacrifice himself, many bodies along with his person, these hellish slaves would perish.",
 
-                8 => "\n\n      8. Yýldýrým, who no longer has a single target and no property to lose but his life -which is entrusted to God- " +
+                8 => "\n      8. Yýldýrým, who no longer has a single target and no property to lose but his life -which is entrusted to God- " +
                 "spread his doubts and anxieties as enemies he would dispel in the future.",
 
-                9 => "\n\n      9. Let's witness Yýldýrým Kam's next story together.",
+                9 => "\n      9. Let's witness Yýldýrým Kam's next story together.",
 
-                _ => "\n\n      Let me take a breather, I'm an old man.",
+                _ => "\n      Let me take a breather, I'm an old man.",
             };
         }
+    }
+    public void RegenXPBar()
+    {
+        xpSl.value = PlayerPrefs.GetInt("expValue");
+        currentXP.text = PlayerPrefs.GetInt("expValue").ToString() + " / 100";
+        level.text = PlayerPrefs.GetInt("level").ToString();
+        skillPnt.text = "+ " + PlayerPrefs.GetInt("skillPoint").ToString();
+    }
+
+    void OpenSkillImg()
+    {
+        if (PlayerPrefs.GetInt("thunder") > 0) cldwnImg[0].transform.localScale = Vector3.zero;
+        if (PlayerPrefs.GetInt("trap") > 0) cldwnImg[1].transform.localScale = Vector3.zero;
+        if (PlayerPrefs.GetInt("barrier") > 0) cldwnImg[2].transform.localScale = Vector3.zero;
     }
 
     public void SelectLanguage(int index)                //0 = Turkish, 1 = English, ...

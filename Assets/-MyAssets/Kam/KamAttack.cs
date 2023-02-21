@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class KamAttack : MonoBehaviour
 {
@@ -21,21 +23,26 @@ public class KamAttack : MonoBehaviour
 
     [Header("Thunder")]
     public GameObject thunder;
-    public float thunderDmg;
+    public float thunderDmg, cooldown1;
     public CircleCollider2D colliderr;
+    public Image cldwnThunder;
 
     [Header("Trap")]
     public GameObject trap;
-    public float trapDmg;
+    public float trapDmg, cooldown2;
     GameObject groundedTrap;
+    public Image cldwnTrap;
 
     [Header("Barrier")]
     public ParticleSystem barrier;
-    public float barrierDuration;
+    public float barrierDuration, cooldown3;
+    public Image cldwnBarrier;
+
+    float timeThndr, timeTrp, timebrr;
+    [HideInInspector] public bool isBarrierActv;
 
     Light2D lightt;
     float time, lightMax, lightMin, lightNrml;
-    [HideInInspector]public bool isBarrierActv;
 
     void Start()
     {
@@ -94,6 +101,19 @@ public class KamAttack : MonoBehaviour
             time += 0.15f;
             FirstOOP.LightSparkling(lightt, lightMax, lightMin, lightNrml, 0.05f);
         }
+
+        if (cldwnThunder.fillAmount > 0)
+        {
+            cldwnThunder.fillAmount -= 1 / cooldown1 * Time.deltaTime;
+        }
+        if (cldwnTrap.fillAmount > 0)
+        {
+            cldwnTrap.fillAmount -= 1 / cooldown2 * Time.deltaTime;
+        }
+        if (cldwnBarrier.fillAmount > 0)
+        {
+            cldwnBarrier.fillAmount -= 1 / cooldown3 * Time.deltaTime;
+        }
     }
 
     void NormalAttack()
@@ -104,21 +124,39 @@ public class KamAttack : MonoBehaviour
     }
     void Thunder()
     {
-        anim.SetTrigger("thunder");
-        animTransition = 0.5f;
-        kc.animSlow = 0.2f;
+        if (cldwnThunder.fillAmount == 0 && PlayerPrefs.GetInt("thunder") > 0)
+        {
+            anim.SetTrigger("thunder");
+            animTransition = 0.5f;
+            kc.animSlow = 0.2f;
+
+            cldwnThunder.fillAmount = 1;
+            timeThndr = Time.time + cooldown1;
+        }
     }
     void Barrier()
     {
-        anim.SetTrigger("barrier");
-        animTransition = 1f;
-        kc.animSlow = 0.2f;
+        if (cldwnBarrier.fillAmount == 0 && PlayerPrefs.GetInt("barrier") > 0)
+        {
+            anim.SetTrigger("barrier");
+            animTransition = 1f;
+            kc.animSlow = 0.2f;
+
+            cldwnBarrier.fillAmount = 1;
+            timebrr = Time.time + cooldown3;
+        }
     }
     void Trap()
     {
-        anim.SetTrigger("trap");
-        animTransition = 1f;
-        kc.animSlow = 0.2f;
+        if (cldwnTrap.fillAmount == 0 && PlayerPrefs.GetInt("trap") > 0)
+        {
+            anim.SetTrigger("trap");
+            animTransition = 1f;
+            kc.animSlow = 0.2f;
+
+            cldwnTrap.fillAmount = 1;
+            timeTrp = Time.time + cooldown2;
+        }
     }
 
     void NormalAttackEvent()//animasyonun içerisindeki event için

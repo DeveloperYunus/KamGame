@@ -20,11 +20,7 @@ public class KamHealth : MonoBehaviour
     float percentArmour;
     float hpRegenTime;
 
-    [Header("Experince")]
-    public Slider expSl;
-    public TextMeshProUGUI expTxt, skillPTxt, addedExp;
-
-    float exp;
+    public int exp;
     public static KamHealth instance;
 
     [Header("Die / Level")]
@@ -42,11 +38,13 @@ public class KamHealth : MonoBehaviour
 
         anim = GetComponent<Animator>();
         kc = GetComponent<KamController>();
-        exp = PlayerPrefs.GetFloat("exp");
+        exp = PlayerPrefs.GetInt("expValue");
 
         health = 100 + 15 * PlayerPrefs.GetInt("level", 1);
         armour = 10 + 2 * PlayerPrefs.GetInt("level", 1);
+
         percentArmour = armour * 0.01f;
+        hpTxt.text = health.ToString();
         hpSl.maxValue = health;
         hpSl.value = health;
     }
@@ -54,14 +52,21 @@ public class KamHealth : MonoBehaviour
     {
         if (Time.time > hpRegenTime && health < hpSl.maxValue)
         {
-            hpRegenTime += 0.5f;
-            health += 2;
+            hpRegenTime += 1f;
+            health += 1;
 
             if (health > hpSl.maxValue) 
                 health = hpSl.maxValue;
 
             hpSl.value = health;
             hpTxt.text = health.ToString("0.##");
+        }
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            PlayerPrefs.SetInt("expValue",0);          //xp deðerimi sýfýrlar artýr
+            PlayerPrefs.SetInt("skillPoint", 0);             //yetenek puanýmý 1 artýr
+            PlayerPrefs.SetInt("level", 0);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -148,31 +153,25 @@ public class KamHealth : MonoBehaviour
         float b = transform.position.y;
         FloatingHP.ShowsUp(new Vector2(Random.Range(a + 0.3f, a - 0.3f), Random.Range(b + 0.2f, b - 0.2f)), dmg);
     }
-    public void ShowExp(float expValue)
+    public void GainExp(int expValue)
     {
         if (PlayerPrefs.GetInt("level", 1) < 20)    //Kam maximum 20 sv olabilir
         {
             exp += expValue;
+            PlayerPrefs.SetInt("expValue", exp);
 
-            if (exp > 100)
+            if (exp >= 100)
             {
+
                 exp -= 100;
-                PlayerPrefs.SetInt("skillPoint", PlayerPrefs.GetInt("skillPoint"));
-                PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level", 1) + 1);
+
+                PlayerPrefs.SetInt("expValue", exp);                                        //xp deðerimi sýfýrlar artýr
+                PlayerPrefs.SetInt("skillPoint", PlayerPrefs.GetInt("skillPoint") + 1);     //yetenek puanýmý 1 artýr
+                PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level", 1) + 1);            //seviyemi 1 artýr
+
+                health = 100 + 15 * PlayerPrefs.GetInt("level");
+                armour = 10 + 2 * PlayerPrefs.GetInt("level");
             }
-
-            expTxt.text = exp.ToString();
-            skillPTxt.text = PlayerPrefs.GetInt("skillPoint").ToString();
-            addedExp.text = "+ " + expValue.ToString();
-            PlayerPrefs.SetFloat("expValue", exp);
-
-            addedExp.GetComponent<RectTransform>().DOKill(false);
-            addedExp.GetComponent<RectTransform>().DOScale(1.2f, 0.4f).SetEase(Ease.OutBack);
-            addedExp.GetComponent<RectTransform>().DOScale(1f, 0.6f).SetDelay(0.5f);
-
-            expSl.GetComponent<CanvasGroup>().DOKill(false);
-            expSl.GetComponent<CanvasGroup>().DOFade(1, 0.3f);
-            expSl.GetComponent<CanvasGroup>().DOFade(0, 2f).SetDelay(4f);
         }
     }
 

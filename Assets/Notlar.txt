@@ -1,6 +1,6 @@
 	PLAYER PREFS
 
-1- PlayerPrefs.SetFloat("expValue", exp);					KamHealth
+1- PlayerPrefs.SetInt("expValue");							KamHealth
 2- PlayerPrefs.SetInt("skillPoint", skillPoint);			KamHealth, PauseMenu
 3- PlayerPrefs.GetInt("bolt");								PauseMenu
 4- PlayerPrefs.GetInt("thunder");							PauseMenu
@@ -24,9 +24,9 @@
 
 GÖREVLER
 	
-	UI larý yerleþtýr ve kodlarýný bitir
-	Kam ve Düþman UI larý 5 sn gözüksün, sonra fade zamanla 0 olsun
-	Kam level aldýktan sonra can ve zýrh deðerlerini güncelle
+	Kam ve Düþman UI larý 5 sn gözüksün, sonra fade zamanla 0 olsun (saldýrmak, hasar almak, yetenek kullanmak)
+	enemyler ölünce turkuaz renkli 5xp text olarak gözüksün
+	enemyler ölünce kaya parçalarý sacan bir particle effect oynat
 
 	Karanlýk bölümlerde Kam ýn asasýnda ýþýk olsun
 

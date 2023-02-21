@@ -16,7 +16,7 @@ public class EnemyHealth : MonoBehaviour
     float defaultDrag;
 
     [Header("Experinece")]
-    [Tooltip("Enemy ölünce kazanacaðýmýz tecrübe puaný")]public float expValue;
+    [Tooltip("Enemy ölünce kazanacaðýmýz tecrübe puaný")]public int expValue;
 
     void Start()
     {
@@ -57,9 +57,10 @@ public class EnemyHealth : MonoBehaviour
 
     void Die() 
     {
-        KamHealth.instance.ShowExp(expValue);
+        //Enemylerin içinden +7xp yazan text cýksýn
+        KamHealth.instance.GainExp(expValue);
 
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject, 0.1f);
     }
 
     IEnumerator ResetDrag(float time)
