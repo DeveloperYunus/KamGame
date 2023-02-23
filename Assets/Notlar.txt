@@ -19,16 +19,21 @@
 6- Falling rock TransparenFX katmanýna alýndý
 7- Bütün mermiler meteorlar falan ignore raycast katmanýnda
 8- Kam en fazla 4 blok týrmanabiliyor
+9- FallRock layerý ground ile etkileþimde lur ancak baþka hiç birþey ile temasa geçmez
+10- Melee boss'un kalkanýný EnmySword tagýna atadýk enemy mermileri içinden geçsin diye
 
 
 
 GÖREVLER
 	
-	Kam ve Düþman UI larý 5 sn gözüksün, sonra fade zamanla 0 olsun (saldýrmak, hasar almak, yetenek kullanmak)
-	enemyler ölünce turkuaz renkli 5xp text olarak gözüksün
+	Melee Boss a thunder ile vurunca hata veriyor çöz
+	ranged boss ile yanýnda baþka bir düþman varken savas kendin ile onun arasýna faklý colliderlar koyarak deneme yap
 	enemyler ölünce kaya parçalarý sacan bir particle effect oynat
 
+Sonra Yapýlacaklar
+
 	Karanlýk bölümlerde Kam ýn asasýnda ýþýk olsun
+	20. bölümdeki boss için özel can (dark souls gibi) barý yap
 
 
 

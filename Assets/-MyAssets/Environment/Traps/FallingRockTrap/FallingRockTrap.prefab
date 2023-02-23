@@ -4954,14 +4954,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyRockPS: {fileID: 165279498004532612}
   stonePiece: {fileID: 745693257448903005, guid: 1ab064c3290a4ec4f9061bd8ff3baaf2, type: 3}
-  damageAmount: 50
-  minRockAmount: 2
+  damageAmount: 20
+  minRockAmount: 3
   maxRockAmount: 4
   minOran: 0.15
   maxOran: 0.18
-  addForcePozitifX: 10
-  addForceNegatifX: -10
-  liveTime: 5
+  addForcePozitifX: 25
+  addForceNegatifX: -25
+  liveTime: 5.5
   stoneSprite:
   - {fileID: 21300000, guid: 4addc493084813d408a8c082fa6e2921, type: 3}
 --- !u!1 &165279497449386550

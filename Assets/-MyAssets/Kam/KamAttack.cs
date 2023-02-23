@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -38,7 +39,6 @@ public class KamAttack : MonoBehaviour
     public float barrierDuration, cooldown3;
     public Image cldwnBarrier;
 
-    float timeThndr, timeTrp, timebrr;
     [HideInInspector] public bool isBarrierActv;
 
     Light2D lightt;
@@ -121,6 +121,7 @@ public class KamAttack : MonoBehaviour
         anim.SetTrigger("atk");
         animTransition = 0.75f;
         kc.animSlow = 0.3f;
+        KamHealth.instance.FadeUpHPUI();
     }
     void Thunder()
     {
@@ -131,7 +132,7 @@ public class KamAttack : MonoBehaviour
             kc.animSlow = 0.2f;
 
             cldwnThunder.fillAmount = 1;
-            timeThndr = Time.time + cooldown1;
+            KamHealth.instance.FadeUpHPUI();
         }
     }
     void Barrier()
@@ -143,7 +144,7 @@ public class KamAttack : MonoBehaviour
             kc.animSlow = 0.2f;
 
             cldwnBarrier.fillAmount = 1;
-            timebrr = Time.time + cooldown3;
+            KamHealth.instance.FadeUpHPUI();
         }
     }
     void Trap()
@@ -155,7 +156,7 @@ public class KamAttack : MonoBehaviour
             kc.animSlow = 0.2f;
 
             cldwnTrap.fillAmount = 1;
-            timeTrp = Time.time + cooldown2;
+            KamHealth.instance.FadeUpHPUI();
         }
     }
 

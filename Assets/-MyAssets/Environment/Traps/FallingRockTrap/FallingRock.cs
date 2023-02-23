@@ -18,16 +18,6 @@ public class FallingRock : MonoBehaviour
         isGiveDamage = true;
         StartCoroutine(DieTimer());
     }
-    private void Update()
-    {
-        if (Time.time >= zaman && GetComponent<Rigidbody2D>().velocity.y < -8) 
-        {
-            oneTime = true;
-            isGiveDamage = true;
-            gameObject.layer = 0;
-            zaman = Time.time + 0.1f;
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -53,7 +43,7 @@ public class FallingRock : MonoBehaviour
             {
                 oneTime = false;
                 isGiveDamage = false;
-                gameObject.layer = 8;
+                gameObject.layer = 10;  //FallRock
                 //yere çarpma ses kodu
             }
         }
@@ -68,7 +58,7 @@ public class FallingRock : MonoBehaviour
     }
     IEnumerator SetLayer()
     {
-        yield return new WaitForSeconds(0.3f);
-        gameObject.layer = 8;
+        yield return new WaitForSeconds(0.4f);
+        gameObject.layer = 10;  //FallRock
     }
 }

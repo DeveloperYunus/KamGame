@@ -16,8 +16,8 @@ public class FireBall : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Enemy") && !other.CompareTag("EnmySword") && !other.CompareTag("EnmyBullet"))
-            Explode();
+        if (!other.CompareTag("Enemy") && !other.CompareTag("EnmySword") && !other.CompareTag("EnmyBullet"))       
+            Explode();       
     }
 
     void Explode()

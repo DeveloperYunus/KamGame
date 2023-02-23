@@ -20,14 +20,16 @@ public class KamHealth : MonoBehaviour
     float percentArmour;
     float hpRegenTime;
 
-    public int exp;
+    int exp;
     public static KamHealth instance;
 
-    [Header("Die / Level")]
-    public GameObject transitionPnl;
+    [Header("UI")]
+    [Tooltip("Level geçiþ yada yenidoðmak için")]public GameObject transitionPnl;
+    [Tooltip("4 sn hiç birþey olmazsa deaktif olsun")] public GameObject hpUI;
+    
     public static bool dead;
-
-    int dieTime;
+    int dieTime; 
+    float uiFadeTime;
 
     void Start()
     {
@@ -39,6 +41,7 @@ public class KamHealth : MonoBehaviour
         anim = GetComponent<Animator>();
         kc = GetComponent<KamController>();
         exp = PlayerPrefs.GetInt("expValue");
+        hpUI.GetComponent<CanvasGroup>().DOFade(0, 0);
 
         health = 100 + 15 * PlayerPrefs.GetInt("level", 1);
         armour = 10 + 2 * PlayerPrefs.GetInt("level", 1);
@@ -64,9 +67,19 @@ public class KamHealth : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.R))
         {
-            PlayerPrefs.SetInt("expValue",0);          //xp deðerimi sýfýrlar artýr
+            PlayerPrefs.SetInt("expValue",0);                //xp deðerimi sýfýrlar artýr
             PlayerPrefs.SetInt("skillPoint", 0);             //yetenek puanýmý 1 artýr
             PlayerPrefs.SetInt("level", 0);
+        }
+
+        if (uiFadeTime > 0)
+        {
+            uiFadeTime -= Time.deltaTime;
+            if (uiFadeTime <= 0)
+            {
+                hpUI.GetComponent<CanvasGroup>().DOKill();
+                hpUI.GetComponent<CanvasGroup>().DOFade(0, 2f);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -78,6 +91,7 @@ public class KamHealth : MonoBehaviour
                 enmySwordPos = other.GetComponent<Transform>().position;
                 pushStrong = other.GetComponent<EnemySword>().pushStrong;
             }
+            //print(other.name);
             GetDamage(other.GetComponent<EnemySword>().damage, other.GetComponent<EnemySword>().dmgKind);
         }
 
@@ -125,7 +139,7 @@ public class KamHealth : MonoBehaviour
 
             float dmg = damage - damage * percentArmour;               //hesaplama bir kez yapýlsýn diye bir deðiþkene atandý
             health -= dmg;
-            ShowDmgTxt(-dmg);
+            ShowFloatTxt(-dmg, 1);
 
             if (health <= 0)
             {
@@ -137,21 +151,23 @@ public class KamHealth : MonoBehaviour
         {
             float dmg = damage - damage * percentArmour;               //hesaplama bir kez yapýlsýn diye bir deðiþkene atandý
             health += dmg;
-            ShowDmgTxt(dmg);
+            ShowFloatTxt(dmg ,2);
 
             if (health > hpSl.maxValue)
             {
                 health = hpSl.maxValue;
             }
         }
+
+        FadeUpHPUI();        
         hpSl.value = health;
         hpTxt.text = health.ToString("0.##");
     }
-    void ShowDmgTxt(float dmg) //yüzen sayýlar ile haasarý gösterir
+    void ShowFloatTxt(float dmg, int type) //yüzen sayýlar ile hasarý gösterir ve xp'yi gösterir
     {
         float a = transform.position.x;
         float b = transform.position.y;
-        FloatingHP.ShowsUp(new Vector2(Random.Range(a + 0.3f, a - 0.3f), Random.Range(b + 0.2f, b - 0.2f)), dmg);
+        FloatingHP.ShowsUp(new Vector2(Random.Range(a + 0.3f, a - 0.3f), Random.Range(b + 0.2f, b - 0.2f)), dmg, type);
     }
     public void GainExp(int expValue)
     {
@@ -172,9 +188,17 @@ public class KamHealth : MonoBehaviour
                 health = 100 + 15 * PlayerPrefs.GetInt("level");
                 armour = 10 + 2 * PlayerPrefs.GetInt("level");
             }
+
+            ShowFloatTxt(expValue, 3);
         }
     }
 
+    public void FadeUpHPUI()
+    {
+        hpUI.GetComponent<CanvasGroup>().DOKill();
+        hpUI.GetComponent<CanvasGroup>().DOFade(1, 0.7f);
+        uiFadeTime = 7;
+    }
     IEnumerator Die()
     {
         Time.timeScale = 0.5f;

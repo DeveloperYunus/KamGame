@@ -385,16 +385,16 @@ MonoBehaviour:
   muzzleInGround: 0
   thunder: {fileID: 2453398110593388708, guid: 3e97259ebe3c3aa488bfbf17b9a54cae, type: 3}
   thunderDmg: 15
-  cooldown1: 3
+  cooldown1: 4
   colliderr: {fileID: 5762907090782431153}
   cldwnThunder: {fileID: 0}
   trap: {fileID: 2757603918175465230, guid: db8bfbd168f55f943b477345fa380c3d, type: 3}
   trapDmg: 20
-  cooldown2: 5
+  cooldown2: 8
   cldwnTrap: {fileID: 0}
   barrier: {fileID: 5762907091324199469}
   barrierDuration: 3
-  cooldown3: 7
+  cooldown3: 15
   cldwnBarrier: {fileID: 0}
   isBarrierActv: 0
 --- !u!114 &6066957544677329320
@@ -414,6 +414,7 @@ MonoBehaviour:
   hpSl: {fileID: 0}
   hpTxt: {fileID: 0}
   transitionPnl: {fileID: 0}
+  hpUI: {fileID: 0}
 --- !u!1 &397785008357815659
 GameObject:
   m_ObjectHideFlags: 0

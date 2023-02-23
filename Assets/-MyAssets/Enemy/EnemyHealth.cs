@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -20,6 +20,7 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
+        sl.GetComponent<CanvasGroup>().DOFade(0, 0);
         defaultDrag = GetComponent<Rigidbody2D>().drag;
         percentArmour = armour * 0.01f;
 
@@ -45,6 +46,10 @@ public class EnemyHealth : MonoBehaviour
             health = 0;
             Die();
         }
+
+        sl.GetComponent<CanvasGroup>().DOKill();
+        sl.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
+        sl.GetComponent<CanvasGroup>().DOFade(0, 1.5f).SetDelay(5f);
         sl.value = health;
         hpTxt.text = health.ToString("0.##");
     }
@@ -52,7 +57,7 @@ public class EnemyHealth : MonoBehaviour
     {
         float a = transform.position.x;
         float b = transform.position.y;
-        FloatingHP.ShowsUp(new Vector2(Random.Range(a + 0.2f, a - 0.2f), Random.Range(b + 0.2f, b - 0.2f)), dmg);
+        FloatingHP.ShowsUp(new Vector2(Random.Range(a + 0.2f, a - 0.2f), Random.Range(b + 0.2f, b - 0.2f)), dmg, 1);
     }
 
     void Die() 
