@@ -9,6 +9,10 @@ public class ElecTrap : MonoBehaviour
     public float damage;
     public ParticleSystem explode;
 
+    [Header("")]
+    public Collider2D box;
+    public Collider2D circle;
+
     bool isActive;
     float time, lightMax, lightMin, lightNrml;
     Light2D lightt;
@@ -33,15 +37,21 @@ public class ElecTrap : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && isActive)          //aktif olduktan sonra hasar versin diye
         {
             other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 3);
+        }
+
+        if (other.CompareTag("Enemy") && !isActive)          //tuzaðý aktifleþtirmek için
+        {
+            box.enabled = false;
+            circle.enabled = true;
 
             isActive = true;
             lightt.enabled = true;
 
             explode.Play();
             Destroy(gameObject, 0.5f);
-        }
+        }        
     }
 }

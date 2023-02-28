@@ -4826,7 +4826,7 @@ GameObject:
   - component: {fileID: 2757603917876451640}
   m_Layer: 2
   m_Name: Trap
-  m_TagString: Untagged
+  m_TagString: Electric
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9636,8 +9636,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2757603918175465231}
   - component: {fileID: 2757603918175465228}
-  - component: {fileID: 2757603918175465229}
+  - component: {fileID: 3175538626265653692}
   - component: {fileID: 2242042923930473265}
+  - component: {fileID: 2757603918175465229}
   m_Layer: 2
   m_Name: ElecTrapHolder
   m_TagString: Electric
@@ -9687,22 +9688,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7888131, y: 0.1875887}
+  m_Size: {x: 1.6414927, y: 0.1875887}
   m_EdgeRadius: 0
---- !u!114 &2757603918175465229
-MonoBehaviour:
+--- !u!58 &3175538626265653692
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2757603918175465230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5db6e16a48fc8d4fb51951dd2400734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  explode: {fileID: 4502327423246377978}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.087823
 --- !u!114 &2242042923930473265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9782,6 +9785,22 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &2757603918175465229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757603918175465230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5db6e16a48fc8d4fb51951dd2400734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  explode: {fileID: 4502327423246377978}
+  box: {fileID: 2757603918175465228}
+  circle: {fileID: 3175538626265653692}
 --- !u!1 &4502327423246377981
 GameObject:
   m_ObjectHideFlags: 0

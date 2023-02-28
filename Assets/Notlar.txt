@@ -15,25 +15,24 @@
 2- Oyuna ilk kez baþlarken bütün yetenekleri 1 seviyesine getir yoksa hic hasar atmazlar (anlamazsan -> kamAttak içindeki saldýrý fonksiyonlarýna bak)
 3- Kam = yýldýrým, Kam = Raad, BOSS = Haçkaar
 4- Sadece melee, meleeBos ve ranged spike ile yavaþlýyor
-5- Maðaralarda kullanýlan farklý renkdeki zemin imalat ýrasýnda belli olsun renklendirilmiþtir, buil alýnýrken renk beyaza çekilecektir (Maðara içindeki zeminde çimen gözükmesin diye)
+5- Maðaralarda kullanýlan farklý renkdeki zemin imalat ýrasýnda belli olsun renklendirilmiþtir, build alýnýrken renk beyaza çekilecektir (Maðara içindeki zeminde çimen gözükmesin diye)
 6- Falling rock TransparenFX katmanýna alýndý
 7- Bütün mermiler meteorlar falan ignore raycast katmanýnda
 8- Kam en fazla 4 blok týrmanabiliyor
 9- FallRock layerý ground ile etkileþimde lur ancak baþka hiç birþey ile temasa geçmez
 10- Melee boss'un kalkanýný EnmySword tagýna atadýk enemy mermileri içinden geçsin diye
-
+11 Kam thunderCheck collider a water ag'ýný atadýk ve artýk sadece enemy ile etkileþime giriyor
 
 
 GÖREVLER
 	
-	Melee Boss a thunder ile vurunca hata veriyor çöz
-	ranged boss ile yanýnda baþka bir düþman varken savas kendin ile onun arasýna faklý colliderlar koyarak deneme yap
+	- BOSS thunder collider'a hasar veriyor
+
+	UI a ayarlar tuþu yap
 	enemyler ölünce kaya parçalarý sacan bir particle effect oynat
 
-Sonra Yapýlacaklar
-
-	Karanlýk bölümlerde Kam ýn asasýnda ýþýk olsun
-	20. bölümdeki boss için özel can (dark souls gibi) barý yap
+	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
+	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
 
 
 
@@ -45,3 +44,36 @@ HATIRALAR (Temizlenmiþ Buglar)
 	3- Bolt iç içe düþmanlardan ikisinede hasar veriyor kalsýnmý kaldýralýmmý ---> Kalsýn
 	4- Boltlar duvarlarýn içinde spawn oluyor
 	5- Thunder max seviyede iç içe rakiplere katlanarak vuruyor, skill max olunca alan hasarý özelliði kaldýr.
+	6- Melee Boss a thunder ile vurunca hata veriyor çöz
+	7- ranged boss ile yanýnda baþka bir düþman varken savas kendin ile onun arasýna faklý colliderlar koyarak deneme yap
+	8- BOSS yakýn saldýrýda bize 2 kez vuruyor, vurmasýn
+
+
+
+
+
+
+
+
+
+		KATMAN YOKSAYMAK (LÝNECAST ÝÇÝN)		"~" bunun adý ters iþlemidir
+
+	Bir katmaný yoksaymak için
+
+var mask = 1 << 8;
+mask = ~mask;
+
+RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0), mask);
+
+	Birden fazla katmaný yoksaymak için
+
+var layer1 = 3;
+var layer2 = 5;
+var layermask1 = 1 << layer1;
+var layermask2 = 1 << layer2;
+var finalmask = ~(layermask1 | layermask2); // Or, (1 << layer1) | (1 << layer2)
+
+RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0), finalmask);
+
+Önemli Not: raycast ve linescastlerde layer atamassan varsayýlan olarak "Ignore Raycast" layer ýný yoksayar. 
+Ama o kýsýma bir layer yerleþtirisen "Ignore Raycast" layer ýnýda hesaplar

@@ -48,10 +48,10 @@ public class ThunderRadius : MonoBehaviour
             enemyHolder = enemy[0].transform.position;
         }*/
 
-        radius = 0;
-        colliderr.radius = 0;
         colliderr.enabled = false;
         collIsActive = false;
+        radius = 0;
+        colliderr.radius = 0;
         return enemy;
     }
 }

@@ -22,10 +22,12 @@ public class RngdBossAI : MonoBehaviour
     int currentWaypoint = 0;                        //mevcut gideceðimiz nokta
     float rangedRngS, meleeRngS, seRngSquare, bodyScale;            //menzilli ve yakýncý saldýrý menzillerinin karesi
     float lineerDrag;
+    int mask;                                       //linecast'teki layer ignore için 
+
 
     [Header("Stats")]
-    public GameObject swordColl;                //MeleeAI saldýrý için
-    public GameObject fireBall;                 //ranged saldýrý için
+    public GameObject swordColl;                    //MeleeAI saldýrý için
+    public GameObject fireBall;                     //ranged saldýrý için
     public Transform muzzle;
     public float atkDamage;
     public float atkSpeed;
@@ -34,8 +36,13 @@ public class RngdBossAI : MonoBehaviour
     bool canAtk;
     bool chaseCase;
 
+
     void Start()
     {
+        mask = (1 << 8) | (1 << 7) | (1 << 2) | (1 << 1);     //enemy layer ýný kaydeder    (enemy, transparanFX, dontClose, ignore raycast)
+        mask = ~mask;                                         // "~" ifadesi ile tersini alýr (bu olmasa linecast sadece "8" nolu katmaný arar. Bu ifade ("~") varken sadece "8" nolu katmaný yoksayar)
+
+
         speed *= 100;
         canAtk = true;
         chaseCase = true;
@@ -168,8 +175,8 @@ public class RngdBossAI : MonoBehaviour
     }
     bool CanISeeTarget()
     {
-        RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0));
-        return target.name == checkWall.rigidbody.name;
+        RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0), mask);
+        return target.name == checkWall.transform.name;
     }
 
 

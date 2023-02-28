@@ -5332,7 +5332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3.7
-  atkRange: 8
+  atkRange: 7
   nextWaypointDistance: 1.7
   seekTime: 0.5
   seeRange: 11
@@ -5345,8 +5345,8 @@ MonoBehaviour:
     m_Bits: 64
   fireBall: {fileID: 1648301384536504856, guid: 6592c249539795c4389332e337ba0fdc, type: 3}
   muzzle: {fileID: 7894040832138141593}
-  atkDamage: 0.1
-  atkSpeed: 2
+  atkDamage: 18
+  atkSpeed: 1.5
 --- !u!114 &3050103920356564726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5359,7 +5359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1000
+  health: 10
   armour: 10
   sl: {fileID: 4180876732225952028}
   hpTxt: {fileID: 1245524406846008525}
@@ -19957,7 +19957,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

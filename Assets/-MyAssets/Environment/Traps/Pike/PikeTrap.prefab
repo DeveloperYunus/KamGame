@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209165698645}
   - component: {fileID: 2049077209165698646}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: pikeShadow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2049077209165698644}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.463, y: 0.027, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210530465542}
@@ -70,15 +70,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1402839293
-  m_SortingLayer: 1
-  m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 2e686bbdb5f73f1418fb0e5bf6c3c4a2, type: 3}
+  m_SortingLayerID: 1256521107
+  m_SortingLayer: 2
+  m_SortingOrder: 12
+  m_Sprite: {fileID: -734542525, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.73, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209316444247}
   - component: {fileID: 2049077209316444200}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: pikeShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 2049077209316444246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.3979995, y: 0.027, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210530465542}
@@ -154,15 +154,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1402839293
-  m_SortingLayer: 1
-  m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 2e686bbdb5f73f1418fb0e5bf6c3c4a2, type: 3}
+  m_SortingLayerID: 1256521107
+  m_SortingLayer: 2
+  m_SortingOrder: 12
+  m_Sprite: {fileID: -734542525, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.73, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209463978404}
   - component: {fileID: 2049077209463978403}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spike3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 2049077209463978402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.38900045, y: 0.205, z: 0}
-  m_LocalScale: {x: -0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -241,12 +241,12 @@ SpriteRenderer:
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209555802832}
   - component: {fileID: 2049077209555802833}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spike5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 2049077209555802847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.472, y: 0.283, z: 0}
-  m_LocalScale: {x: -0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -325,12 +325,12 @@ SpriteRenderer:
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209914403446}
   - component: {fileID: 2049077209914403447}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: pikeShadow (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +362,7 @@ Transform:
   m_GameObject: {fileID: 2049077209914403445}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.2540009, y: 0.027, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210530465542}
@@ -406,15 +406,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1402839293
-  m_SortingLayer: 1
-  m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 2e686bbdb5f73f1418fb0e5bf6c3c4a2, type: 3}
+  m_SortingLayerID: 1256521107
+  m_SortingLayer: 2
+  m_SortingOrder: 12
+  m_Sprite: {fileID: -734542525, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.73, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209999922617}
   - component: {fileID: 2049077209999922618}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: long_wood_spike_05 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +446,7 @@ Transform:
   m_GameObject: {fileID: 2049077209999922616}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.0230004, y: 0.259, z: 0}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -493,12 +493,12 @@ SpriteRenderer:
   m_SortingLayerID: -1402839293
   m_SortingLayer: 1
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210193947728}
   - component: {fileID: 2049077210193947729}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: long_wood_spike_05 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -530,7 +530,7 @@ Transform:
   m_GameObject: {fileID: 2049077210193947743}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.68399954, y: 0.158, z: 0}
-  m_LocalScale: {x: -0.55, y: 0.55, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -577,12 +577,12 @@ SpriteRenderer:
   m_SortingLayerID: -1402839293
   m_SortingLayer: 1
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210260750854}
   - component: {fileID: 2049077210260750872}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: pikeShadow (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,8 +613,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049077210260750853}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.307, y: 0.027, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.7, z: 1}
+  m_LocalPosition: {x: 1.296, y: 0.027, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210530465542}
@@ -658,15 +658,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1402839293
-  m_SortingLayer: 1
-  m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 2e686bbdb5f73f1418fb0e5bf6c3c4a2, type: 3}
+  m_SortingLayerID: 1256521107
+  m_SortingLayer: 2
+  m_SortingOrder: 12
+  m_Sprite: {fileID: -734542525, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.73, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -682,7 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210274306785}
   - component: {fileID: 2049077210274306786}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spike5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ Transform:
   m_GameObject: {fileID: 2049077210274306784}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.2959995, y: 0.131, z: 0}
-  m_LocalScale: {x: -0.6, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -745,12 +745,12 @@ SpriteRenderer:
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 2049077210460668819}
   - component: {fileID: 2049077210460668818}
   - component: {fileID: 2049077210460668817}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +788,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049077210460668828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.04, z: 0}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1440,7 +1440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210469082384}
   - component: {fileID: 2049077210469082385}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: long_wood_spike_05 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1456,7 +1456,7 @@ Transform:
   m_GameObject: {fileID: 2049077210469082399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.1179996, y: 0.338, z: 0}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -1503,12 +1503,12 @@ SpriteRenderer:
   m_SortingLayerID: -1402839293
   m_SortingLayer: 1
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1523,7 +1523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2049077210530465542}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: SpikeShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,7 +1538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049077210530465541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.005, z: 0}
+  m_LocalPosition: {x: 0, y: -0.029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1562,7 +1562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210567471432}
   - component: {fileID: 2049077210567471433}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spike4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1578,7 +1578,7 @@ Transform:
   m_GameObject: {fileID: 2049077210567471479}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.048999548, y: 0.35, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -1625,12 +1625,12 @@ SpriteRenderer:
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1646,7 +1646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210615369120}
   - component: {fileID: 2049077210615369121}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: long_wood_spike_05 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1662,7 +1662,7 @@ Transform:
   m_GameObject: {fileID: 2049077210615369135}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.16700034, y: 0.202, z: 0}
-  m_LocalScale: {x: -0.55, y: 0.55, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -1709,12 +1709,12 @@ SpriteRenderer:
   m_SortingLayerID: -1402839293
   m_SortingLayer: 1
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1730,7 +1730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210620592825}
   - component: {fileID: 2049077210620592826}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1746,7 +1746,7 @@ Transform:
   m_GameObject: {fileID: 2049077210620592824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.2450005, y: 0.183, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -1793,12 +1793,12 @@ SpriteRenderer:
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1814,7 +1814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210833767101}
   - component: {fileID: 2049077210833767102}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spike5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1830,7 +1830,7 @@ Transform:
   m_GameObject: {fileID: 2049077210833767100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.9029995, y: 0.226, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -1877,12 +1877,12 @@ SpriteRenderer:
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1898,7 +1898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210868676647}
   - component: {fileID: 2049077210868676664}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: long_wood_spike_05 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1914,7 +1914,7 @@ Transform:
   m_GameObject: {fileID: 2049077210868676646}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.59999996, y: 0.218, z: 0}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -1961,12 +1961,12 @@ SpriteRenderer:
   m_SortingLayerID: -1402839293
   m_SortingLayer: 1
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1982,7 +1982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210910575965}
   - component: {fileID: 2049077210910575966}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: pikeShadow (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1998,7 +1998,7 @@ Transform:
   m_GameObject: {fileID: 2049077210910575964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.894, y: 0.027, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210530465542}
@@ -2042,15 +2042,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1402839293
-  m_SortingLayer: 1
-  m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 2e686bbdb5f73f1418fb0e5bf6c3c4a2, type: 3}
+  m_SortingLayerID: 1256521107
+  m_SortingLayer: 2
+  m_SortingOrder: 12
+  m_Sprite: {fileID: -734542525, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.73, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2066,7 +2066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210969476613}
   - component: {fileID: 2049077210969476614}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: pikeShadow (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2082,7 +2082,7 @@ Transform:
   m_GameObject: {fileID: 2049077210969476612}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.0400001, y: 0.027, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210530465542}
@@ -2126,15 +2126,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1402839293
-  m_SortingLayer: 1
-  m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 2e686bbdb5f73f1418fb0e5bf6c3c4a2, type: 3}
+  m_SortingLayerID: 1256521107
+  m_SortingLayer: 2
+  m_SortingOrder: 12
+  m_Sprite: {fileID: -734542525, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.73, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2150,7 +2150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077211143443757}
   - component: {fileID: 2049077211143443758}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: long_wood_spike_05 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2166,7 +2166,7 @@ Transform:
   m_GameObject: {fileID: 2049077211143443756}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.27099955, y: 0.298, z: 0}
-  m_LocalScale: {x: 0.55, y: 0.55, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -2213,12 +2213,12 @@ SpriteRenderer:
   m_SortingLayerID: -1402839293
   m_SortingLayer: 1
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2234,7 +2234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077211147526721}
   - component: {fileID: 2049077211147526722}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: pikeShadow (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2250,7 +2250,7 @@ Transform:
   m_GameObject: {fileID: 2049077211147526720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.831, y: 0.027, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210530465542}
@@ -2294,15 +2294,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1402839293
-  m_SortingLayer: 1
-  m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 2e686bbdb5f73f1418fb0e5bf6c3c4a2, type: 3}
+  m_SortingLayerID: 1256521107
+  m_SortingLayer: 2
+  m_SortingOrder: 12
+  m_Sprite: {fileID: -734542525, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.73, y: 0.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2318,7 +2318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077211172541986}
   - component: {fileID: 2049077211172541985}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Sprite Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2333,8 +2333,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049077211172541984}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.8460007, z: 0}
-  m_LocalScale: {x: 3.26, y: 1.72, z: 1}
+  m_LocalPosition: {x: 0, y: -1.026, z: 0}
+  m_LocalScale: {x: 3.26, y: 2.0564318, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077211219491445}
@@ -2402,7 +2402,7 @@ GameObject:
   - component: {fileID: 2049077211219491445}
   - component: {fileID: 2049077211219491446}
   - component: {fileID: 2049077211219491447}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: PikeTrap
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -2486,7 +2486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077211279334326}
   - component: {fileID: 2049077211279334327}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Spike2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2502,7 +2502,7 @@ Transform:
   m_GameObject: {fileID: 2049077211279334325}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.8220001, y: 0.266, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2049077210460668829}
@@ -2549,12 +2549,12 @@ SpriteRenderer:
   m_SortingLayerID: 1256521107
   m_SortingLayer: 2
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 9742b432cd62d3f46b2f1135a0e0cb7c, type: 3}
+  m_Sprite: {fileID: 1008614989, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 1.83}
+  m_Size: {x: 0.55, y: 2.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

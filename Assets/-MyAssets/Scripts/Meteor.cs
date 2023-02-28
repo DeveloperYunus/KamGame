@@ -27,7 +27,7 @@ public class Meteor : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                other.GetComponent<KamHealth>().GetDamage(damage, 6);        //6 = meteor
+                other.GetComponent<KamHealth>().GetDamage(damage, 6);        //6 = BOSS's meteor
             }
 
             if(!other.CompareTag("Meteor"))
@@ -39,6 +39,7 @@ public class Meteor : MonoBehaviour
     {
         canExp = false;
         smoke.Stop(false);
+        GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Rigidbody2D>().gravityScale = 0;
         GetComponent<SpriteRenderer>().enabled = false;

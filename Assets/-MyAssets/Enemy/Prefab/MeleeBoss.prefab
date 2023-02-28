@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc14941a336c2e041a2ac18c2063d018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 6
   nextWaypointDistance: 2.3
   seekTime: 0.5
   seeRange: 10
@@ -526,7 +526,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   swordColl: {fileID: 8265230274449688708}
-  atkDamage: 1
+  atkDamage: 25
   atkSpeed: 3
   pushStrong: 4
   atkSprint: 5
@@ -813,7 +813,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265230273486856596}
-  m_LocalRotation: {x: 0, y: 0, z: 0.91407067, w: -0.40555504}
+  m_LocalRotation: {x: 0, y: 0, z: 0.91407055, w: -0.40555534}
   m_LocalPosition: {x: 6.7100973, y: -2.5096211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -967,8 +967,8 @@ MonoBehaviour:
   - {fileID: 8265230274449688731}
   - {fileID: 8265230273430072822}
   m_Bounds:
-    m_Center: {x: 0.18893433, y: 0.10762787, z: 0}
-    m_Extent: {x: 10.938097, y: 9.983882, z: 0}
+    m_Center: {x: 0.18893623, y: 0.10762787, z: 0}
+    m_Extent: {x: 10.938099, y: 9.983883, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1239,7 +1239,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265230274641184563}
-  m_LocalRotation: {x: -0, y: -0, z: 0.45400047, w: -0.8910015}
+  m_LocalRotation: {x: -0, y: -0, z: 0.4540002, w: -0.8910016}
   m_LocalPosition: {x: 4.270002, y: 0.15157652, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1338,7 +1338,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265230275116215544}
-  m_LocalRotation: {x: 0, y: 0, z: -0.6893975, w: 0.72438323}
+  m_LocalRotation: {x: 0, y: 0, z: -0.68939793, w: 0.7243829}
   m_LocalPosition: {x: 3.968954, y: 0.03430295, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1444,7 +1444,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

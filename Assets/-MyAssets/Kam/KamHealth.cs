@@ -55,7 +55,7 @@ public class KamHealth : MonoBehaviour
     {
         if (Time.time > hpRegenTime && health < hpSl.maxValue)
         {
-            hpRegenTime += 1f;
+            hpRegenTime = Time.time + 1f;
             health += 1;
 
             if (health > hpSl.maxValue) 
@@ -91,13 +91,12 @@ public class KamHealth : MonoBehaviour
                 enmySwordPos = other.GetComponent<Transform>().position;
                 pushStrong = other.GetComponent<EnemySword>().pushStrong;
             }
-            //print(other.name);
             GetDamage(other.GetComponent<EnemySword>().damage, other.GetComponent<EnemySword>().dmgKind);
         }
 
         if (other.CompareTag("EnmyBullet"))
         {
-            other.GetComponent<Collider2D>().enabled = false;
+            other.GetComponent<Collider2D>().enabled = false;                                                       //merminin colliderýnýn kapatýr
             GetDamage(other.GetComponent<FireBall>().damage, other.GetComponent<FireBall>().dmgKind);
         }
     }
@@ -134,7 +133,7 @@ public class KamHealth : MonoBehaviour
             else if (dmgKind == 5)
             {
                 anim.SetTrigger("hit");
-                StartCoroutine(kc.SetSlow(0.1f, 1.5f));
+                StartCoroutine(kc.SetSlow(0.2f, 1.3f));
             }
 
             float dmg = damage - damage * percentArmour;               //hesaplama bir kez yapýlsýn diye bir deðiþkene atandý
@@ -149,6 +148,8 @@ public class KamHealth : MonoBehaviour
         }
         else if (PlayerPrefs.GetInt("barrier") == 5)
         {
+            if (dmgKind == 5 || dmgKind == 6) return;                  //BOSS 'un hasarlarý can olarak eklenmesin 
+
             float dmg = damage - damage * percentArmour;               //hesaplama bir kez yapýlsýn diye bir deðiþkene atandý
             health += dmg;
             ShowFloatTxt(dmg ,2);

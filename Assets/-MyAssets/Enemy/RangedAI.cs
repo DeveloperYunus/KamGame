@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using UnityEngine.UI;
 
 public class RangedAI : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class RangedAI : MonoBehaviour
     Vector3 startPos;
     int currentWaypoint = 0;                        //mevcut gideceðimiz nokta
     float atkRngSquare, seRngSquare, bodyScale;
+    int mask;                                       //linecast'teki layer ignore için 
+
 
     [Header("Jump")]
     public float jumpHeight;
@@ -30,6 +33,7 @@ public class RangedAI : MonoBehaviour
 
     bool isGrounded;
     bool jumpEnabled;
+
 
     [Header("Animation/Attack")]
     public GameObject fireBall;
@@ -43,6 +47,9 @@ public class RangedAI : MonoBehaviour
 
     void Start()
     {
+        mask = (1 << 8) | (1 << 7) | (1 << 2) | (1 << 1);     //enemy layer ýný kaydeder    (enemy, transparanFX, dontClose, ignore raycast)
+        mask = ~mask;                                         // "~" ifadesi ile tersini alýr (bu olmasa linecast sadece "8" nolu katmaný arar. Bu ifade ("~") varken sadece "8" nolu katmaný yoksayar)
+
         slow = 1;
         speed *= 100;
         jumpForce *= 100;
@@ -165,8 +172,8 @@ public class RangedAI : MonoBehaviour
     }
     bool CanISeeTarget()
     {
-        RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0), LayerMask.GetMask("Default"));
-        return target.name == checkWall.rigidbody.name;
+        RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0), mask);
+        return target.name == checkWall.transform.name;
     }
 
 

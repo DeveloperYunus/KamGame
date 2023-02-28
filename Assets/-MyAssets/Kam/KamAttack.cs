@@ -82,15 +82,15 @@ public class KamAttack : MonoBehaviour
                     NormalAttack();
                 }
             }
-            if (Input.GetKeyDown(KeyCode.E) && kc.isGrounded)
+            if (Input.GetKeyDown(KeyCode.E) && kc.isGrounded && cldwnThunder.fillAmount == 0 && PlayerPrefs.GetInt("thunder") > 0)
             {
                 colliderr.enabled = true;
                 colliderr.GetComponent<ThunderRadius>().collIsActive = true;
                 Thunder();
             }
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Q) && cldwnBarrier.fillAmount == 0 && PlayerPrefs.GetInt("barrier") > 0)
                 Barrier();
-            if (Input.GetKeyDown(KeyCode.S) && kc.isGrounded)
+            if (Input.GetKeyDown(KeyCode.S) && kc.isGrounded && cldwnTrap.fillAmount == 0 && PlayerPrefs.GetInt("trap") > 0)
                 Trap();
         }
         else animTransition -= Time.deltaTime;
@@ -119,45 +119,36 @@ public class KamAttack : MonoBehaviour
     void NormalAttack()
     {
         anim.SetTrigger("atk");
-        animTransition = 0.75f;
+        animTransition = 0.6f;
         kc.animSlow = 0.3f;
         KamHealth.instance.FadeUpHPUI();
     }
     void Thunder()
     {
-        if (cldwnThunder.fillAmount == 0 && PlayerPrefs.GetInt("thunder") > 0)
-        {
-            anim.SetTrigger("thunder");
-            animTransition = 0.5f;
-            kc.animSlow = 0.2f;
+        anim.SetTrigger("thunder");
+        animTransition = 0.5f;
+        kc.animSlow = 0.2f;
 
-            cldwnThunder.fillAmount = 1;
-            KamHealth.instance.FadeUpHPUI();
-        }
+        cldwnThunder.fillAmount = 1;
+        KamHealth.instance.FadeUpHPUI();        
     }
     void Barrier()
     {
-        if (cldwnBarrier.fillAmount == 0 && PlayerPrefs.GetInt("barrier") > 0)
-        {
-            anim.SetTrigger("barrier");
-            animTransition = 1f;
-            kc.animSlow = 0.2f;
+        anim.SetTrigger("barrier");
+        animTransition = 1f;
+        kc.animSlow = 0.2f;
 
-            cldwnBarrier.fillAmount = 1;
-            KamHealth.instance.FadeUpHPUI();
-        }
+        cldwnBarrier.fillAmount = 1;
+        KamHealth.instance.FadeUpHPUI();
     }
     void Trap()
     {
-        if (cldwnTrap.fillAmount == 0 && PlayerPrefs.GetInt("trap") > 0)
-        {
-            anim.SetTrigger("trap");
-            animTransition = 1f;
-            kc.animSlow = 0.2f;
+        anim.SetTrigger("trap");
+        animTransition = 1f;
+        kc.animSlow = 0.2f;
 
-            cldwnTrap.fillAmount = 1;
-            KamHealth.instance.FadeUpHPUI();
-        }
+        cldwnTrap.fillAmount = 1;
+        KamHealth.instance.FadeUpHPUI();       
     }
 
     void NormalAttackEvent()//animasyonun içerisindeki event için

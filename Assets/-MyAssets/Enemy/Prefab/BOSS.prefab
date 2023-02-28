@@ -19390,13 +19390,16 @@ MonoBehaviour:
   swordColl: {fileID: 1086681896514561245}
   fireBall: {fileID: 3898168114219470250, guid: dc439ec6f44cf0f4baa9863d5395d696, type: 3}
   muzzle: {fileID: 1543559668}
-  atkDamage: 30
-  atkSpeed: 2.5
+  atkDamage: 1
+  atkSpeed: 1.7
   meteor: {fileID: 7435714842919811885, guid: f396433cf7ea7904fbe3ec1c73c233cf, type: 3}
+  originPos: {x: 186, y: 40}
   meteorDamage: 8
-  yatayRng: 10
-  numOfMeteor: 10
+  horizontalRng: 12
+  numOfMeteor: 13
   speedX: 4
+  leftCam: {fileID: 0}
+  rightCam: {fileID: 0}
 --- !u!114 &1300796603075505053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20192,7 +20195,7 @@ GameObject:
   - component: {fileID: 1086681896514561244}
   - component: {fileID: 1608176558}
   - component: {fileID: 1608176559}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LArm
   m_TagString: EnmySword
   m_Icon: {fileID: 0}

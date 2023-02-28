@@ -151,6 +151,14 @@ public class KamController : MonoBehaviour
             }
         }
     }
+    public void StopRun()                       //dýþarýdan kam'ýn hýzýný sýfýrlamak ve animasyonunu durdurmak için
+    {
+        if (isGrounded)
+        {
+            anim.SetFloat("speedx", 0);
+            rb.velocity = Vector2.zero;
+        }
+    }
 
     public void GoRight(bool a)
     {

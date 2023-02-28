@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 using Pathfinding;
+using Cinemachine;
+using DG.Tweening;
+using TMPro.Examples;
 
 [RequireComponent(typeof(Seeker))]
 public class BOSSAI : MonoBehaviour
@@ -21,12 +24,14 @@ public class BOSSAI : MonoBehaviour
     int currentWaypoint = 0;                                    //mevcut gideceðimiz nokta
     float rangedRngS, meleeRngS, seRngSquare, bodyScale;        //menzilli ve yakýncý saldýrý menzillerinin karesi
     float lineerDrag;
+    int mask;                                                  //linecast'teki layer ignore için 
+
 
     [Header("Stats")]
     public GameObject swordColl;                                //MeleeAI saldýrý için
     public GameObject fireBall;                                 //ranged saldýrý için
     public Transform muzzle;
-    public float atkDamage;
+    [Tooltip("FireBall = 1x damage, claw = 3x damage")]public float atkDamage;
     public float atkSpeed;
 
     EnemyHealth ehp;
@@ -39,24 +44,42 @@ public class BOSSAI : MonoBehaviour
 
     [Header("Falling Meteors")]
     public GameObject meteor;
+    public Vector2 originPos;                                          //meteorlarýn düþmeye baþlayacaðý merkez nokta eskiden biz belirliyoduk þimdi belli bir yükseklikte sabit
     public float meteorDamage;
-    public float yatayRng;                                      //meteorlarýn yataydaki düþecekleri aralýk
+    public float horizontalRng;                                 //meteorlarýn yataydaki düþecekleri aralýk
     public int numOfMeteor;                                     //(+-2) tek seferde düþecek meteor sayýsý.
     public float speedX;
 
-    Vector2 originPos;                                          //meteorlarýn düþmeye baþlayacaðý merkez nokta eskiden biz belirliyoduk þimdi belli bir yükseklikte sabit
+
+    [Header("Cinemachine")]
+    public CinemachineVirtualCamera leftCam;
+    public CinemachineVirtualCamera rightCam;
+    public float transSpeed;                                    //Kamera ortho size ve zaman degerlerinin ne kadar hýzlý deðiþeceðini belirler
+
+    int mleAtkPhase;                                            //BOSS yakýn saldýrýya baþlayýnca zaman yavaþlasýn ve kamera yaklasþýn
+    float dfltOrthSize;                                         //dfltOrthSize = cameralarýn defaultOrthoSize'ý
+    bool mleAtkFix;                                             //Melee saldýrý bittikden sonra zamaný ve camera ayarlarýný sadece bir kez sýfýrlasýn diye (start'da true baþlar)
+
+    //Bu kýsým BOSS un canýnýn yenilenmesi için
+    EnemyHealth eHp;
+    float hpRegenTime;
 
     void Start()
     {
+        mask = (1 << 8) | (1 << 7) | (1 << 2) | (1 << 1);     //enemy layer ýný kaydeder    (enemy, transparanFX, dontClose, ignore raycast)
+        mask = ~mask;                                         // "~" ifadesi ile tersini alýr (bu olmasa linecast sadece "8" nolu katmaný arar. Bu ifade ("~") varken sadece "8" nolu katmaný yoksayar)
+
         speed *= 100;
         bossPhase = 0;
-        whichAtk = 0;   
+        whichAtk = 0;
+        mleAtkPhase = 0;
+        dfltOrthSize = leftCam.m_Lens.OrthographicSize;
         canAtk = true;
         chaseCase = true;
+        mleAtkFix = true;
         rangedRngS = rangedRange * rangedRange;
         //meleeRngS = meleeRange * meleeRange;
         seRngSquare = seeRange * seeRange;
-        originPos = transform.position + new Vector3(0, 10, 0);
 
         target = GameObject.Find("Kam").transform;
         seeker = GetComponent<Seeker>();
@@ -65,6 +88,7 @@ public class BOSSAI : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         swordColl.GetComponent<EnemySword>().damage = atkDamage * 3;
         swordColl.GetComponent<EnemySword>().dmgKind = 5;                       //1= normal saldýrý, 2= stan atn saldýrý,  5 = BOSS 
+        eHp = GetComponent<EnemyHealth>();
 
         startPos = transform.position;
         enemyBody = transform.GetChild(0);
@@ -74,6 +98,69 @@ public class BOSSAI : MonoBehaviour
 
         InvokeRepeating(nameof(UpdatePath), 0.5f, seekTime);
     }
+    private void Update()
+    {
+        if (Time.time > hpRegenTime && eHp.health < eHp.sl.maxValue)
+        {
+            hpRegenTime = Time.time + 1f;
+            eHp.health += 1;
+
+            if (eHp.health > eHp.sl.maxValue)
+                eHp.health = eHp.sl.maxValue;
+
+            eHp.sl.value = eHp.health;
+            eHp.hpTxt.text = eHp.health.ToString("0.##");
+        }
+    }
+    void FixedUpdate()
+    {
+        if (mleAtkPhase == 1)           //saldýrý baþladý zaman yavaþlasýn
+        {
+            Time.timeScale = Mathf.Lerp(Time.timeScale, 0.6f, transSpeed);
+            leftCam.m_Lens.OrthographicSize = Mathf.Lerp(leftCam.m_Lens.OrthographicSize, dfltOrthSize - 1.3f, transSpeed);
+            rightCam.m_Lens.OrthographicSize = Mathf.Lerp(rightCam.m_Lens.OrthographicSize, dfltOrthSize - 1.3f, transSpeed);
+        }
+        else if (mleAtkPhase == 2)      //saldýrý bitti zaman normalleþsin
+        {
+            Time.timeScale = Mathf.Lerp(Time.timeScale, 1f, transSpeed);
+            leftCam.m_Lens.OrthographicSize = Mathf.Lerp(leftCam.m_Lens.OrthographicSize, dfltOrthSize, transSpeed);
+            rightCam.m_Lens.OrthographicSize = Mathf.Lerp(rightCam.m_Lens.OrthographicSize, dfltOrthSize, transSpeed);
+        }
+        else if (!mleAtkFix)                            //ne 1 nede 2 deðilse zamaný ve kameralarý normal hallerine getir
+        {
+            mleAtkFix = true;
+            Time.timeScale = 1;
+
+            leftCam.m_Lens.OrthographicSize = dfltOrthSize;
+            rightCam.m_Lens.OrthographicSize = dfltOrthSize;
+        }
+
+        if (!target)        //bu satýrdan sonraki kodlar yol bulma kýsmýný ilgilendirdiriyor. Yani yol bulma iþlemleri tamamlanmadýysa alt satýrlara geçme
+            return;
+
+        if (path == null || Vector2.Distance(target.position, rb.position) < nextWaypointDistance)      //yol yoksa yada hedef ile aradaki mesafe küçükse kovalama
+            return;
+
+        if (currentWaypoint >= path.vectorPath.Count)
+            return;
+
+        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;       //bizim hedefimizin hangi yönde old. belirler
+
+        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);       //kare kök almaya gerek yok
+        if (distance < nextWaypointDistance)
+            currentWaypoint++;
+
+        if (chaseCase)//kovalýyosam koþ
+        {
+            float ab = speed * Time.deltaTime;
+            rb.AddForce(new Vector2(ab * direction.x, 0));
+
+            if (rb.velocity.x > 0.08f) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
+            else if (rb.velocity.x < -0.08f) enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
+        }
+        anim.SetFloat("speedx", rb.velocity.x);
+    }
+
     void UpdatePath()
     {
         if (bossPhase != 1  && ehp.health <= (ehp.sl.maxValue * 0.4f))
@@ -91,9 +178,15 @@ public class BOSSAI : MonoBehaviour
 
                 if (canAtk)
                 {
+
+                    //DENEME AMAÇLI SONRADAN KALDIRILACAK !!!!!!!!!!!!
+                    MeleeAttack();
+                    return;
+                    //
+
                     if (bossPhase == 0)
                     {
-                        if (whichAtk < 3)//bu kod ile her 4 saldýrýda 1 meteor düþecek (her 4 * saldýrý hýzý süresinde 1 kez)
+                        if (whichAtk < 4)   //bu kod ile her 5 saldýrýda 1 meteor düþecek (her 4 * saldýrý hýzý süresinde 1 kez)
                         {
                             whichAtk++;
                             RangedAttack();
@@ -106,7 +199,7 @@ public class BOSSAI : MonoBehaviour
                     }
                     else
                     {
-                        if (whichAtk < 4)
+                        if (whichAtk < 3)   //bu kod ile her 4 saldýrýda 1 Kam'ý yakýnýna ýþýnlayýp hasar verecek (her 4 * saldýrý hýzý süresinde 1 kez)
                         {
                             whichAtk++;
                             StartCoroutine(Meteor());
@@ -144,33 +237,6 @@ public class BOSSAI : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        if (!target) 
-            return;
-
-        if (path == null || Vector2.Distance(target.position, rb.position) < nextWaypointDistance)      //yol yoksa yada hedef ile aradaki mesafe küçükse kovalama
-            return;
-
-        if (currentWaypoint >= path.vectorPath.Count)        
-            return;
-
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;       //bizim hedefimizin hangi yönde old. belirler
-
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);       //kare kök almaya gerek yok
-        if (distance < nextWaypointDistance)
-            currentWaypoint++;
-
-        if (chaseCase)//kovalýyosam koþ
-        {
-            float ab = speed * Time.deltaTime;
-            rb.AddForce(new Vector2(ab * direction.x, 0));
-
-            if (rb.velocity.x > 0.08f) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
-            else if (rb.velocity.x < -0.08f) enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
-        }
-        anim.SetFloat("speedx", rb.velocity.x);
-    }
 
     void RangedAttack()
     {
@@ -185,7 +251,7 @@ public class BOSSAI : MonoBehaviour
         GameObject a = Instantiate(fireBall, muzzle.position, Quaternion.identity);
         a.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y - 0.1f) * 7;                  //merminin hedef yeri
         a.GetComponent<FireBall>().damage = atkDamage;
-        a.GetComponent<FireBall>().dmgKind = 1;
+        a.GetComponent<FireBall>().dmgKind = 6;                         //BOSS's meteor ve fireball
 
         anim.SetTrigger("rngAtk");
         canAtk = false;
@@ -193,31 +259,40 @@ public class BOSSAI : MonoBehaviour
     }
     void MeleeAttack()
     {
+        target.GetComponent<KamController>().canMove = false;
+        target.GetComponent<KamController>().StopRun();
+
         if (target.position.x - transform.position.x > 0)
         {
-            enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
+            enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);   //BOSS kama baksýn           
+            if (target.localScale.x > 0) target.GetComponent<KamController>().FlipFace();
         }
         else
         {
             enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
+            if (target.localScale.x < 0) target.GetComponent<KamController>().FlipFace();
         }
+
+        mleAtkPhase = 1;        //zaman yavaþlasýn
+        mleAtkFix = false;
 
         canAtk = false;
         anim.SetTrigger("mleAtk");
         Invoke(nameof(AttackReset), atkSpeed);
-        Invoke(nameof(CallTheKam), 0.7f);
+        Invoke(nameof(CallKam), 0.7f);
+        Invoke(nameof(ReleaseKam), 1.5f);
     }
-    void CallTheKam()
+    void CallKam()
     {
-        if (target.position.x - transform.position.x > 0)
-        {
-            target.position = new Vector2(transform.position.x + 3, transform.position.y - 1);
-            StartCoroutine(target.GetComponent<KamController>().SetSlow(0.3f, 1));
-        }
-        else
-        {
-            target.position = new Vector2(transform.position.x - 3, transform.position.y - 1);
-        }
+        if (target.position.x - transform.position.x > 0)        
+            target.DOMove(new Vector2(transform.position.x + 3.2f, transform.position.y - 0.5f), 0.8f).SetEase(Ease.OutBack);     //KAM hýzla BOSS un önüne gelsin        
+        else        
+            target.DOMove(new Vector2(transform.position.x - 3.2f, transform.position.y - 0.5f), 0.8f).SetEase(Ease.OutBack);        
+    }
+    void ReleaseKam()
+    {
+        mleAtkPhase = 2;    //zaman normale dönsün
+        target.GetComponent<KamController>().canMove = true;        
     }
     public IEnumerator Meteor()
     {
@@ -238,7 +313,7 @@ public class BOSSAI : MonoBehaviour
         for (int i = 0; i < a; i++)
         {
             yield return new WaitForSeconds(Random.Range(0.05f, 0.1f));
-            float X = Random.Range(originPos.x - yatayRng, originPos.x + yatayRng);
+            float X = Random.Range(originPos.x - horizontalRng, originPos.x + horizontalRng);
 
             GameObject met = MeteorPool.CallMeteor();
             met.GetComponent<Transform>().position = new Vector2(X, originPos.y);
@@ -265,8 +340,8 @@ public class BOSSAI : MonoBehaviour
     }
     bool CanISeeTarget()
     {
-        RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0));
-        return target.name == checkWall.rigidbody.name;
+        RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0), mask);
+        return target.name == checkWall.transform.name;
     }
 
 
@@ -279,6 +354,6 @@ public class BOSSAI : MonoBehaviour
         //Gizmos.DrawLine(transform.position, target.position + new Vector3(0, 0.3f, 0));
 
         Gizmos.color = Color.yellow;        //meteorlar için
-        Gizmos.DrawLine(new(transform.position.x - yatayRng, transform.position.y + 10), new(transform.position.x + yatayRng, transform.position.y + 10));
+        Gizmos.DrawLine(new(originPos.x - horizontalRng, originPos.y), new(originPos.x + horizontalRng, originPos.y));
     }
 }

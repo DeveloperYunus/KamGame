@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 6079400883779215340}
   - component: {fileID: 1337165818}
   - component: {fileID: 1337165819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blade
   m_TagString: EnmySword
   m_Icon: {fileID: 0}
@@ -808,7 +808,7 @@ GameObject:
   - component: {fileID: 6079400883849662617}
   - component: {fileID: 6079400883849662615}
   - component: {fileID: 1644975962014602737}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1098,15 +1098,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   meleeRange: 2.5
-  rangedRange: 8
+  rangedRange: 7
   nextWaypointDistance: 2
   seekTime: 0.5
-  seeRange: 11
+  seeRange: 12
   swordColl: {fileID: 6079400883779215342}
   fireBall: {fileID: 1648301384536504856, guid: 6592c249539795c4389332e337ba0fdc, type: 3}
   muzzle: {fileID: 3648301426989797839}
-  atkDamage: 1
-  atkSpeed: 1.5
+  atkDamage: 20
+  atkSpeed: 1
 --- !u!114 &1970788491328979767
 MonoBehaviour:
   m_ObjectHideFlags: 0

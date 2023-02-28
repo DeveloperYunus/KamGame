@@ -380,21 +380,21 @@ MonoBehaviour:
   animTransition: 0
   bolt: {fileID: 34450224196497443, guid: 3d62495a417f7da4ab47dc5d2359f9df, type: 3}
   boltSpeed: 8
-  boltDmg: 9
+  boltDmg: 10
   staffMuzzle: {fileID: 1296502970723571807}
   muzzleInGround: 0
   thunder: {fileID: 2453398110593388708, guid: 3e97259ebe3c3aa488bfbf17b9a54cae, type: 3}
   thunderDmg: 15
-  cooldown1: 4
+  cooldown1: 3
   colliderr: {fileID: 5762907090782431153}
   cldwnThunder: {fileID: 0}
   trap: {fileID: 2757603918175465230, guid: db8bfbd168f55f943b477345fa380c3d, type: 3}
   trapDmg: 20
-  cooldown2: 8
+  cooldown2: 6
   cldwnTrap: {fileID: 0}
   barrier: {fileID: 5762907091324199469}
-  barrierDuration: 3
-  cooldown3: 15
+  barrierDuration: 2
+  cooldown3: 10
   cldwnBarrier: {fileID: 0}
   isBarrierActv: 0
 --- !u!114 &6066957544677329320
@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  armour: 10
+  armour: 15
   hpSl: {fileID: 0}
   hpTxt: {fileID: 0}
   transitionPnl: {fileID: 0}
@@ -531,7 +531,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970306863566}
-  m_LocalRotation: {x: 5.150336e-10, y: -5.725148e-10, z: 0.66052085, w: 0.7508078}
+  m_LocalRotation: {x: -0.0000000041202415, y: 0.000000004580088, z: 0.66052127, w: 0.75080734}
   m_LocalPosition: {x: 1.8781661, y: 0.0026374012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -564,7 +564,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970328485920}
-  m_LocalRotation: {x: -5.3082844e-10, y: -1.11399355e-10, z: 0.98990166, w: 0.14175585}
+  m_LocalRotation: {x: 0.000000016455635, y: 0.0000000034533938, z: 0.98990154, w: 0.14175685}
   m_LocalPosition: {x: 3.98, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -816,8 +816,8 @@ MonoBehaviour:
   - {fileID: 1296502971817482859}
   - {fileID: 1296502970787904730}
   m_Bounds:
-    m_Center: {x: 0.36399794, y: -0.13521862, z: -0.000000017474067}
-    m_Extent: {x: 4.457659, y: 7.508421, z: 0.000000016646387}
+    m_Center: {x: 0.36401606, y: -0.13523293, z: 0.00000019663473}
+    m_Extent: {x: 4.4576454, y: 7.5084124, z: 0.00000020101778}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1045,7 +1045,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970938125818}
-  m_LocalRotation: {x: -5.0969423e-10, y: 6.3853217e-10, z: 0.006726502, w: 0.99997735}
+  m_LocalRotation: {x: 0.000000014993885, y: 0.0000000015705233, z: 0.0067268303, w: 0.99997735}
   m_LocalPosition: {x: 1.85, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 5762907090782431152}
   - component: {fileID: 5762907090782431153}
   - component: {fileID: 910529982791310109}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: ThunderCollRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}

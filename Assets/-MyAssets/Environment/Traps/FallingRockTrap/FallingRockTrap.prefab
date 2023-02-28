@@ -4957,13 +4957,15 @@ MonoBehaviour:
   damageAmount: 20
   minRockAmount: 3
   maxRockAmount: 4
-  minOran: 0.15
-  maxOran: 0.18
+  minOran: 0.5
+  maxOran: 0.6
   addForcePozitifX: 25
   addForceNegatifX: -25
   liveTime: 5.5
   stoneSprite:
-  - {fileID: 21300000, guid: 4addc493084813d408a8c082fa6e2921, type: 3}
+  - {fileID: -748397699, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
+  - {fileID: -636609705, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
+  - {fileID: -1447370122, guid: 1d2a6f4f61aced44fa7db3794fef4be7, type: 3}
 --- !u!1 &165279497449386550
 GameObject:
   m_ObjectHideFlags: 0

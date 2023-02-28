@@ -8,19 +8,6 @@ using UnityEngine.Rendering.Universal;
 public class FirstOOP : MonoBehaviour
 {
     /// <summary> 
-    /// Yüzü çevir. (Obje, ölçek)
-    /// </summary>
-    public static void FlipFace(Transform objectt, float scale)
-    {
-        objectt.localScale = new Vector3(scale, 1, 1);
-    }
-
-    public static void Destroyy(Object obj, [DefaultValue("0.0F")] float t)
-    {
-
-    }
-
-    /// <summary> 
     /// Bir objeye kuvvet uygula.
     /// </summary>
     /// <param name="rb2">Kuvvet uygulanacak rigidbody </param>
@@ -37,12 +24,12 @@ public class FirstOOP : MonoBehaviour
         else                         return true;
     }
 
+
     /// <param name="lightt">Kuvvet uygulanacak rigidbody </param>
     /// <param name="diff">Iþýkdaki artýþ ve azalýþýn miktarý </param>
-
     public static void LightSparkling(Light2D lightt, float lMax, float lMin, float lNrml, float diff)
     {
-        if (FirstOOP.FiftyChance())
+        if (FiftyChance())
         {
             lightt.intensity += diff;
         }
@@ -55,3 +42,26 @@ public class FirstOOP : MonoBehaviour
             lightt.intensity = lNrml;
     }
 }
+
+
+/*      LineCast ve Raycast sýrasýnda layerlarý yoksaymak veya hedeflemek için
+
+var layer1 = 3;
+var layer2 = 5;
+var layermask1 = 1 << layer1;
+var layermask2 = 1 << layer2;
+var finalmask = ~(layermask1 | layermask2); // Or, (1 << layer1) | (1 << layer2)
+
+RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0), finalmask);
+
+
+        Yumuþak geçiþ için
+
+currentValue = Mathf.Lerp(currentValue, targetValue, transitionSpeed);
+
+
+
+
+
+
+*/
