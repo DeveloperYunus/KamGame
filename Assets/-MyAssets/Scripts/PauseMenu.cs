@@ -18,6 +18,13 @@ public class PauseMenu : MonoBehaviour
     public Slider xpSl;
     public TextMeshProUGUI level, currentXP, skillPnt;
 
+    [Header("Setting Panels")]
+    public GameObject settingsPnl;
+    public GameObject gamePnl;
+
+    bool isSettingOpen;
+
+
     [Header("Cooldown Image")]
     public Image[] cldwnImg;
 
@@ -25,6 +32,8 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         isPaused = false;
+        isSettingOpen = false;
+
         skillHolder = null;
         xpSl.maxValue = 100;
 
@@ -54,6 +63,12 @@ public class PauseMenu : MonoBehaviour
             {
                 gameObject.GetComponent<RectTransform>().DOScale(0f, 0f).SetDelay(1f).SetUpdate(true);
                 gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.3f);
+
+                gamePnl.GetComponent<CanvasGroup>().DOFade(0, 0.4f).SetUpdate(true);                        //bu ve alltaki 4 satýr settins panelleride kapatýr ki tekrar açýldýðýnda kapalý gözüksünler
+                settingsPnl.GetComponent<CanvasGroup>().DOFade(0, 0.4f).SetUpdate(true);
+
+                gamePnl.GetComponent<RectTransform>().DOScale(0, 0f).SetDelay(0.4f).SetUpdate(true);
+                settingsPnl.GetComponent<RectTransform>().DOScale(0, 0f).SetDelay(0.4f).SetUpdate(true);
             }
 
             isPaused = !isPaused;
@@ -312,6 +327,31 @@ public class PauseMenu : MonoBehaviour
         }
 
         RegenTexts();
+    }
+    public void SettingsBtn()
+    {
+        //gamePnl.GetComponent<RectTransform>().DOKill();
+        //settingsPnl.GetComponent<RectTransform>().DOKill();
+        if (isSettingOpen)//kapatmaya baþla
+        {
+            isSettingOpen = !isSettingOpen;
+
+            gamePnl.GetComponent<CanvasGroup>().DOFade(0, 0.4f).SetUpdate(true);
+            settingsPnl.GetComponent<CanvasGroup>().DOFade(0, 0.4f).SetUpdate(true);
+
+            gamePnl.GetComponent<RectTransform>().DOScale(0, 0f).SetDelay(0.4f).SetUpdate(true);
+            settingsPnl.GetComponent<RectTransform>().DOScale(0, 0f).SetDelay(0.4f).SetUpdate(true);
+        }
+        else//açmaya baþla
+        {
+            isSettingOpen = !isSettingOpen;
+
+            gamePnl.GetComponent<CanvasGroup>().DOFade(1, 0.4f).SetUpdate(true); ;
+            settingsPnl.GetComponent<CanvasGroup>().DOFade(1, 0.4f).SetUpdate(true);
+
+            gamePnl.GetComponent<RectTransform>().DOScale(1, 0f).SetUpdate(true);
+            settingsPnl.GetComponent<RectTransform>().DOScale(1, 0f).SetUpdate(true);
+        }
     }
     public void RestartLevel()
     {

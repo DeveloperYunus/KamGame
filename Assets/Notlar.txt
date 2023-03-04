@@ -21,15 +21,15 @@
 8- Kam en fazla 4 blok týrmanabiliyor
 9- FallRock layerý ground ile etkileþimde lur ancak baþka hiç birþey ile temasa geçmez
 10- Melee boss'un kalkanýný EnmySword tagýna atadýk enemy mermileri içinden geçsin diye
-11 Kam thunderCheck collider a water ag'ýný atadýk ve artýk sadece enemy ile etkileþime giriyor
+11- Kam thunderCheck collider a water ag'ýný atadýk ve artýk sadece enemy ile etkileþime giriyor
+12- Canýmýz %30'ýn altýna düþtümü ekranýn etrafýnda kan lekeleri beliriyor ve can azaldýkça dahada görünür oluyor
+
 
 
 GÖREVLER
 	
-	- BOSS thunder collider'a hasar veriyor
-
-	UI a ayarlar tuþu yap
-	enemyler ölünce kaya parçalarý sacan bir particle effect oynat
+	enemy fireballara sarý - turuncu ýþýk ekle
+	Kameranýn sarsýntý effectlerini ayarla
 
 	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
 	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
@@ -45,8 +45,8 @@ HATIRALAR (Temizlenmiþ Buglar)
 	4- Boltlar duvarlarýn içinde spawn oluyor
 	5- Thunder max seviyede iç içe rakiplere katlanarak vuruyor, skill max olunca alan hasarý özelliði kaldýr.
 	6- Melee Boss a thunder ile vurunca hata veriyor çöz
-	7- ranged boss ile yanýnda baþka bir düþman varken savas kendin ile onun arasýna faklý colliderlar koyarak deneme yap
-	8- BOSS yakýn saldýrýda bize 2 kez vuruyor, vurmasýn
+	7- BOSS yakýn saldýrýda bize 2 kez vuruyor, vurmasýn
+	8- BOSS thunder collider'a hasar veriyor (BOSS un saldýran kolunu DontClose layerýna aldýk)
 
 
 
@@ -65,6 +65,8 @@ mask = ~mask;
 
 RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position + new Vector3(0, 0.3f, 0), mask);
 
+	
+	
 	Birden fazla katmaný yoksaymak için
 
 var layer1 = 3;
@@ -77,3 +79,7 @@ RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position 
 
 Önemli Not: raycast ve linescastlerde layer atamassan varsayýlan olarak "Ignore Raycast" layer ýný yoksayar. 
 Ama o kýsýma bir layer yerleþtirisen "Ignore Raycast" layer ýnýda hesaplar
+
+
+
+	DoTween için Time.timeScale i görmezden gelmek için ".SetUpdate(true);" kullan

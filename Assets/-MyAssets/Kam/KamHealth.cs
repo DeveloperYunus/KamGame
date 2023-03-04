@@ -26,10 +26,11 @@ public class KamHealth : MonoBehaviour
     [Header("UI")]
     [Tooltip("Level geçiþ yada yenidoðmak için")]public GameObject transitionPnl;
     [Tooltip("4 sn hiç birþey olmazsa deaktif olsun")] public GameObject hpUI;
+    public Image screenBlood;
     
     public static bool dead;
     int dieTime; 
-    float uiFadeTime;
+    float uiFadeTime, thirtyPrcnOfHp;
 
     void Start()
     {
@@ -45,6 +46,7 @@ public class KamHealth : MonoBehaviour
 
         health = 100 + 15 * PlayerPrefs.GetInt("level", 1);
         armour = 10 + 2 * PlayerPrefs.GetInt("level", 1);
+        thirtyPrcnOfHp = hpSl.maxValue * 0.3f;
 
         percentArmour = armour * 0.01f;
         hpTxt.text = health.ToString();
@@ -63,6 +65,12 @@ public class KamHealth : MonoBehaviour
 
             hpSl.value = health;
             hpTxt.text = health.ToString("0.##");
+
+            if (health <= thirtyPrcnOfHp)                                  //ekrandaki screenBlood ýn transparanlýðýný artýrýr yada azaltýr
+            {
+                screenBlood.DOKill();
+                screenBlood.DOFade((thirtyPrcnOfHp - health) / thirtyPrcnOfHp, 0.2f);
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.R))
@@ -91,7 +99,9 @@ public class KamHealth : MonoBehaviour
                 enmySwordPos = other.GetComponent<Transform>().position;
                 pushStrong = other.GetComponent<EnemySword>().pushStrong;
             }
-            GetDamage(other.GetComponent<EnemySword>().damage, other.GetComponent<EnemySword>().dmgKind);
+
+            if (other.GetComponent<EnemySword>())
+                GetDamage(other.GetComponent<EnemySword>().damage, other.GetComponent<EnemySword>().dmgKind);
         }
 
         if (other.CompareTag("EnmyBullet"))
@@ -163,6 +173,12 @@ public class KamHealth : MonoBehaviour
         FadeUpHPUI();        
         hpSl.value = health;
         hpTxt.text = health.ToString("0.##");
+
+        if (health <= thirtyPrcnOfHp)                                  //ekrandaki screenBlood ýn transparanlýðýný artýrýr yada azaltýr
+        {
+            screenBlood.DOKill();
+            screenBlood.DOFade((thirtyPrcnOfHp - health) / thirtyPrcnOfHp, 0.2f);
+        }
     }
     void ShowFloatTxt(float dmg, int type) //yüzen sayýlar ile hasarý gösterir ve xp'yi gösterir
     {
@@ -209,10 +225,9 @@ public class KamHealth : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         transitionPnl.GetComponent<RectTransform>().DOScale(1, 0);
         transitionPnl.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
+        screenBlood.DOFade(0, 0f);
 
         yield return new WaitForSeconds(0.6f);
-        if (dieTime == 3)
-            //level seçme menüsüne git
         GetComponent<Transform>().position = CheckPntSys.checkPnt;
         GetComponent<KamAttack>().RebornBarrier(3);                         //öldükten sonra doðunca 3 sn hasar almasýn
 

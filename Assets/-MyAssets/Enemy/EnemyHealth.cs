@@ -15,8 +15,9 @@ public class EnemyHealth : MonoBehaviour
     float percentArmour;
     float defaultDrag;
 
-    [Header("Experinece")]
+    [Header("Die Procedure")]
     [Tooltip("Enemy ölünce kazanacaðýmýz tecrübe puaný")]public int expValue;
+    public GameObject dieParicle;
 
     void Start()
     {
@@ -62,9 +63,9 @@ public class EnemyHealth : MonoBehaviour
 
     void Die() 
     {
-        //Enemylerin içinden +7xp yazan text cýksýn
-        KamHealth.instance.GainExp(expValue);
+        KamHealth.instance.GainExp(expValue);                       //Kam'ýn içinden +7xp yazan text cýkartýr
 
+        Instantiate(dieParicle, transform.position, Quaternion.Euler(-90, 0, 0));
         Destroy(gameObject, 0.1f);
     }
 

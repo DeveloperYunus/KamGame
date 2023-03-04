@@ -53,7 +53,7 @@ public class FallingRockTrap : MonoBehaviour
             a.GetComponent<Transform>().DOScale(b, 0);
             a.GetComponent<SpriteRenderer>().sprite = stoneSprite[Random.Range(0, stoneSprite.Length)];
             a.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(addForcePozitifX, addForceNegatifX), Random.Range(40f, 25f)));
-            a.GetComponent<Rigidbody2D>().AddTorque(Random.Range(10, -10));
+            a.GetComponent<Rigidbody2D>().AddTorque(Random.Range(2, -2));
 
             a.GetComponent<FallingRock>().damage = Mathf.Round(damageAmount * b);
             a.GetComponent<FallingRock>().liveTime = liveTime;

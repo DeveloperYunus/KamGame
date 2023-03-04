@@ -34,17 +34,17 @@ public class BOSSAI : MonoBehaviour
     [Tooltip("FireBall = 1x damage, claw = 3x damage")]public float atkDamage;
     public float atkSpeed;
 
-    EnemyHealth ehp;
+    EnemyHealth eHp;
     Animator anim;
     bool canAtk;
     bool chaseCase;
 
     int bossPhase, whichAtk;                                    //whichAtk = normal saldýrýmý yoksa meteor düþmesi mi
-
+    float hpRegenTime;                                          //Bu kýsým BOSS un canýnýn yenilenmesi için
 
     [Header("Falling Meteors")]
     public GameObject meteor;
-    public Vector2 originPos;                                          //meteorlarýn düþmeye baþlayacaðý merkez nokta eskiden biz belirliyoduk þimdi belli bir yükseklikte sabit
+    public Vector2 originPos;                                   //meteorlarýn düþmeye baþlayacaðý merkez nokta eskiden biz belirliyoduk þimdi belli bir yükseklikte sabit
     public float meteorDamage;
     public float horizontalRng;                                 //meteorlarýn yataydaki düþecekleri aralýk
     public int numOfMeteor;                                     //(+-2) tek seferde düþecek meteor sayýsý.
@@ -60,9 +60,6 @@ public class BOSSAI : MonoBehaviour
     float dfltOrthSize;                                         //dfltOrthSize = cameralarýn defaultOrthoSize'ý
     bool mleAtkFix;                                             //Melee saldýrý bittikden sonra zamaný ve camera ayarlarýný sadece bir kez sýfýrlasýn diye (start'da true baþlar)
 
-    //Bu kýsým BOSS un canýnýn yenilenmesi için
-    EnemyHealth eHp;
-    float hpRegenTime;
 
     void Start()
     {
@@ -84,7 +81,7 @@ public class BOSSAI : MonoBehaviour
         target = GameObject.Find("Kam").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        ehp = GetComponent<EnemyHealth>();
+        eHp = GetComponent<EnemyHealth>();
         anim = GetComponentInChildren<Animator>();
         swordColl.GetComponent<EnemySword>().damage = atkDamage * 3;
         swordColl.GetComponent<EnemySword>().dmgKind = 5;                       //1= normal saldýrý, 2= stan atn saldýrý,  5 = BOSS 
@@ -163,7 +160,7 @@ public class BOSSAI : MonoBehaviour
 
     void UpdatePath()
     {
-        if (bossPhase != 1  && ehp.health <= (ehp.sl.maxValue * 0.4f))
+        if (bossPhase != 1  && eHp.health <= (eHp.sl.maxValue * 0.4f))
         {
             bossPhase = 1;
             //bir ses gelsin ve faz deðiþikliði olduðunu hissettir
@@ -178,12 +175,6 @@ public class BOSSAI : MonoBehaviour
 
                 if (canAtk)
                 {
-
-                    //DENEME AMAÇLI SONRADAN KALDIRILACAK !!!!!!!!!!!!
-                    MeleeAttack();
-                    return;
-                    //
-
                     if (bossPhase == 0)
                     {
                         if (whichAtk < 4)   //bu kod ile her 5 saldýrýda 1 meteor düþecek (her 4 * saldýrý hýzý süresinde 1 kez)
