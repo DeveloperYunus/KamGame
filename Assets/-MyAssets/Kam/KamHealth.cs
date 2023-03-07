@@ -55,7 +55,7 @@ public class KamHealth : MonoBehaviour
     }
     private void Update()
     {
-        if (Time.time > hpRegenTime && health < hpSl.maxValue)
+        if (Time.time > hpRegenTime && health < hpSl.maxValue)      //can yanilenmesi
         {
             hpRegenTime = Time.time + 1f;
             health += 1;
@@ -73,14 +73,7 @@ public class KamHealth : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            PlayerPrefs.SetInt("expValue",0);                //xp deðerimi sýfýrlar artýr
-            PlayerPrefs.SetInt("skillPoint", 0);             //yetenek puanýmý 1 artýr
-            PlayerPrefs.SetInt("level", 0);
-        }
-
-        if (uiFadeTime > 0)
+        if (uiFadeTime > 0)     //zamanla uý kýsmý gözden kaybolur
         {
             uiFadeTime -= Time.deltaTime;
             if (uiFadeTime <= 0)
@@ -88,6 +81,26 @@ public class KamHealth : MonoBehaviour
                 hpUI.GetComponent<CanvasGroup>().DOKill();
                 hpUI.GetComponent<CanvasGroup>().DOFade(0, 2f);
             }
+        }
+
+        /*
+        if (hpBelow)        //can %20'nin altýndamý
+        {
+            timer += Time.deltaTime;            //can her ilk defa %20 'nin altýna indiðinde "timer" 'ý 1'e eþitle
+
+            if (timer%2==1)
+                float a = Mathf.Lerp();    //önce iceri girsin
+            else
+                float a = Mathf.Lerp();    //sonra dýþarý çýksýn
+        }
+        */
+
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            PlayerPrefs.SetInt("expValue",0);                //xp deðerimi sýfýrlar artýr
+            PlayerPrefs.SetInt("skillPoint", 0);             //yetenek puanýmý 1 artýr
+            PlayerPrefs.SetInt("level", 0);
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -113,17 +126,25 @@ public class KamHealth : MonoBehaviour
 
     public void GetDamage(float damage, int dmgKind)
     {
-        if (!GetComponent<KamAttack>().isBarrierActv)
+        if (!GetComponent<KamAttack>().isBarrierActv)   //1 = melee & ranged firebal, 
         {
-            if (dmgKind == 2)   //hasar türü 2 ise hit nimasyonunu çalýþtýr
+            if (dmgKind == 1)
+            {
+                CinemachineShake.instance.ShakeCamera(1f, 1f, 0.3f);
+            }
+            else if (dmgKind == 2)   //hasar türü 2 ise hit nimasyonunu çalýþtýr
             {
                 anim.SetTrigger("hit");
                 StartCoroutine(kc.SetSlow(0.2f, 0.8f));
+
+                CinemachineShake.instance.ShakeCamera(1, 1.5f, 0.4f);
             }
             else if (dmgKind == 3)   //hasar türü 3 ise hit nimasyonunu çalýþtýr ve karakteri it
             {
                 anim.SetTrigger("hit");
                 StartCoroutine(kc.SetSlow(0.2f, 0.8f));
+
+                CinemachineShake.instance.ShakeCamera(1.4f, 1.5f, 0.7f);
 
                 int a;
                 if (enmySwordPos.x > transform.position.x) a = -1;
@@ -135,6 +156,8 @@ public class KamHealth : MonoBehaviour
                 anim.SetTrigger("hit");
                 StartCoroutine(kc.SetSlow(0.4f, 1f));
 
+                CinemachineShake.instance.ShakeCamera(1.4f, 1.5f, 1.1f);
+
                 int a;
                 if (enmySwordPos.x > transform.position.x) a = -1;
                 else a = 1;
@@ -144,6 +167,12 @@ public class KamHealth : MonoBehaviour
             {
                 anim.SetTrigger("hit");
                 StartCoroutine(kc.SetSlow(0.2f, 1.3f));
+
+                CinemachineShake.instance.ShakeCamera(2.4f, 1.5f, 1.2f);
+            }
+            else if (dmgKind == 6)                  //kazýk ve düþen taþlar tuzaklarý
+            {
+                CinemachineShake.instance.ShakeCamera(2.5f, 1f, 0.7f);
             }
 
             float dmg = damage - damage * percentArmour;               //hesaplama bir kez yapýlsýn diye bir deðiþkene atandý
@@ -210,6 +239,7 @@ public class KamHealth : MonoBehaviour
         }
     }
 
+
     public void FadeUpHPUI()
     {
         hpUI.GetComponent<CanvasGroup>().DOKill();
@@ -225,7 +255,6 @@ public class KamHealth : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         transitionPnl.GetComponent<RectTransform>().DOScale(1, 0);
         transitionPnl.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
-        screenBlood.DOFade(0, 0f);
 
         yield return new WaitForSeconds(0.6f);
         GetComponent<Transform>().position = CheckPntSys.checkPnt;
@@ -234,6 +263,7 @@ public class KamHealth : MonoBehaviour
         health = hpSl.maxValue;
         hpSl.value = health;
         hpTxt.text = health.ToString("0.##");
+        screenBlood.DOFade(0, 0f);
 
         Time.timeScale = 1;
         yield return new WaitForSeconds(1f);

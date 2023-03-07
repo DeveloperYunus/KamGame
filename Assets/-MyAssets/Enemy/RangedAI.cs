@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using UnityEngine.UI;
+using UnityEditor.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class RangedAI : MonoBehaviour
 {
@@ -45,10 +47,20 @@ public class RangedAI : MonoBehaviour
     bool canAtk;
     bool chaseCase;
 
+    float time, lightMax, lightMin, lightNrml;                      //ýþýk yanýp sönmesi için
+    Light2D lightt;
+
     void Start()
     {
         mask = (1 << 8) | (1 << 7) | (1 << 2) | (1 << 1);     //enemy layer ýný kaydeder    (enemy, transparanFX, dontClose, ignore raycast)
         mask = ~mask;                                         // "~" ifadesi ile tersini alýr (bu olmasa linecast sadece "8" nolu katmaný arar. Bu ifade ("~") varken sadece "8" nolu katmaný yoksayar)
+
+        lightt = GetComponent<Light2D>();       //yanýp sönen ýþýk ayarlarý
+
+        time = 0;
+        lightNrml = lightt.intensity;
+        lightMin = lightNrml - 0.6f;
+        lightMax = lightNrml + 0.6f;
 
         slow = 1;
         speed *= 100;
@@ -99,6 +111,12 @@ public class RangedAI : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (time < Time.time)   //ýþýk parlamasý için
+        {
+            time += 0.15f;
+            FirstOOP.LightSparkling(lightt, lightMax, lightMin, lightNrml, 0.2f);
+        }
+
         anim.speed = slow;
 
         if (!target) 
@@ -132,7 +150,6 @@ public class RangedAI : MonoBehaviour
             else if (rb.velocity.x < -0.08f) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
         }        
     }
-
 
     void Attack()
     {

@@ -41,5 +41,7 @@ public class Thunder : MonoBehaviour
         }
         GetComponent<Collider2D>().enabled = false;
         thunderExp.GetComponent<ParticleSystem>().Play();
+
+        CinemachineShake.instance.ShakeCamera(2f, 1f, 0.7f);
     }
 }

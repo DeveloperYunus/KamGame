@@ -20,6 +20,7 @@ public class Parallax : MonoBehaviour
         float temp = cam.transform.position.x * (1 - parallaxAmount);
 
         transform.position = new Vector2(startPos + dist, transform.position.y);
+        transform.localPosition = new(transform.localPosition.x, 0, transform.localPosition.z);
 
         if (temp > startPos + length) startPos += length;
         else if (temp < startPos - length) startPos -= length;

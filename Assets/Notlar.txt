@@ -23,14 +23,17 @@
 10- Melee boss'un kalkanýný EnmySword tagýna atadýk enemy mermileri içinden geçsin diye
 11- Kam thunderCheck collider a water ag'ýný atadýk ve artýk sadece enemy ile etkileþime giriyor
 12- Canýmýz %30'ýn altýna düþtümü ekranýn etrafýnda kan lekeleri beliriyor ve can azaldýkça dahada görünür oluyor
+13- Environmet layer (Sprite Layer) ýnda pek çok bitki farklý sýralarda, belki 150'ye kadar çýkýyor. O yüzden o katmana pek elleme.
+13.1- 500 sýralamasýna kadar normal ilerleme hakký var ordan sonrakiler çiçekler için. Çiçekler aðaç ve taþlaradn önde olsun diye
+14- Kam'ýn caný %20'nin altýna düþünce 
 
 
 
 GÖREVLER
 	
-	enemy fireballara sarý - turuncu ýþýk ekle
-	Kameranýn sarsýntý effectlerini ayarla
+	Can azken kamera kalp atýþý gibi içeri ve dýþarý gitsin gelsin
 
+	Karanlýk bolümlerin ground'unu çiz ve oyuna ekle
 	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
 	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
 

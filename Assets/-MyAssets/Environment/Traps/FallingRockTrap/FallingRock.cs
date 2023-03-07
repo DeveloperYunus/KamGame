@@ -29,13 +29,13 @@ public class FallingRock : MonoBehaviour
 
             if (other.CompareTag("Player"))
             {
-                other.GetComponent<KamHealth>().GetDamage(damage, 1);
+                other.GetComponent<KamHealth>().GetDamage(damage, 6);
                 //ete çarpma ses kodu
             }
 
             if(other.CompareTag("Enemy"))
             {
-                other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 1);
+                other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 6);
                 //ete çarpma ses kodu
             }
 

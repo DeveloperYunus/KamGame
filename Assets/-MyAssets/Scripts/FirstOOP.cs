@@ -25,7 +25,7 @@ public class FirstOOP : MonoBehaviour
     }
 
 
-    /// <param name="lightt">Kuvvet uygulanacak rigidbody </param>
+    /// <param name="lightt">Light2D componenti</param>
     /// <param name="diff">Iþýkdaki artýþ ve azalýþýn miktarý </param>
     public static void LightSparkling(Light2D lightt, float lMax, float lMin, float lNrml, float diff)
     {

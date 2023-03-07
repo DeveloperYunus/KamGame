@@ -50,6 +50,9 @@ public class ElecTrap : MonoBehaviour
             isActive = true;
             lightt.enabled = true;
 
+            if (Vector2.SqrMagnitude(GameObject.Find("Kam").transform.position - transform.position) < 121) //eðer kam ile aramda 11 in karesi kadar mesafe varsa ekran sarsýlmasýn
+                CinemachineShake.instance.ShakeCamera(2f, 1f, 0.7f);
+
             explode.Play();
             Destroy(gameObject, 0.5f);
         }        

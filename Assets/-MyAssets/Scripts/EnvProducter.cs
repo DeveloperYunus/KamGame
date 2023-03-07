@@ -94,6 +94,9 @@ public class EnvProducter : MonoBehaviour
         a.transform.position = new(grndX + Random.Range(range, negativeRng),
                                    grndY + 0.07f + a.GetComponent<SpriteRenderer>().sprite.bounds.size.y * size / 2, 0);
 
+        a.GetComponent<SpriteRenderer>().sortingOrder = EnvHolder.envAmount;
+        EnvHolder.envAmount++;
+
         GeySymmetry(a, size);
         return a;
     }
@@ -101,7 +104,8 @@ public class EnvProducter : MonoBehaviour
     {
         float b = Random.Range(flwrScale - 0.15f, flwrScale + 0.1f);
         GameObject a = InsEnv(envHldr.flwrMshrm[Random.Range(0, envHldr.flwrMshrm.Length)], b);
-        a.GetComponent<SpriteRenderer>().sortingOrder = 11;  //çýçekler ve mantarlar diðerlerinden önde olsun diye
+        a.GetComponent<SpriteRenderer>().sortingOrder = 500 + EnvHolder.envAmount;  //çýçekler ve mantarlar diðerlerinden önde olsun diye
+        EnvHolder.envAmount++;
 
         IsObjectFront(a, b);
     }
@@ -133,9 +137,11 @@ public class EnvProducter : MonoBehaviour
         int b = Random.Range(0, 5);
         if (b == 0)
         {
-            a.transform.position = new(grndX + Random.Range(range, negativeRng), grndY + (a.GetComponent<SpriteRenderer>().sprite.bounds.size.y * scale / 2) - 0.05f, 0);
+            a.transform.position = new(grndX + Random.Range(range, negativeRng),  grndY + (a.GetComponent<SpriteRenderer>().sprite.bounds.size.y * scale / 2) - 0.05f, 0);
+
             a.GetComponent<SpriteRenderer>().sortingLayerName = "Enemy";
-            a.GetComponent<SpriteRenderer>().sortingOrder = 11;
+            a.GetComponent<SpriteRenderer>().sortingOrder = 11 + EnvHolder.envAmount;
+            EnvHolder.envAmount++;
         }
     }
     void GeySymmetry(GameObject a, float b)
@@ -145,8 +151,6 @@ public class EnvProducter : MonoBehaviour
     }
 
  
-    
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

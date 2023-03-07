@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ public class KamController : MonoBehaviour
     public float checkRadius;
     public Transform groundCheck;
     public LayerMask whatIsGround;
-    public GameObject CMCamLeft, CMCamRight;
+    public GameObject camTarget;
 
     Rigidbody2D rb;
     float moveInput;
@@ -139,16 +140,9 @@ public class KamController : MonoBehaviour
             Scaler.x *= -1;
             transform.localScale = Scaler;
 
-            if (facingRight > 0)
-            {
-                CMCamLeft.SetActive(false);
-                CMCamRight.SetActive(true);
-            }
-            else
-            {
-                CMCamLeft.SetActive(true);
-                CMCamRight.SetActive(false);
-            }
+            camTarget.transform.DOKill();
+            camTarget.transform.localPosition = new(-camTarget.transform.localPosition.x, 0, 0);
+            camTarget.transform.DOLocalMoveX(2.5f, 2f);
         }
     }
     public void StopRun()                       //dýþarýdan kam'ýn hýzýný sýfýrlamak ve animasyonunu durdurmak için

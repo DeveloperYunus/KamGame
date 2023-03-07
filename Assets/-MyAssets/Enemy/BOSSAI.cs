@@ -4,6 +4,7 @@ using Pathfinding;
 using Cinemachine;
 using DG.Tweening;
 using TMPro.Examples;
+using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Seeker))]
 public class BOSSAI : MonoBehaviour
@@ -52,8 +53,7 @@ public class BOSSAI : MonoBehaviour
 
 
     [Header("Cinemachine")]
-    public CinemachineVirtualCamera leftCam;
-    public CinemachineVirtualCamera rightCam;
+    public CinemachineVirtualCamera cmCam;                      //cinamachine camera
     public float transSpeed;                                    //Kamera ortho size ve zaman degerlerinin ne kadar hýzlý deðiþeceðini belirler
 
     int mleAtkPhase;                                            //BOSS yakýn saldýrýya baþlayýnca zaman yavaþlasýn ve kamera yaklasþýn
@@ -61,16 +61,26 @@ public class BOSSAI : MonoBehaviour
     bool mleAtkFix;                                             //Melee saldýrý bittikden sonra zamaný ve camera ayarlarýný sadece bir kez sýfýrlasýn diye (start'da true baþlar)
 
 
+    float time, lightMax, lightMin, lightNrml;                  //ýþýk yanýp sönmesi için
+    Light2D lightt;
+
     void Start()
     {
         mask = (1 << 8) | (1 << 7) | (1 << 2) | (1 << 1);     //enemy layer ýný kaydeder    (enemy, transparanFX, dontClose, ignore raycast)
         mask = ~mask;                                         // "~" ifadesi ile tersini alýr (bu olmasa linecast sadece "8" nolu katmaný arar. Bu ifade ("~") varken sadece "8" nolu katmaný yoksayar)
 
+        lightt = GetComponent<Light2D>();       //yanýp sönen ýþýk ayarlarý
+
+        time = 0;
+        lightNrml = lightt.intensity;
+        lightMin = lightNrml - 0.45f;
+        lightMax = lightNrml + 0.45f;
+
         speed *= 100;
         bossPhase = 0;
         whichAtk = 0;
         mleAtkPhase = 0;
-        dfltOrthSize = leftCam.m_Lens.OrthographicSize;
+        dfltOrthSize = cmCam.m_Lens.OrthographicSize;
         canAtk = true;
         chaseCase = true;
         mleAtkFix = true;
@@ -95,9 +105,9 @@ public class BOSSAI : MonoBehaviour
 
         InvokeRepeating(nameof(UpdatePath), 0.5f, seekTime);
     }
-    private void Update()
+    void FixedUpdate()
     {
-        if (Time.time > hpRegenTime && eHp.health < eHp.sl.maxValue)
+        if (Time.time > hpRegenTime && eHp.health < eHp.sl.maxValue)        //can yenilenmesi kodu
         {
             hpRegenTime = Time.time + 1f;
             eHp.health += 1;
@@ -108,28 +118,29 @@ public class BOSSAI : MonoBehaviour
             eHp.sl.value = eHp.health;
             eHp.hpTxt.text = eHp.health.ToString("0.##");
         }
-    }
-    void FixedUpdate()
-    {
+
+        if (time < Time.time)   //ýþýk parlamasý için
+        {
+            time += 0.15f;
+            FirstOOP.LightSparkling(lightt, lightMax, lightMin, lightNrml, 0.22f);
+        }
+
         if (mleAtkPhase == 1)           //saldýrý baþladý zaman yavaþlasýn
         {
             Time.timeScale = Mathf.Lerp(Time.timeScale, 0.6f, transSpeed);
-            leftCam.m_Lens.OrthographicSize = Mathf.Lerp(leftCam.m_Lens.OrthographicSize, dfltOrthSize - 1.3f, transSpeed);
-            rightCam.m_Lens.OrthographicSize = Mathf.Lerp(rightCam.m_Lens.OrthographicSize, dfltOrthSize - 1.3f, transSpeed);
+            cmCam.m_Lens.OrthographicSize = Mathf.Lerp(cmCam.m_Lens.OrthographicSize, dfltOrthSize - 1.3f, transSpeed);
         }
         else if (mleAtkPhase == 2)      //saldýrý bitti zaman normalleþsin
         {
             Time.timeScale = Mathf.Lerp(Time.timeScale, 1f, transSpeed);
-            leftCam.m_Lens.OrthographicSize = Mathf.Lerp(leftCam.m_Lens.OrthographicSize, dfltOrthSize, transSpeed);
-            rightCam.m_Lens.OrthographicSize = Mathf.Lerp(rightCam.m_Lens.OrthographicSize, dfltOrthSize, transSpeed);
+            cmCam.m_Lens.OrthographicSize = Mathf.Lerp(cmCam.m_Lens.OrthographicSize, dfltOrthSize, transSpeed);
         }
         else if (!mleAtkFix)                            //ne 1 nede 2 deðilse zamaný ve kameralarý normal hallerine getir
         {
             mleAtkFix = true;
             Time.timeScale = 1;
 
-            leftCam.m_Lens.OrthographicSize = dfltOrthSize;
-            rightCam.m_Lens.OrthographicSize = dfltOrthSize;
+            cmCam.m_Lens.OrthographicSize = dfltOrthSize;
         }
 
         if (!target)        //bu satýrdan sonraki kodlar yol bulma kýsmýný ilgilendirdiriyor. Yani yol bulma iþlemleri tamamlanmadýysa alt satýrlara geçme

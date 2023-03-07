@@ -29,13 +29,13 @@ public class SpikeDamage : MonoBehaviour
         {
             if (!IsDownRise)
             {
-                other.GetComponent<KamHealth>().GetDamage(damage, 1);        //kam hasar alsýn ve yavaþlasýn;
+                other.GetComponent<KamHealth>().GetDamage(damage, 6);        //kam hasar alsýn ve yavaþlasýn;
                 /*if (a == 0) slash1.Play();
                 else slash2.Play();*/
             }
             else if (other.GetComponent<Rigidbody2D>().velocity.y < -0.05f)
             {
-                other.GetComponent<KamHealth>().GetDamage(damage * 0.65f, 1);        //kam hasar alsýn ve yavaþlasýn;
+                other.GetComponent<KamHealth>().GetDamage(damage * 0.65f, 6);        //kam hasar alsýn ve yavaþlasýn;
                 /*if (a == 0) slash1.Play();
                 else slash2.Play();*/
             }
@@ -45,7 +45,7 @@ public class SpikeDamage : MonoBehaviour
         {
             if (!IsDownRise)
             {
-                other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 1);    
+                other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 6);    
 
                 /*if (a == 0) slash1.Play();
                 else slash2.Play();*/

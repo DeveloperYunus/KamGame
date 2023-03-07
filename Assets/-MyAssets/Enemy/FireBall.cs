@@ -1,4 +1,6 @@
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class FireBall : MonoBehaviour
 {
@@ -9,10 +11,28 @@ public class FireBall : MonoBehaviour
 
     [HideInInspector] public bool canDmg;
 
+    float time, lightMax, lightMin, lightNrml;                      //ýþýk yanýp sönmesi için
+    Light2D lightt;
+
     private void Start()
     {
+        lightt = GetComponent<Light2D>();
+
+        time = 0;
+        lightNrml = lightt.intensity;
+        lightMin = lightNrml - 0.6f;
+        lightMax = lightNrml + 0.6f;
+
         canDmg = true;
         Invoke(nameof(Explode), destroyTime - 1f);
+    }
+    private void Update()
+    {
+        if (time < Time.time)
+        {
+            time += 0.15f;
+            FirstOOP.LightSparkling(lightt, lightMax, lightMin, lightNrml, 0.3f);
+        }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
