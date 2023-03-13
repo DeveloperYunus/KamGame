@@ -14578,7 +14578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boltExp: {fileID: 34450224071365789}
   damage: 0
-  destroyTime: 5
+  destroyTime: 1.3
 --- !u!1 &34450224574991171
 GameObject:
   m_ObjectHideFlags: 0

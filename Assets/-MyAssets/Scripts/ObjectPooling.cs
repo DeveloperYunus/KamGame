@@ -34,7 +34,7 @@ public class ObjectPooling
             return obje;
         }
 
-        return Object.Instantiate(prefab);
+        return Object.Instantiate(prefab, parent);
     }
 
     public void HavuzaObjeEkle(GameObject obje)

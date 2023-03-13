@@ -14,7 +14,7 @@ public class HPTextSendPool : MonoBehaviour
 
     IEnumerator SendPool()
     {
-        yield return new WaitForSeconds(2.1f);              //2.1 çünkü 2 sn de ancak tam yerine uleþýyor
+        yield return new WaitForSeconds(2.1f);              //2.1 çünkü 2 sn de ancak tam yerine uleþýyor (FloatingHP scripti)
         fhp.HavuzaObjeEkle(gameObject);
     }
 }

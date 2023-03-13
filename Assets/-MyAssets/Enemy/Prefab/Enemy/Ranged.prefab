@@ -5332,7 +5332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a76742afef77749ab05813d89028f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.7
+  speed: 3.6
   atkRange: 7
   nextWaypointDistance: 1.7
   seekTime: 0.5
@@ -5346,7 +5346,7 @@ MonoBehaviour:
     m_Bits: 64
   fireBall: {fileID: 1648301384536504856, guid: 6592c249539795c4389332e337ba0fdc, type: 3}
   muzzle: {fileID: 7894040832138141593}
-  atkDamage: 18
+  atkDamage: 17
   atkSpeed: 1.5
 --- !u!114 &3050103920356564726
 MonoBehaviour:
@@ -5360,11 +5360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 35
   armour: 10
   sl: {fileID: 4180876732225952028}
   hpTxt: {fileID: 1245524406846008525}
-  expValue: 7
+  expValue: 10
   dieParicle: {fileID: 4056010159392528362, guid: 035ba45c57f32a245b3d200383d62e23, type: 3}
 --- !u!114 &1477104079
 MonoBehaviour:

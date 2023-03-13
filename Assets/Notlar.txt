@@ -25,18 +25,8 @@
 12- Canýmýz %30'ýn altýna düþtümü ekranýn etrafýnda kan lekeleri beliriyor ve can azaldýkça dahada görünür oluyor
 13- Environmet layer (Sprite Layer) ýnda pek çok bitki farklý sýralarda, belki 150'ye kadar çýkýyor. O yüzden o katmana pek elleme.
 13.1- 500 sýralamasýna kadar normal ilerleme hakký var ordan sonrakiler çiçekler için. Çiçekler aðaç ve taþlaradn önde olsun diye
-14- Kam'ýn caný %20'nin altýna düþünce 
-
-
-
-GÖREVLER
-	
-	Can azken kamera kalp atýþý gibi içeri ve dýþarý gitsin gelsin
-
-	Karanlýk bolümlerin ground'unu çiz ve oyuna ekle
-	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
-	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
-
+14- Kam'ýn caný %20'nin altýna düþünce cameranýn kalp atýþý effekti aktifleþiyor
+15- Melee Boss 2 kare yukarý zýpalayamýyor, leveli ona göre tasarla
 
 
 
@@ -50,10 +40,6 @@ HATIRALAR (Temizlenmiþ Buglar)
 	6- Melee Boss a thunder ile vurunca hata veriyor çöz
 	7- BOSS yakýn saldýrýda bize 2 kez vuruyor, vurmasýn
 	8- BOSS thunder collider'a hasar veriyor (BOSS un saldýran kolunu DontClose layerýna aldýk)
-
-
-
-
 
 
 
@@ -84,5 +70,7 @@ RaycastHit2D checkWall = Physics2D.Linecast(transform.position, target.position 
 Ama o kýsýma bir layer yerleþtirisen "Ignore Raycast" layer ýnýda hesaplar
 
 
+	
+	DoTween Ýçin 
 
-	DoTween için Time.timeScale i görmezden gelmek için ".SetUpdate(true);" kullan
+Time.timeScale i görmezden gelmek için ".SetUpdate(true);" kullan

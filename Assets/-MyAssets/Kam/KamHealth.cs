@@ -1,3 +1,4 @@
+using Cinemachine;
 using DG.Tweening;
 using System.Collections;
 using System.ComponentModel;
@@ -27,17 +28,25 @@ public class KamHealth : MonoBehaviour
     [Tooltip("Level geçiþ yada yenidoðmak için")]public GameObject transitionPnl;
     [Tooltip("4 sn hiç birþey olmazsa deaktif olsun")] public GameObject hpUI;
     public Image screenBlood;
+    public CinemachineVirtualCamera cmVC;
     
     public static bool dead;
-    int dieTime; 
+    //int dieTime;                                              //kam 3 kez ölünce level tekrar baþlatýlabilir
     float uiFadeTime, thirtyPrcnOfHp;
+
+    bool hpBelow;
+    float timer, camOrthSize;                                   //zamanlayýcý ve cameranýn baþlangýçtaki ortho boyutu
 
     void Start()
     {
         instance = this;
         dead = false;
+        hpBelow = false;
+
+        timer = 0;
         hpRegenTime = 0;
-        dieTime = 0;
+        camOrthSize = cmVC.m_Lens.OrthographicSize;
+        //dieTime = 0;
 
         anim = GetComponent<Animator>();
         kc = GetComponent<KamController>();
@@ -64,13 +73,15 @@ public class KamHealth : MonoBehaviour
                 health = hpSl.maxValue;
 
             hpSl.value = health;
-            hpTxt.text = health.ToString("0.##");
+            hpTxt.text = health.ToString("0.#");
 
+            screenBlood.DOKill();
             if (health <= thirtyPrcnOfHp)                                  //ekrandaki screenBlood ýn transparanlýðýný artýrýr yada azaltýr
-            {
-                screenBlood.DOKill();
                 screenBlood.DOFade((thirtyPrcnOfHp - health) / thirtyPrcnOfHp, 0.2f);
-            }
+            else
+                screenBlood.DOFade(0, 0.5f);
+
+            if (health > hpSl.maxValue * 0.2f) hpBelow = false;             //can %20 den büyükse camera içeri dýþarý yapmasýn
         }
 
         if (uiFadeTime > 0)     //zamanla uý kýsmý gözden kaybolur
@@ -83,24 +94,42 @@ public class KamHealth : MonoBehaviour
             }
         }
 
-        /*
-        if (hpBelow)        //can %20'nin altýndamý
+        
+        if (hpBelow)        //can %20'nin altýndamý (o zaman kalp atýþý animasyonunun baþlat)
         {
-            timer += Time.deltaTime;            //can her ilk defa %20 'nin altýna indiðinde "timer" 'ý 1'e eþitle
+            timer += Time.deltaTime;            
 
-            if (timer%2==1)
-                float a = Mathf.Lerp();    //önce iceri girsin
+            if (timer < 0.6)
+            {
+                cmVC.m_Lens.OrthographicSize = Mathf.Lerp(cmVC.m_Lens.OrthographicSize, 4.6f, 0.15f);    //önce iceri girsin
+            }
             else
-                float a = Mathf.Lerp();    //sonra dýþarý çýksýn
+            {
+                cmVC.m_Lens.OrthographicSize = Mathf.Lerp(cmVC.m_Lens.OrthographicSize, camOrthSize, 0.15f);    //sonra dýþarý çýksýn
+
+                if (timer > 1.2f) timer = 0.01f;
+            }
         }
-        */
+        else if(timer > 0)
+        {
+            cmVC.m_Lens.OrthographicSize = Mathf.Lerp(cmVC.m_Lens.OrthographicSize, camOrthSize, 0.05f);    
+
+            if (cmVC.m_Lens.OrthographicSize > 4.95f)
+            {
+                cmVC.m_Lens.OrthographicSize = 5;
+                timer = 0;
+            }
+        }
 
 
-        if (Input.GetKeyUp(KeyCode.R))
+
+        if (Input.GetKeyUp(KeyCode.R))      //build alýrken sýfýrlanacak
         {
             PlayerPrefs.SetInt("expValue",0);                //xp deðerimi sýfýrlar artýr
             PlayerPrefs.SetInt("skillPoint", 0);             //yetenek puanýmý 1 artýr
-            PlayerPrefs.SetInt("level", 0);
+            PlayerPrefs.SetInt("level", 1);
+            exp = 0;
+            print("level sýfýrla, (bu kýsým silinecek)");
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -201,12 +230,17 @@ public class KamHealth : MonoBehaviour
 
         FadeUpHPUI();        
         hpSl.value = health;
-        hpTxt.text = health.ToString("0.##");
+        hpTxt.text = health.ToString("0.#");
 
         if (health <= thirtyPrcnOfHp)                                  //ekrandaki screenBlood ýn transparanlýðýný artýrýr yada azaltýr
         {
             screenBlood.DOKill();
             screenBlood.DOFade((thirtyPrcnOfHp - health) / thirtyPrcnOfHp, 0.2f);
+        }
+
+        if (health < hpSl.maxValue * 0.2f)      //cameranýn kalp atýþý için
+        {
+            hpBelow = true;
         }
     }
     void ShowFloatTxt(float dmg, int type) //yüzen sayýlar ile hasarý gösterir ve xp'yi gösterir
@@ -222,9 +256,9 @@ public class KamHealth : MonoBehaviour
             exp += expValue;
             PlayerPrefs.SetInt("expValue", exp);
 
-            if (exp >= 100)
+            if (exp >= 100)     //level'ý 1 artýr
             {
-
+                kc.levelUpPS.Play();
                 exp -= 100;
 
                 PlayerPrefs.SetInt("expValue", exp);                                        //xp deðerimi sýfýrlar artýr
@@ -233,6 +267,11 @@ public class KamHealth : MonoBehaviour
 
                 health = 100 + 15 * PlayerPrefs.GetInt("level");
                 armour = 10 + 2 * PlayerPrefs.GetInt("level");
+
+                percentArmour = armour * 0.01f;                 //can ve zýrh güncellendikten sonra UI ve hesaplama kýsýmlarýda güncellensin
+                hpTxt.text = health.ToString("0.#");
+                hpSl.maxValue = health;
+                hpSl.value = health;
             }
 
             ShowFloatTxt(expValue, 3);
@@ -250,7 +289,7 @@ public class KamHealth : MonoBehaviour
     {
         Time.timeScale = 0.5f;
         dead = true;
-        dieTime++;
+        //dieTime++;
 
         yield return new WaitForSeconds(0.5f);
         transitionPnl.GetComponent<RectTransform>().DOScale(1, 0);
@@ -261,8 +300,9 @@ public class KamHealth : MonoBehaviour
         GetComponent<KamAttack>().RebornBarrier(3);                         //öldükten sonra doðunca 3 sn hasar almasýn
 
         health = hpSl.maxValue;
+        hpBelow = false;
         hpSl.value = health;
-        hpTxt.text = health.ToString("0.##");
+        hpTxt.text = health.ToString("0.#");
         screenBlood.DOFade(0, 0f);
 
         Time.timeScale = 1;

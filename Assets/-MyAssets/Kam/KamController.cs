@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KamController : MonoBehaviour
@@ -15,14 +14,23 @@ public class KamController : MonoBehaviour
     public LayerMask whatIsGround;
     public GameObject camTarget;
 
-    Rigidbody2D rb;
-    float moveInput;
+    [Header("Particles")]
+    public ParticleSystem soilParticle;                 //soil particle
+    public ParticleSystem.EmissionModule soilPSEmis;                   //Soil particlenin emission modülü
+
+    public ParticleSystem jumpPS;
+    public ParticleSystem levelUpPS;
+
     [HideInInspector] public float slow;                                                        //hasar alýnca yavaþlamasý için (spike slow buna dahil)
     [HideInInspector] public int facingRight;
     [HideInInspector] public bool isGrounded;
     [HideInInspector] public bool canMove;
+    Rigidbody2D rb;
+    float moveInput;
+    float soilTime;                         //ayaklardan çýkan toprak için
     int goRight, goLeft;
     int extraJumpValue;
+    bool oneFallSound;                      //yere düþünce ses çýkmasý için
 
     Animator anim;
     [HideInInspector] public float animSlow;                                                    //saldýrýken yavaþlamasý için
@@ -32,7 +40,11 @@ public class KamController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
+        soilPSEmis = soilParticle.emission;
+
         canMove = true;
+        oneFallSound = false;
+
         slow = 1;
         facingRight = 1;
         extraJumpValue = extraJump;
@@ -51,23 +63,22 @@ public class KamController : MonoBehaviour
                     footStepTimer += Time.deltaTime;
                 else
                 {
-                    int a = Random.Range(0, 2);
-                    if (a == 0)
-                        audioManager.playSound("footStep1");
-                    else
-                        audioManager.playSound("footStep2");
+                    if (FirstOOP.FiftyChance()) audioManager.playSound("footStep1");
+                    else audioManager.playSound("footStep2");
 
                     footStepTimer = 0;
                 }
-            }
-            
+            }*/
+
             if (oneFallSound)
             {
-                audioManager.playSound("fallSoil1");
+                //audioManager.playSound("fallSoil1");
                 oneFallSound = false;
-            }*/
+                jumpPS.Play();
+            }
         }
-        //else if (rb.velocity.y < -0.05f) oneFallSound = true;
+        else if (rb.velocity.y < -0.05f) 
+            oneFallSound = true;
 
 
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
@@ -103,12 +114,21 @@ public class KamController : MonoBehaviour
             if (isGrounded)
             {
                 rb.velocity = new Vector2(moveInput * speed * animSlow * slow, rb.velocity.y);           //bunun sayesinde hýz her zamana sýfý normal fizik sstemlerini bozuyor o yüzden alttakini kullandýk
-                rb.drag = 0;
+                rb.drag = 0;                
             }
             else
             {
                 rb.AddForce(new Vector2(moveInput * speed * 60 * Time.deltaTime * animSlow * slow, 0));
                 rb.drag = 0.8f;
+            }
+
+            if (Time.time > soilTime)       //ayaðýmýzdan çýkan toprak için
+            {
+                soilTime = Time.time + 0.2f;
+                if (isGrounded && Mathf.Abs(rb.velocity.x) > 0.15f)
+                    soilPSEmis.rateOverTime = 10;
+                else
+                    soilPSEmis.rateOverTime = 0;
             }
 
             anim.speed = slow;                                                               //animasyonlarýn hýzýný ayarlar
@@ -121,11 +141,13 @@ public class KamController : MonoBehaviour
     {
         if (isGrounded)
         {
+            jumpPS.Play();
             rb.velocity = new Vector2 (rb.velocity.x, jumpForce* slow);
             //rb.AddForce(jumpForce * Vector2.up * slow);
         }
         else if (extraJump > 0)
         {
+            jumpPS.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce * slow);
             //rb.AddForce(jumpForce * Vector2.up * slow);
             extraJump--;
@@ -192,5 +214,3 @@ public class KamController : MonoBehaviour
         StartCoroutine(SetSlow(0.6f, 0.4f));
     }
 }
-
-//cmvc.GetCinemachineComponent<CinemachineFramingTransposer>().m_XDamping = 2f;     //x damping yada ofset böyle deðiþtirilir

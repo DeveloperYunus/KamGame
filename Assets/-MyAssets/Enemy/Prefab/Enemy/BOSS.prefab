@@ -19391,11 +19391,11 @@ MonoBehaviour:
   swordColl: {fileID: 1086681896514561245}
   fireBall: {fileID: 3898168114219470250, guid: dc439ec6f44cf0f4baa9863d5395d696, type: 3}
   muzzle: {fileID: 1543559668}
-  atkDamage: 1
-  atkSpeed: 3
+  atkDamage: 20
+  atkSpeed: 2.5
   meteor: {fileID: 7435714842919811885, guid: f396433cf7ea7904fbe3ec1c73c233cf, type: 3}
   originPos: {x: 186, y: 40}
-  meteorDamage: 8
+  meteorDamage: 12
   horizontalRng: 12
   numOfMeteor: 13
   speedX: 4
@@ -19413,8 +19413,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  armour: 30
+  health: 350
+  armour: 25
   sl: {fileID: 1086681895525195291}
   hpTxt: {fileID: 1086681896239512894}
   expValue: 100

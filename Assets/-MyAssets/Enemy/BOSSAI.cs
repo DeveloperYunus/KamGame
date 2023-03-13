@@ -3,7 +3,6 @@ using UnityEngine;
 using Pathfinding;
 using Cinemachine;
 using DG.Tweening;
-using TMPro.Examples;
 using UnityEngine.Rendering.Universal;
 
 [RequireComponent(typeof(Seeker))]
@@ -116,7 +115,7 @@ public class BOSSAI : MonoBehaviour
                 eHp.health = eHp.sl.maxValue;
 
             eHp.sl.value = eHp.health;
-            eHp.hpTxt.text = eHp.health.ToString("0.##");
+            eHp.hpTxt.text = eHp.health.ToString("0.#");
         }
 
         if (time < Time.time)   //ýþýk parlamasý için
@@ -321,6 +320,7 @@ public class BOSSAI : MonoBehaviour
             met.GetComponent<Transform>().position = new Vector2(X, originPos.y);
             met.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-speedX, speedX), 0);
             met.GetComponent<Meteor>().damage = meteorDamage;
+            met.GetComponent<CircleCollider2D>().enabled = true;
         }
     }
     void AttackReset()

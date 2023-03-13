@@ -19,6 +19,7 @@ public class Meteor : MonoBehaviour
         GetComponent<Rigidbody2D>().gravityScale = 1;
         GetComponent<SpriteRenderer>().enabled = true;
 
+        //Invoke(nameof(SendPool),3f);                  //bu aktif olunca gereksiz yere meteorlarý aktif halde iken takrar ceðýrýyor
         explode.Stop();
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,8 +31,10 @@ public class Meteor : MonoBehaviour
                 other.GetComponent<KamHealth>().GetDamage(damage, 6);        //6 = BOSS's meteor
             }
 
-            if(!other.CompareTag("Meteor"))
+            if (!other.CompareTag("Meteor"))
+            {
                 Explode();
+            }
         }
     }
 

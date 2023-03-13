@@ -1,0 +1,36 @@
+
+	1,2,3,4,6,7,8,9,11,12,13,14,16,17,18,19. Bölümler : genelde 10-13 enemy ve yollarýn çok uzun olmadýðý bölümler olsun  
+	5. Bölüm :  4 enemy + Melee Boss + 2)
+	10. Bölüm :  4 enemy + Ranged Boss + 2)
+	15. Bölüm :  5 enemy + Ranged Boss + Melee Boss
+	20. Bölüm : 8 enemy + BOSS (final)
+
+	Bölüm Baþý		: 4 spike 3 falling rock (maðaralarda)
+	Bütün bölümler  : Aralara hikayeyi ve güzel duygularý serpiþtir.
+
+
+Görevler
+
+	1. XP script'i + ayarlamasý					(Ranged ve Melee enemyler için)
+		- 108 xp kazansýn (100 + 100*0.08 = 108) %8 lik kýsým ihtiyat payý
+
+	2. Güç oranlamasý script'i + ayarlamasý		(Ranged ve Melee enemyler için)
+		- bölüm baþý kam %20 can artýþý ve %2 zýrh artýþý + yetenek yükseltmeleri, YANÝ : enemyler her bölüm tüm statlarýnda temel deðerlerin %15'i kadar bir artýþ kazansýnlar
+
+
+
+
+
+	3. Birinci bölümün resimleri ve türkçe - ingilizce metin + ses kayýtlarý
+		1. bölümün baþýnda sinematik olsun, sayfalar yanyana ilerlerken arkada bir ses olaylarý anlatsýn
+		- 1. Sayfa : Kam ormanlýk alanda ateþin baþýnda meditasyon yapsýn
+		- 2. Sayfa : Patlayan bir yanardaðýn resmi gözüksün
+		- 3. Sayfa : Ve yanardaðýn etrafýndan kötü canavarlar yeryüzüne çýksýn.
+
+		
+	4. 1. bölümü bitir, devamýný getir
+
+
+	Karanlýk bolümlerin ground'unu çiz ve oyuna ekle
+	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
+	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap

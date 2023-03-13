@@ -1119,8 +1119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
-  armour: 20
+  health: 120
+  armour: 15
   sl: {fileID: 6003283973945061144}
   hpTxt: {fileID: 7470228875207653747}
   expValue: 60
