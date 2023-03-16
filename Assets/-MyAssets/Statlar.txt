@@ -1,0 +1,51 @@
+
+	1,2,3,4,6,7,8,9,11,12,13,14,16,17,18,19. Bölümler : genelde 10-13 enemy ve yollarýn çok uzun olmadýðý bölümler olsun  
+	5. Bölüm :  4 enemy + Melee Boss + 2)
+	10. Bölüm :  4 enemy + Ranged Boss + 2)
+	15. Bölüm :  5 enemy + Ranged Boss + Melee Boss
+	20. Bölüm : 8 enemy + BOSS (final)
+
+	Bölüm Baþý		: 4 spike 3 falling rock (maðaralarda)
+	Bütün bölümler  : Aralara hikayeyi ve güzel duygularý serpiþtir.
+
+
+Görevler
+
+	XP script'i + ayarlamasý					(Ranged ve Melee enemyler için)
+		- 108 xp kazansýn (100 + 100*0.08 = 108) %8 lik kýsým ihtiyat payý
+
+	Güç oranlamasý script'i + ayarlamasý		(Ranged ve Melee enemyler için)
+		- bölüm baþý kam %20 can artýþý ve %2 zýrh artýþý + yetenek yükseltmeleri, YANÝ : enemyler her bölüm tüm statlarýnda temel deðerlerin %15'i kadar bir artýþ kazansýnlar
+
+
+
+
+
+	3. Birinci bölümün resimleri ve türkçe - ingilizce metin + ses kayýtlarý
+		1. bölümün baþýnda sinematik olsun, sayfalar yanyana ilerlerken arkada bir ses olaylarý anlatsýn
+		- 1. Sayfa : Kam ormanlýk alanda ateþin baþýnda meditasyon yapsýn
+		- 2. Sayfa : Patlayan bir yanardaðýn resmi gözüksün
+		- 3. Sayfa : Ve yanardaðýn etrafýndan kötü canavarlar yeryüzüne çýksýn.
+
+		
+	4. 1. bölümü bitir, devamýný getir
+
+
+	Karanlýk bolümlerin ground'unu çiz ve oyuna ekle
+	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
+	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
+
+
+
+
+	Uzun zaman önce, orta asyanýn bozkýrlarýnda yaþayan cengaver göçebe halklarýn koruyucusu; þair, din adamý ve alimliðiyle meþhur, yaþlarýný ve yaþayýþlarýný kimsenin bilmediði  
+	büyücüler vardý. Halk onlara KAM derdi. Ýnsanlarýn çok daha sonralarý milat olarak adlandýracaklarý tarihten evvel Kamlarýn sayýsý çoktu, asyanýn her yerinde insanlara yol 
+	gösterir doðayý korurlardý... Taaki, Tamudan gelip kuzeyde tecelli eden ateþe kadar. Birçoðu kendini kan ve canlarýyla bu büyük felaketi durdurma uðrunda harcamýþtý. 
+	Biz ise bu fedakar büyüklerden yalnýzca birinin yolculuðuna eþlik edeceðiz. Þimdilerde unutulmuþ olan bu adama eskilerde KAM derlerdi, biz ona YILDIRIM diyeceðiz.
+
+
+	Long ago, in the steppes of Central Asia, there were brave protectors of nomadic peoples, who were renowned as poets, religious leaders, and scholars, 
+	and whose ages and lifestyles were unknown. The people called them KAM. Before the era that people would later call the "common era," there were many KAMs, 
+	who guided people and protected nature throughout Asia... until the arrival of the fire that manifested in the north from Tamu. Many sacrificed themselves, 
+	using their blood and lives to stop this great evilness. However, we will only accompany one of these sacrificial great ones on their journey. 
+	This person was called KAM by the ancients, but we will call him YILDIRIM.
