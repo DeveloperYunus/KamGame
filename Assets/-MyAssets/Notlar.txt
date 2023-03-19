@@ -6,9 +6,11 @@
 4- PlayerPrefs.GetInt("thunder");							PauseMenu
 5- PlayerPrefs.GetInt("trap");								PauseMenu
 6- PlayerPrefs.GetInt("barrier");							PauseMenu
-7- PlayerPrefs.SetInt("language", index);					PauseMenu
+7- PlayerPrefs.SetInt("language", index);					PauseMenu - 0 = Turkish, 1 = English, ...		
 8- PlayerPrefs.GetInt("level", 1);							KamHealth - kam ýn seviyesi (en fazla 20 olur)
-	
+9- PlayerPrefs.SetInt("firsOpen", 1);						FirstScene - Ýlk açýlýþý kaydedecek olan playerprefs
+10- PlayerPrefs.GetInt("whichLevel", 1);					FirstScene - hangi seviyede akldýðýmýzý gösterir
+
 	NOTLAR
 
 1- Ranged ve Melee boslarýn blade ismindeki silahlarýnýn adýný deðiþtirme sakýn (onlarýn ismi ile fonksiyon çalýþýyor)
@@ -24,7 +26,7 @@
 11- Kam thunderCheck collider a water ag'ýný atadýk ve artýk sadece enemy ile etkileþime giriyor
 12- Canýmýz %30'ýn altýna düþtümü ekranýn etrafýnda kan lekeleri beliriyor ve can azaldýkça dahada görünür oluyor
 13- Environmet layer (Sprite Layer) ýnda pek çok bitki farklý sýralarda, belki 150'ye kadar çýkýyor. O yüzden o katmana pek elleme.
-13.1- 500 sýralamasýna kadar normal ilerleme hakký var ordan sonrakiler çiçekler için. Çiçekler aðaç ve taþlaradn önde olsun diye
+13. 1- 500 sýralamasýna kadar normal ilerleme hakký var ordan sonrakiler çiçekler için. Çiçekler aðaç ve taþlaradn önde olsun diye
 14- Kam'ýn caný %20'nin altýna düþünce cameranýn kalp atýþý effekti aktifleþiyor
 15- Melee Boss 2 kare yukarý zýpalayamýyor, leveli ona göre tasarla
 
