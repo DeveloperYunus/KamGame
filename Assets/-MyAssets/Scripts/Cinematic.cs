@@ -42,6 +42,7 @@ public class Cinematic : MonoBehaviour
 
     IEnumerator MovePictue()
     {
+        yield return new WaitForSeconds(2);
         if (PlayerPrefs.GetInt("language") == 0)        //dile göre lore'u seç ve sonra anlatmaya baþla
             clipSource.clip = trLore;
         else
@@ -49,7 +50,7 @@ public class Cinematic : MonoBehaviour
 
         clipSource.Play();
 
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(40);
         fadeImage.GetComponent<CanvasGroup>().DOFade(1, 3f);
         picture2.GetComponent<CanvasGroup>().DOFade(1, 0).SetDelay(3f);
         fadeImage.GetComponent<CanvasGroup>().DOFade(0, 3f).SetDelay(3.1f);
@@ -59,7 +60,7 @@ public class Cinematic : MonoBehaviour
         picture3.GetComponent<CanvasGroup>().DOFade(1, 0).SetDelay(3f);
         fadeImage.GetComponent<CanvasGroup>().DOFade(0, 3f).SetDelay(3.1f);
 
-        yield return new WaitForSeconds(15);
-        SceneManager.LoadScene("1");        //cinematic den sonra 1. sahneyi yükle
+        yield return new WaitForSeconds(20);
+        fadeImage.GetComponent<CanvasGroup>().DOFade(1, 3f).OnComplete(() => SceneManager.LoadScene("1"));
     }
 }

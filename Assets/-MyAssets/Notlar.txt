@@ -32,16 +32,16 @@
 
 
 
-HATIRALAR (Temizlenmiþ Buglar)
+	HATIRALAR (Temizlenmiþ Buglar)
 
-	1- Enemy bulletlar birbirlerini patlatýyor
-	2- Elecktrap in particle effect'ini uzunlamasýna deðil top þeklinde yap
-	3- Bolt iç içe düþmanlardan ikisinede hasar veriyor kalsýnmý kaldýralýmmý ---> Kalsýn
-	4- Boltlar duvarlarýn içinde spawn oluyor
-	5- Thunder max seviyede iç içe rakiplere katlanarak vuruyor, skill max olunca alan hasarý özelliði kaldýr.
-	6- Melee Boss a thunder ile vurunca hata veriyor çöz
-	7- BOSS yakýn saldýrýda bize 2 kez vuruyor, vurmasýn
-	8- BOSS thunder collider'a hasar veriyor (BOSS un saldýran kolunu DontClose layerýna aldýk)
+1- Enemy bulletlar birbirlerini patlatýyor
+2- Elecktrap in particle effect'ini uzunlamasýna deðil top þeklinde yap
+3- Bolt iç içe düþmanlardan ikisinede hasar veriyor kalsýnmý kaldýralýmmý ---> Kalsýn
+4- Boltlar duvarlarýn içinde spawn oluyor
+5- Thunder max seviyede iç içe rakiplere katlanarak vuruyor, skill max olunca alan hasarý özelliði kaldýr.
+6- Melee Boss a thunder ile vurunca hata veriyor çöz
+7- BOSS yakýn saldýrýda bize 2 kez vuruyor, vurmasýn
+8- BOSS thunder collider'a hasar veriyor (BOSS un saldýran kolunu DontClose layerýna aldýk)
 
 
 
@@ -76,3 +76,10 @@ Ama o kýsýma bir layer yerleþtirisen "Ignore Raycast" layer ýnýda hesaplar
 	DoTween Ýçin 
 
 Time.timeScale i görmezden gelmek için ".SetUpdate(true);" kullan
+
+
+
+
+
+CTRL + K + C yorum satýrý yapar
+CTRL + K + U yorum satýrýný normal satýr yapar

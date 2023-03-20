@@ -330,8 +330,12 @@ public class PauseMenu : MonoBehaviour
     }
     public void SettingsBtn()
     {
-        //gamePnl.GetComponent<RectTransform>().DOKill();
-        //settingsPnl.GetComponent<RectTransform>().DOKill();
+        gamePnl.GetComponent<RectTransform>().DOKill();
+        gamePnl.GetComponent<CanvasGroup>().DOKill();
+
+        settingsPnl.GetComponent<RectTransform>().DOKill();
+        settingsPnl.GetComponent<CanvasGroup>().DOKill();
+
         if (isSettingOpen)//kapatmaya baþla
         {
             isSettingOpen = !isSettingOpen;

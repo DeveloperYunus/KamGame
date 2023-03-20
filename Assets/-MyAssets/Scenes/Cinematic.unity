@@ -459,8 +459,8 @@ MonoBehaviour:
   UIpanel: {fileID: 1957030187}
   devamTxt: {fileID: 175179023}
   clipSource: {fileID: 1307184378}
-  trLore: {fileID: 0}
-  enLore: {fileID: 0}
+  trLore: {fileID: 8300000, guid: 132bfcb41f9aa7b41a5aed8945b6a028, type: 3}
+  enLore: {fileID: 8300000, guid: e859399b1bf5e944db7a84ed5aa57daa, type: 3}
 --- !u!82 &1307184378
 AudioSource:
   m_ObjectHideFlags: 0

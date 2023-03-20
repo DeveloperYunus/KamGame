@@ -23,9 +23,7 @@
 		- 3. Sayfa : Ve yanardaðýn etrafýndan kötü canavarlar yeryüzüne çýksýn.
 
 
-
-
-	Türkçe ve ingilizce sesleri kaydet temizle, cinematik sahnesine ekle)
+	Dark tile ýn içindeki sarý daireleri daha çok koyu yap ve tekrar kullan
 	1. bölümü bitir, test et
 	14 bölümü bitir
 
@@ -38,12 +36,22 @@
 
 
 
-	Uzun zaman önce, orta asyanýn bozkýrlarýnda yaþayan cengaver göçebe halklarýn koruyucusu; þair, din adamý ve alimliðiyle meþhur, yaþlarýný ve yaþayýþlarýný 
+	Uzun zaman önce, orta asyanýn bozkýrlarýnda ve yem yeþil ormanlarýnda yaþayan cengaver göçebe halklarýn koruyucusu; þair, din adamý ve alimliðiyle meþhur, yaþlarýný ve yaþayýþlarýný 
 	kimsenin bilmediði bilgeler vardý. Halk onlara KAM derdi. Ýnsanlarýn çok daha sonralarý milat olarak adlandýracaklarý tarihten evvel Kamlarýn sayýsý çoktu, asyanýn her 
 	yerinde insanlara yol gösterir doðayý korurlardý... Taaki, Tamudan gelip kuzeyde tecelli eden ateþe kadar. Birçoðu kendini kan ve canlarýyla bu büyük felaketi durdurma uðrunda 
 	harcamýþtý.	Biz ise bu fedakar büyüklerden yalnýzca birinin yolculuðuna eþlik edeceðiz. Þimdilerde unutulmuþ olan bu adama eskiler KAM derler idi, biz ise ona YILDIRIM diyeceðiz.
 
+	Long ago, in the steppes and lush forests of Central Asia, there were wise men who lived among the warrior nomadic tribes, serving as their protectors, poets, religious man, and scholars. 
+	Their ages and ways of life were unknown to anyone. People used to call them Kam. Before the era that people would later call BC, there were many KAMs, and they guided 
+	people and protected nature all over Asia... Until the fire arised in the north from Tamu. Many of them sacrificed themselves to stop this great evilness with their blood 
+	and lives. However, we will only accompany one of these great selfless individuals on his journey. The old ones used to call him KAM, but we will call him YILDIRIM.
 
 
-CTRL + K + C yorum satýrý yapar
-CTRL + K + U yorum satýrýný normal satýr yapar
+Audocity
+
+	effektler
+
+	- Bos bir yeri seçip gürültü azaltma profilini getiriyoruz
+	- ardýndan bütün sesi esçip gürültü azalt uygula yapýyoruz
+
+	- Normalleþtir
