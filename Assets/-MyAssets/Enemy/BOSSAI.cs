@@ -332,7 +332,7 @@ public class BOSSAI : MonoBehaviour
     {
         return Vector2.SqrMagnitude(transform.position - target.position) < rangedRngS;        
     }
-    /*bool TrgtInMleAtkDist()
+    /*bool TrgtInMleAtkDist()           //bunun için gerek yok ama ilerde eklenebilir diye dursun
     {
         return Vector2.SqrMagnitude(enemyBody.position - target.position) < meleeRngS;
     }*/

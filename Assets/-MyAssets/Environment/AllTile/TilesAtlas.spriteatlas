@@ -33,26 +33,11 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
-    - {fileID: 2800000, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 1740806190, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: -1024189897, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 1414234618, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 1975532671, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: -328353008, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: -1330303579, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 1961122070, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: -1070313619, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 290912306, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 67700775, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 1745168908, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 1900692276, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 1782416333, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
-  - {fileID: 2024455308, guid: ed4d54e45be2c354bbd3eeb79d114565, type: 3}
   - {fileID: -1419813609, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
   - {fileID: 64118009, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
   - {fileID: -787212080, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
@@ -68,20 +53,6 @@ SpriteAtlas:
   - {fileID: 2007953106, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
   - {fileID: -1497757886, guid: 97b79a9d046d169468a630c6e7133ead, type: 3}
   m_PackedSpriteNamesToIndex:
-  - DarkForestTiles_11
-  - DarkForestTiles_10
-  - DarkForestTiles_13
-  - DarkForestTiles_12
-  - DarkForestTiles_8
-  - DarkForestTiles_9
-  - DarkForestTiles_6
-  - DarkForestTiles_7
-  - DarkForestTiles_4
-  - DarkForestTiles_5
-  - DarkForestTiles_2
-  - DarkForestTiles_3
-  - DarkForestTiles_0
-  - DarkForestTiles_1
   - ForestTiles_8
   - ForestTiles_9
   - ForestTiles_6

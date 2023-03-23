@@ -4780,7 +4780,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 710030889
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9595,7 +9595,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 710030889
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -14438,7 +14438,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 710030889
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -19250,7 +19250,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 710030889
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -19397,7 +19397,7 @@ MonoBehaviour:
   originPos: {x: 186, y: 40}
   meteorDamage: 12
   horizontalRng: 12
-  numOfMeteor: 13
+  numOfMeteor: 1
   speedX: 4
   cmCam: {fileID: 0}
   transSpeed: 0.15
@@ -19439,7 +19439,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000035f62ac93fde44a
+  m_ApplyToSortingLayers: 00000000035f62ac93fde44a5342d446
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -19908,7 +19908,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1256521107
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 970188356767df243a51e8cf7235868d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -19942,8 +19942,8 @@ MonoBehaviour:
   - {fileID: 1086681894804842037}
   - {fileID: 1086681896331601735}
   m_Bounds:
-    m_Center: {x: 0.35920668, y: 2.900261, z: 0}
-    m_Extent: {x: 5.6551414, y: 7.2789726, z: 0}
+    m_Center: {x: 0.35922766, y: 2.9002686, z: 0}
+    m_Extent: {x: 5.6551337, y: 7.2789726, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0

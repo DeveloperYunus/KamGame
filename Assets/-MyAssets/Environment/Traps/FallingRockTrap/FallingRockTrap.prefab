@@ -4938,7 +4938,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.110551, y: 6.963084}
+  m_Size: {x: 7.7002935, y: 6.963084}
   m_EdgeRadius: 0
 --- !u!114 &165279496787908281
 MonoBehaviour:
@@ -4954,9 +4954,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyRockPS: {fileID: 165279498004532612}
   stonePiece: {fileID: 745693257448903005, guid: 1ab064c3290a4ec4f9061bd8ff3baaf2, type: 3}
-  damageAmount: 20
+  damageAmount: 25
   minRockAmount: 3
-  maxRockAmount: 4
+  maxRockAmount: 5
   minOran: 0.5
   maxOran: 0.6
   addForcePozitifX: 25

@@ -208,7 +208,11 @@ public class KamAttack : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(3 * kc.facingRight, -2), 5, kc.whatIsGround);
         bool ground = Physics2D.Raycast(transform.position, new Vector2(3 * kc.facingRight, -2), 5, kc.whatIsGround);
 
-        if (!ground) return;
+        if (!ground) //eðer raycast ucunda zemin yoksa electrap spawn etme ve cooldown'u sýfýrla
+        {
+            cldwnTrap.fillAmount = 0;
+            return;
+        }
         if (groundedTrap) Destroy(groundedTrap, 0.2f);
         
         GameObject a = Instantiate(trap, hit.point, Quaternion.identity);

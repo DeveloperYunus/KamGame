@@ -35,6 +35,11 @@ public class KamController : MonoBehaviour
     Animator anim;
     [HideInInspector] public float animSlow;                                                    //saldýrýken yavaþlamasý için
 
+    [Header("Text Target")]
+    public Transform kamText;
+    public Transform textTarget;
+    public float flwSpeed;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -99,6 +104,9 @@ public class KamController : MonoBehaviour
     private void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);              //yere deðiyormu kontrolu yapar
+
+        kamText.position = Vector3.Slerp(kamText.position, textTarget.position, flwSpeed);              //kam'ýn düþünce textininin kendini takip etmesini saðlar
+
 
         if (canMove)
         {

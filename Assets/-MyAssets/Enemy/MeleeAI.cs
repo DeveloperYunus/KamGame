@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System.Text.RegularExpressions;
 
 public class MeleeAI : MonoBehaviour
 {
@@ -35,17 +36,19 @@ public class MeleeAI : MonoBehaviour
     public float atkDamage, atkSpeed;
 
     Animator anim;
-    bool canAtk;
+    bool canAtk, canTurn;
 
     void Start()
     {
         slow = 1;
         speed *= 100;
         jumpForce *= 100;
-        jumpEnabled = false;
-        canAtk = true;
         NWPDSquare = nextWaypointDistance * nextWaypointDistance;
         seRngSquare = seeRange * seeRange;
+
+        jumpEnabled = false;
+        canAtk = true;
+        canTurn = true;
 
         target = GameObject.Find("Kam").transform;
         seeker = GetComponent<Seeker>();
@@ -110,13 +113,27 @@ public class MeleeAI : MonoBehaviour
             Invoke(nameof(JumpReset), 1.5f);
         }
 
-        if (rb.velocity.x > 0.08f) enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
-        else if (rb.velocity.x < -0.08f) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
+        if (canTurn)
+        {
+            if (rb.velocity.x > 0.08f) enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
+            else if (rb.velocity.x < -0.08f) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
+        }
     }
 
 
     void Attack()
     {
+        canTurn = false;
+
+        if (target.position.x - transform.position.x > 0)
+        {
+            enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);   //enemy saldýrýrken KAM'a baksýn           
+        }
+        else
+        {
+            enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
+        }
+
         anim.SetTrigger("attack");
         canAtk = false;
         Invoke(nameof(AttackReset), atkSpeed);
@@ -128,6 +145,7 @@ public class MeleeAI : MonoBehaviour
     void AttackReset()
     {
         canAtk = true;
+        canTurn = true;
     }
 
     bool TargetInAtkDist()

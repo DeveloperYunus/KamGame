@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
 
     [Header("Kam XP")]
     public Slider xpSl;
-    public TextMeshProUGUI level, currentXP, skillPnt;
+    public TextMeshProUGUI level, currentXP, skillPnt, levelString;
 
     [Header("Setting Panels")]
     public GameObject settingsPnl;
@@ -56,6 +56,7 @@ public class PauseMenu : MonoBehaviour
             if (!isPaused)      //þu anda kapalý o zaman açýlsýn
             {
                 RegenXPBar();
+                RegenTexts();
                 gameObject.GetComponent<RectTransform>().DOScale(1f, 0f);
                 gameObject.GetComponent<CanvasGroup>().DOFade(1, 0.2f).SetUpdate(true);
             }
@@ -123,7 +124,19 @@ public class PauseMenu : MonoBehaviour
         skillsLevel[2].text = PlayerPrefs.GetInt("trap").ToString();
         skillsLevel[3].text = PlayerPrefs.GetInt("barrier").ToString();
 
-        skillPnt.text = "+ " + PlayerPrefs.GetInt("skillPoint").ToString();
+        if (PlayerPrefs.GetInt("skillPoint") > 0)
+            skillPnt.text = "+ " + PlayerPrefs.GetInt("skillPoint").ToString();
+        else
+            skillPnt.text = null;
+
+        if (PlayerPrefs.GetInt("language") == 0)
+        {
+            levelString.text = "Seviye";
+        }
+        else
+        {
+            levelString.text = "Level";
+        }
 
         if (skillID == -1)      //skill yok tavsiye ver veya hikaye anlat
             skillDesc.text = RegenTips();
@@ -297,7 +310,6 @@ public class PauseMenu : MonoBehaviour
         xpSl.value = PlayerPrefs.GetInt("expValue");
         currentXP.text = PlayerPrefs.GetInt("expValue").ToString() + " / 100";
         level.text = PlayerPrefs.GetInt("level").ToString();
-        skillPnt.text = "+ " + PlayerPrefs.GetInt("skillPoint").ToString();
     }
 
     void OpenSkillImg()

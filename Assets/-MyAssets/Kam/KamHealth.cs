@@ -20,6 +20,7 @@ public class KamHealth : MonoBehaviour
     float pushStrong;
     float percentArmour;
     float hpRegenTime;
+    bool canMeleeDmg;                                           //enemySword lar peþpese hasar vermesin diye (ayný zamanda bazen bir kýlýç 2 kez hasar veriyordu)
 
     int exp;
     public static KamHealth instance;
@@ -32,7 +33,7 @@ public class KamHealth : MonoBehaviour
     
     public static bool dead;
     //int dieTime;                                              //kam 3 kez ölünce level tekrar baþlatýlabilir
-    float uiFadeTime, thirtyPrcnOfHp;
+    float uiFadeTime, thirtyPrcnOfHp;                           //bloodyScreen için
 
     bool hpBelow;
     float timer, camOrthSize;                                   //zamanlayýcý ve cameranýn baþlangýçtaki ortho boyutu
@@ -42,6 +43,7 @@ public class KamHealth : MonoBehaviour
         instance = this;
         dead = false;
         hpBelow = false;
+        canMeleeDmg = true;
 
         timer = 0;
         hpRegenTime = 0;
@@ -99,15 +101,15 @@ public class KamHealth : MonoBehaviour
         {
             timer += Time.deltaTime;            
 
-            if (timer < 0.6)
+            if (timer < 0.45)
             {
-                cmVC.m_Lens.OrthographicSize = Mathf.Lerp(cmVC.m_Lens.OrthographicSize, 4.6f, 0.15f);    //önce iceri girsin
+                cmVC.m_Lens.OrthographicSize = Mathf.Lerp(cmVC.m_Lens.OrthographicSize, 4.65f, 0.15f);    //önce iceri girsin
             }
             else
             {
                 cmVC.m_Lens.OrthographicSize = Mathf.Lerp(cmVC.m_Lens.OrthographicSize, camOrthSize, 0.15f);    //sonra dýþarý çýksýn
 
-                if (timer > 1.2f) timer = 0.01f;
+                if (timer > 0.9f) timer = 0.01f;
             }
         }
         else if(timer > 0)
@@ -134,8 +136,11 @@ public class KamHealth : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("EnmySword"))
+        if (other.CompareTag("EnmySword") && canMeleeDmg)
         {
+            canMeleeDmg = false;
+            Invoke(nameof(ResetMeleDmg), 0.25f);
+
             if (other.name == "Blade")
             {
                 enmySwordPos = other.GetComponent<Transform>().position;
@@ -303,11 +308,16 @@ public class KamHealth : MonoBehaviour
         hpBelow = false;
         hpSl.value = health;
         hpTxt.text = health.ToString("0.#");
-        screenBlood.DOFade(0, 0f);
 
         Time.timeScale = 1;
         yield return new WaitForSeconds(1f);
+        screenBlood.DOFade(0, 0f);
         transitionPnl.GetComponent<RectTransform>().DOScale(0, 0).SetDelay(0.5f);
         transitionPnl.GetComponent<CanvasGroup>().DOFade(0, 0.2f).SetDelay(0.3f);
+    }
+
+    void ResetMeleDmg()
+    {
+        canMeleeDmg = true;
     }
 }
