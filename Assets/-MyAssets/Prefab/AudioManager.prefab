@@ -44,5 +44,108 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3ebb398d1ea8c4fadeebc77c0770c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sl: {fileID: 0}
+  sounds:
+  - name: BoltExp1
+    clip: {fileID: 8300000, guid: d8b63d56c846bcf489cee59585646051, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BoltExp2
+    clip: {fileID: 8300000, guid: ae171ee23f42fde4ab2ab5715410b20c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BoltExp3
+    clip: {fileID: 8300000, guid: 9faca81fee21cf745bcc4649b5f419df, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Thunder
+    clip: {fileID: 8300000, guid: 85fac6d0917c25d48b0c93e850be87f1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ElkBarrier
+    clip: {fileID: 8300000, guid: e81d9f3753e95ea49a2aed99a990ecc0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ElkTrap1
+    clip: {fileID: 8300000, guid: 6c8572bdc90e5f94c8e6968e5d1c0fc1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ElkTrap2
+    clip: {fileID: 8300000, guid: aba8fb1c7a347744f9e91541192e166a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 6e8bdc61a8181b945bbc00bd144b0050, type: 3}
+    volume: 0.1
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: Fall
+    clip: {fileID: 8300000, guid: 2e587b8f9cbd46f47a1241c4bba9c2e7, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FootStep1
+    clip: {fileID: 8300000, guid: 1db88ad305991f24091246419baa438e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FootStep2
+    clip: {fileID: 8300000, guid: fedc0c7686bfb984ebbb4fa8b38b0076, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: HeartBeat
+    clip: {fileID: 8300000, guid: a7578e9c0270d304a8c1d5251ea2689c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: KamDie
+    clip: {fileID: 8300000, guid: 4c7cc81a01718ce4e9248c781eb94be1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LevelUp
+    clip: {fileID: 8300000, guid: c4805351b636eac408c2be2f6979e7fa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StaffSwo1
+    clip: {fileID: 8300000, guid: 673684bea2874f94f9ea8cdd96a36cf1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StaffSwo2
+    clip: {fileID: 8300000, guid: 50ad7f164805f7b4081a7f5b1095e969, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: WandHit
+    clip: {fileID: 8300000, guid: c7cd2ecf5872d464fa8150ef117da71a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   currentVolume: 0

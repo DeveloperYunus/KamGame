@@ -62,6 +62,7 @@ public class PauseMenu : MonoBehaviour
             }
             else      //þu anda açýk o zaman kapansýn
             {
+                isSettingOpen = false;
                 gameObject.GetComponent<RectTransform>().DOScale(0f, 0f).SetDelay(1f).SetUpdate(true);
                 gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.3f);
 

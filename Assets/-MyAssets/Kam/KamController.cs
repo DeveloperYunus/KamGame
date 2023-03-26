@@ -14,6 +14,8 @@ public class KamController : MonoBehaviour
     public LayerMask whatIsGround;
     public GameObject camTarget;
 
+    float footStpTmr;                                   //footStepTimer
+
     [Header("Particles")]
     public ParticleSystem soilParticle;                 //soil particle
     public ParticleSystem.EmissionModule soilPSEmis;                   //Soil particlenin emission modülü
@@ -40,10 +42,14 @@ public class KamController : MonoBehaviour
     public Transform textTarget;
     public float flwSpeed;
 
+    //Ses yönetimi için
+    AudioManager audioMngr;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioMngr = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         soilPSEmis = soilParticle.emission;
 
@@ -61,23 +67,23 @@ public class KamController : MonoBehaviour
         {
             extraJump = extraJumpValue;
 
-            /*
+            
             if (Mathf.Abs(rb.velocity.x) > 0.15f)
             {
-                if (footStepTimer <= 0.28f)
-                    footStepTimer += Time.deltaTime;
+                if (footStpTmr <= 0.43f)
+                    footStpTmr += Time.deltaTime;
                 else
                 {
-                    if (FirstOOP.FiftyChance()) audioManager.playSound("footStep1");
-                    else audioManager.playSound("footStep2");
+                    if (FirstOOP.FiftyChance()) audioMngr.PlaySound("FootStep1");
+                    else audioMngr.PlaySound("FootStep2");
 
-                    footStepTimer = 0;
+                    footStpTmr = 0;
                 }
-            }*/
+            }
 
             if (oneFallSound)
             {
-                //audioManager.playSound("fallSoil1");
+                audioMngr.PlaySound("Fall");
                 oneFallSound = false;
                 jumpPS.Play();
             }
@@ -149,12 +155,16 @@ public class KamController : MonoBehaviour
     {
         if (isGrounded)
         {
+            audioMngr.PlaySound("Jump");
+
             jumpPS.Play();
             rb.velocity = new Vector2 (rb.velocity.x, jumpForce* slow);
             //rb.AddForce(jumpForce * Vector2.up * slow);
         }
         else if (extraJump > 0)
         {
+            audioMngr.PlaySound("Jump");
+
             jumpPS.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce * slow);
             //rb.AddForce(jumpForce * Vector2.up * slow);

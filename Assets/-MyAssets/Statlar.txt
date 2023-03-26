@@ -6,8 +6,6 @@ Güç oranlamasý script'i + ayarlamasý		(Ranged ve Melee enemyler için)
 	- bölüm baþý kam %20 can artýþý ve %2 zýrh artýþý + yetenek yükseltmeleri, YANÝ : enemyler her bölüm tüm statlarýnda temel deðerlerin %15'i kadar bir artýþ kazansýnlar
 
 
-
-
 	1,2,3,4,6,7,8,9,11,12,13,14,16,17,18,19. Bölümler : genelde 10-13 enemy ve yollarýn çok uzun olmadýðý bölümler olsun  
 	5. Bölüm :  4 enemy + Melee Boss + 2)
 	10. Bölüm :  4 enemy + Ranged Boss + 2)
@@ -16,7 +14,6 @@ Güç oranlamasý script'i + ayarlamasý		(Ranged ve Melee enemyler için)
 
 	Bölüm Baþý		: 4 spike 3 falling rock (maðaralarda)
 	Bütün bölümler  : Aralara hikayeyi ve güzel duygularý serpiþtir.
-
 
 BÖLÜM ÜRETÝM AÞAMALARI
 	1- Tile'lar yerleþtirilir
@@ -51,57 +48,3 @@ GÖREVLER
 	Their ages and ways of life were unknown to anyone. People used to call them Kam. Before the era that people would later call BC, there were many KAMs, and they guided 
 	people and protected nature all over Asia... Until the fire arised in the north from Tamu. Many of them sacrificed themselves to stop this great evilness with their blood 
 	and lives. However, we will only accompany one of these great selfless individuals on his journey. The old ones used to call him KAM, but we will call him YILDIRIM.
-
-
-
-SESLER
-
-	KAM
-	- ayak sesleri
-	- bolt atma ve patlama sesleri, yýldýrým sesleri, yýldýrým tuzaðý sesleri, yýldýrým bariyeri sesleri
-	- zýplama ve yere inme sesleri
-	- ölme yada bir kaybetme sesi
-	- seviye alma sesi
-	- can azken kalp atýþ sesleri
-	- asa saavurma sesleri
-	- asayý yere vurma sesi
-	
-	MELEE ENEMY
-	- kýlýç savurma sesleri, kýlýçla et kesme sesleri
-	- ölme sesleri (taþ parçalanma sesi)
-	
-	RANGED ENEMY
-	- Ateþ yanma sesleri
-	- ateþ topu atma sesleri
-	- ateþ topu patlama sesleri
-
-	RANGED ve MELEE BOSS
-	- Býçak (daha çok balta gibi kalýn sesler) savurma sesleri 
-	- Býçakla (daha çok balta gibi kalýn sesler) kesme sesleri 
-	- Melee Boss için yürürken zýrhlý bir adam yürüme sesleri
-
-	BOSSS
-	- büyük ateþ topu sesleri
-	- Yanýna çekerken büyülü mistik müzik
-	- Meteor yaðmuru baþlatma müziði
-	- Meteorlar çarpýnca taþ parçalanma sesleri
-	- pence savurma sesi
-	- pence ile kesme sesleri
-
-	TUZAKLAR
-	- spike aktif olma sesleri, spike saplanma sesleri
-	- rock parçalanma sesi, rock ete carpma ve taþa carpma (enemyler için ) sesleri
-
-	BACKGROUND
-	- Sakin orman sesleri
-	- Destansý savaþ müziði
-	- maðaralarda atmosfer deðiþme iþinide yap, içeride kuþ sesleri duyulmasýn ve rüzgar sesi duyulsun.
-	- BOSS ilesavaþýp kazanýnca sakin ve rahat birzafer müziði çalsýn
-	- camp ateþi yanma sesi
-
-	UI
-	- Ahþap temalý button sesleri
-		- Language, sounds
-		- Ayarlar, menu, level select, first menuye dön ve restart level buttonlarý
-		- FirsLevel levelselect paneli açýlmasý için ses
-		- yetenek yükseltme sesleri

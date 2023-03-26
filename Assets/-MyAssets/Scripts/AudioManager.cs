@@ -1,8 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
+    public Slider sl;                                   //soundslider
     public Sound[] sounds;
     public static AudioManager instance;
     [HideInInspector] public float currentVolume;       //bu her ses ayarýnda güncellensin
@@ -24,6 +26,9 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         currentVolume = PlayerPrefs.GetFloat("soundLevel");
+        sl.value = currentVolume;
+        print(PlayerPrefs.GetFloat("soundLevel"));
+
         inCaveSound = 0;
         inCaveTimer = 0;
 
@@ -99,11 +104,15 @@ public class AudioManager : MonoBehaviour
         s.source.volume = volume * s.volume;
     }
 
-    public void SetGV(float volume)                     //Level select menu'deki SetGlobalVolume() fontksiyonu için yazýldý
+    public void SetGV()                     //Level select menu'deki SetGlobalVolume() fontksiyonu için yazýldý
     {
         PlaySound("slider");
-        currentVolume = volume;
-        SetSound("bgMusic", volume);
+        currentVolume = sl.value;
+        PlayerPrefs.SetFloat("soundLevel", currentVolume);
+
+        print(PlayerPrefs.GetFloat("soundLevel"));
+
+        SetSound("bgMusic", currentVolume);
     }
 }
 
