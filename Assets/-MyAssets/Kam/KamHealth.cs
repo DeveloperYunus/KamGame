@@ -120,6 +120,7 @@ public class KamHealth : MonoBehaviour
             {
                 cmVC.m_Lens.OrthographicSize = 5;
                 timer = 0;
+                AudioManager.instance.StopSound("HeartBeat");               //can arttý kalp atýþ iþlemi dursun
             }
         }
 
@@ -148,7 +149,17 @@ public class KamHealth : MonoBehaviour
             }
 
             if (other.GetComponent<EnemySword>())
+            {
+                if (other.GetComponent<EnemySword>().dmgKind == 1)  //demekki normal melee enemy
+                {
+                    if (FirstOOP.FiftyChance())
+                        AudioManager.instance.PlaySound("Slash1");
+                    else
+                        AudioManager.instance.PlaySound("Slash2");
+                }
+
                 GetDamage(other.GetComponent<EnemySword>().damage, other.GetComponent<EnemySword>().dmgKind);
+            }
         }
 
         if (other.CompareTag("EnmyBullet"))
@@ -166,18 +177,20 @@ public class KamHealth : MonoBehaviour
             {
                 CinemachineShake.instance.ShakeCamera(1f, 1f, 0.3f);
             }
-            else if (dmgKind == 2)   //hasar türü 2 ise hit nimasyonunu çalýþtýr
+            else if (dmgKind == 2)   //hasar türü 2 ise hit animasyonunu çalýþtýr - Mle Boss ilk saldýrý
             {
                 anim.SetTrigger("hit");
                 StartCoroutine(kc.SetSlow(0.2f, 0.8f));
 
+                AudioManager.instance.PlaySound("MleSlash1");
                 CinemachineShake.instance.ShakeCamera(1, 1.5f, 0.4f);
             }
-            else if (dmgKind == 3)   //hasar türü 3 ise hit nimasyonunu çalýþtýr ve karakteri it
+            else if (dmgKind == 3)   //hasar türü 3 ise hit nimasyonunu çalýþtýr ve karakteri it - Mle Boss 2. saldýrý (stan atan saldýrý)
             {
                 anim.SetTrigger("hit");
                 StartCoroutine(kc.SetSlow(0.2f, 0.8f));
 
+                AudioManager.instance.PlaySound("MleSlash2");
                 CinemachineShake.instance.ShakeCamera(1.4f, 1.5f, 0.7f);
 
                 int a;
@@ -185,11 +198,12 @@ public class KamHealth : MonoBehaviour
                 else a = 1;
                 StartCoroutine(kc.StopWalkAndPush(0.5f, new Vector2(a, 0), pushStrong));
             }
-            else if (dmgKind == 4)   //hasar türü 4 ise hit nimasyonunu çalýþtýr ve karakteri it (mage boss)
+            else if (dmgKind == 4)   //hasar türü 4 ise hit nimasyonunu çalýþtýr ve karakteri it - Rng Boss
             {
                 anim.SetTrigger("hit");
                 StartCoroutine(kc.SetSlow(0.4f, 1f));
 
+                AudioManager.instance.PlaySound("RngSlash");
                 CinemachineShake.instance.ShakeCamera(1.4f, 1.5f, 1.1f);
 
                 int a;
@@ -245,6 +259,7 @@ public class KamHealth : MonoBehaviour
 
         if (health < hpSl.maxValue * 0.2f)      //cameranýn kalp atýþý için
         {
+            AudioManager.instance.PlaySoundOne("HeartBeat");
             hpBelow = true;
         }
     }
@@ -263,6 +278,7 @@ public class KamHealth : MonoBehaviour
 
             if (exp >= 100)     //level'ý 1 artýr
             {
+                AudioManager.instance.PlaySound("LevelUp");
                 kc.levelUpPS.Play();
                 exp -= 100;
 
@@ -292,6 +308,7 @@ public class KamHealth : MonoBehaviour
     }
     IEnumerator Die()
     {
+        AudioManager.instance.PlaySound("KamDie");
         Time.timeScale = 0.5f;
         dead = true;
         //dieTime++;

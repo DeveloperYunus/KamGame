@@ -27,8 +27,7 @@ public class SpikeTrapActive : MonoBehaviour
 
     IEnumerator TrapIsActivate()
     {
-        if (FirstOOP.FiftyChance()) spikes.GetComponent<SpikeDamage>().triggered1.Play();
-        else spikes.GetComponent<SpikeDamage>().triggered2.Play();
+        spikes.GetComponent<SpikeDamage>().triggered1.Play();
 
         spikes.GetComponent<Transform>().DOLocalMoveY(-0.6f, 0.2f);
  
@@ -41,8 +40,7 @@ public class SpikeTrapActive : MonoBehaviour
             spikeShadows[i].GetComponent<SpriteRenderer>().DOFade(1, 0.15f);
         }
 
-        int b = Random.Range(0, 2);
-        if (b == 0) spikes.GetComponent<SpikeDamage>().pikeUp1.Play();
+        if (FirstOOP.FiftyChance()) spikes.GetComponent<SpikeDamage>().pikeUp1.Play();
         else spikes.GetComponent<SpikeDamage>().pikeUp2.Play();
 
         spikes.GetComponent<BoxCollider2D>().enabled = true;

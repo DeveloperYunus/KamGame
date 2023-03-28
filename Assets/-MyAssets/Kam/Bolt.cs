@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -11,16 +10,20 @@ public class Bolt : MonoBehaviour
     float time, lightMax, lightMin, lightNrml;
     Light2D lightt;
 
+    bool canSoundable;                      //boltlar cok uzakta patlayýnca ses cýkamalarý tuhaf oluyor diye bu var
+
     private void Start()
     {
         lightt = GetComponent<Light2D>();
 
         time = 0;
+        canSoundable = true;
+
         lightNrml = lightt.intensity;
         lightMin = lightNrml - 0.4f;
         lightMax = lightNrml + 0.4f;
 
-        Invoke(nameof(Explode), destroyTime - 0.4f);
+        Invoke(nameof(StartExp), destroyTime - 0.4f);
     }
     private void Update()
     {
@@ -39,8 +42,25 @@ public class Bolt : MonoBehaviour
         Explode();
     }
 
+    void StartExp()
+    {
+        canSoundable = false;
+        Explode();
+    }
+
     public void Explode()
     {
+        if (canSoundable)
+        {
+            int a = Random.Range(1, 3);
+            if (a == 0)
+                AudioManager.instance.PlaySound("BoltExp1");
+            else if (a == 1)
+                AudioManager.instance.PlaySound("BoltExp2");
+            else
+                AudioManager.instance.PlaySound("BoltExp3");
+        }
+
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<ParticleSystem>().Stop();

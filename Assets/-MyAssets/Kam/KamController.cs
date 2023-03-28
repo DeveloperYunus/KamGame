@@ -42,14 +42,10 @@ public class KamController : MonoBehaviour
     public Transform textTarget;
     public float flwSpeed;
 
-    //Ses yönetimi için
-    AudioManager audioMngr;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        audioMngr = GameObject.Find("AudioManager").GetComponent<AudioManager>();
 
         soilPSEmis = soilParticle.emission;
 
@@ -74,8 +70,8 @@ public class KamController : MonoBehaviour
                     footStpTmr += Time.deltaTime;
                 else
                 {
-                    if (FirstOOP.FiftyChance()) audioMngr.PlaySound("FootStep1");
-                    else audioMngr.PlaySound("FootStep2");
+                    if (FirstOOP.FiftyChance()) AudioManager.instance.PlaySound("FootStep1");
+                    else AudioManager.instance.PlaySound("FootStep2");
 
                     footStpTmr = 0;
                 }
@@ -83,7 +79,7 @@ public class KamController : MonoBehaviour
 
             if (oneFallSound)
             {
-                audioMngr.PlaySound("Fall");
+                AudioManager.instance.PlaySound("Fall");
                 oneFallSound = false;
                 jumpPS.Play();
             }
@@ -155,7 +151,7 @@ public class KamController : MonoBehaviour
     {
         if (isGrounded)
         {
-            audioMngr.PlaySound("Jump");
+            AudioManager.instance.PlaySound("Jump");
 
             jumpPS.Play();
             rb.velocity = new Vector2 (rb.velocity.x, jumpForce* slow);
@@ -163,7 +159,7 @@ public class KamController : MonoBehaviour
         }
         else if (extraJump > 0)
         {
-            audioMngr.PlaySound("Jump");
+            AudioManager.instance.PlaySound("Jump");
 
             jumpPS.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce * slow);

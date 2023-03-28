@@ -16,6 +16,11 @@ public class FireBall : MonoBehaviour
 
     private void Start()
     {
+        if (FirstOOP.FiftyChance())
+            AudioManager.instance.PlaySound("FireBallGo1");
+        else
+            AudioManager.instance.PlaySound("FireBallGo2");
+
         lightt = GetComponent<Light2D>();
 
         time = 0;
@@ -42,6 +47,12 @@ public class FireBall : MonoBehaviour
 
     void Explode()
     {
+        if (FirstOOP.FiftyChance())
+            AudioManager.instance.PlaySound("FireBallExp1");
+        else
+            AudioManager.instance.PlaySound("FireBallExp2");
+
+
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<ParticleSystem>().Stop();

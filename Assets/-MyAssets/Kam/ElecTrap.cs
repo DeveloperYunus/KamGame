@@ -50,6 +50,11 @@ public class ElecTrap : MonoBehaviour
             isActive = true;
             lightt.enabled = true;
 
+            if (FirstOOP.FiftyChance())
+                AudioManager.instance.PlaySound("ElkTrap1");
+            else
+                AudioManager.instance.PlaySound("ElkTrap2");
+
             if (Vector2.SqrMagnitude(GameObject.Find("Kam").transform.position - transform.position) < 121) //eðer kam ile aramda 11 in karesi kadar mesafe varsa ekran sarsýlmasýn
                 CinemachineShake.instance.ShakeCamera(2f, 1f, 0.7f);
 

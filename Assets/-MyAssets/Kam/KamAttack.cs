@@ -1,8 +1,6 @@
-using DG.Tweening;
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
@@ -121,6 +119,11 @@ public class KamAttack : MonoBehaviour
         anim.SetTrigger("atk");
         animTransition = 0.6f;
         kc.animSlow = 0.3f;
+
+        if (FirstOOP.FiftyChance())
+            AudioManager.instance.PlaySound("StaffSwo1");
+        else
+            AudioManager.instance.PlaySound("StaffSwo2");
         KamHealth.instance.FadeUpHPUI();
     }
     void Thunder()
@@ -130,7 +133,7 @@ public class KamAttack : MonoBehaviour
         kc.animSlow = 0.2f;
 
         cldwnThunder.fillAmount = 1;
-        KamHealth.instance.FadeUpHPUI();        
+        KamHealth.instance.FadeUpHPUI();
     }
     void Barrier()
     {
@@ -178,6 +181,7 @@ public class KamAttack : MonoBehaviour
         a.GetComponent<Thunder>().damage = thunderDmg * PlayerPrefs.GetInt("thunder");*/
 
         List<GameObject> enemies = colliderr.GetComponent<ThunderRadius>().ClosestEnemy();
+        AudioManager.instance.PlaySound("Thunder");
 
         if (enemies.Count != 0)//icerde adam varsa ona hasar ver
         {
@@ -224,6 +228,8 @@ public class KamAttack : MonoBehaviour
         isBarrierActv = true;
         lightt.enabled = true;
         barrier.Play();
+        
+        AudioManager.instance.PlaySound("ElkBarrier");
 
         StartCoroutine(BarrierDuration(barrierDuration * PlayerPrefs.GetInt("barrier")));
     }
@@ -232,6 +238,8 @@ public class KamAttack : MonoBehaviour
         isBarrierActv = true;
         lightt.enabled = true;
         barrier.Play();
+
+        AudioManager.instance.PlaySound("ElkBarrier");
 
         StartCoroutine(BarrierDuration(time));
     }
@@ -242,5 +250,7 @@ public class KamAttack : MonoBehaviour
         isBarrierActv = false;
         lightt.enabled = false;
         barrier.Stop();
+
+        AudioManager.instance.StopSound("ElkBarrier");      //bariyer kapanýnca ses dekapansýn
     }
 }

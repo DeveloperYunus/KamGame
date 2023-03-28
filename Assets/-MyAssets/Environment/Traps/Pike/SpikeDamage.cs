@@ -11,7 +11,6 @@ public class SpikeDamage : MonoBehaviour
     public static float playerAnimatorSpeed, playerNewSpeed;
 
     public AudioSource triggered1;
-    public AudioSource triggered2;
     public AudioSource slash1, slash2;
     public AudioSource pikeUp1, pikeUp2;
 
@@ -25,19 +24,27 @@ public class SpikeDamage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         int a = Random.Range(0, 2);
+        float b = PlayerPrefs.GetFloat("soundLevel");
+
+        slash1.volume = b;
+        slash2.volume = b;
+        pikeUp1.volume = b;
+        pikeUp2.volume = b;
+        triggered1.volume = b;
+
         if (other.CompareTag("Player"))
         {
             if (!IsDownRise)
             {
                 other.GetComponent<KamHealth>().GetDamage(damage, 6);        //kam hasar alsýn ve yavaþlasýn;
-                /*if (a == 0) slash1.Play();
-                else slash2.Play();*/
+                if (a == 0) slash1.Play();
+                else slash2.Play();
             }
             else if (other.GetComponent<Rigidbody2D>().velocity.y < -0.05f)
             {
                 other.GetComponent<KamHealth>().GetDamage(damage * 0.65f, 6);        //kam hasar alsýn ve yavaþlasýn;
-                /*if (a == 0) slash1.Play();
-                else slash2.Play();*/
+                if (a == 0) slash1.Play();
+                else slash2.Play();
             }
             other.GetComponent<KamController>().slow = 0.5f;
         }
@@ -47,14 +54,14 @@ public class SpikeDamage : MonoBehaviour
             {
                 other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 6);    
 
-                /*if (a == 0) slash1.Play();
-                else slash2.Play();*/
+                if (a == 0) slash1.Play();
+                else slash2.Play();
             }
             else if (other.GetComponentInParent<Rigidbody2D>().velocity.y < -0.05f)
             {
                 other.GetComponentInParent<EnemyHealth>().GetDamage(damage * 0.65f, 1);
-                /*if (a == 0) slash1.Play();
-                else slash2.Play();     */
+                if (a == 0) slash1.Play();
+                else slash2.Play();     
             }
 
             if (other.GetComponentInParent<MeleeAI>()) other.GetComponentInParent<MeleeAI>().slow = 0.65f;

@@ -54,8 +54,8 @@ public class MleBossAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         swordColl.GetComponent<EnemySword>().damage = atkDamage;
-        swordColl.GetComponent<EnemySword>().dmgKind = 2;                       //1= normal saldýrý, 2= stan atn saldýrý
-        swordColl.GetComponent<EnemySword>().pushStrong = pushStrong;                       //1= normal saldýrý, 2= stan atn saldýrý
+        swordColl.GetComponent<EnemySword>().dmgKind = 2;                       //1= normal saldýrý, 2= stan atan saldýrý
+        swordColl.GetComponent<EnemySword>().pushStrong = pushStrong;                       
         startPos = transform.position;
         enemyBody = transform.GetChild(0);
         bodyScale = enemyBody.transform.localScale.x;
@@ -120,6 +120,8 @@ public class MleBossAI : MonoBehaviour
 
     void Attack()
     {
+        AudioManager.instance.PlaySound("MleSwosh");
+
         if (target.position.x - transform.position.x > 0) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
         else enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
 

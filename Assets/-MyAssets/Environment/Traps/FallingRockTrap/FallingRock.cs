@@ -6,7 +6,10 @@ public class FallingRock : MonoBehaviour
 {
     public bool isGiveDamage;
     public float damage;
-    
+
+    public AudioSource toFlesh1, toFlesh2;
+    public AudioSource toGround1, toGround2;
+
     bool oneTime;
     float zaman;
 
@@ -21,22 +24,37 @@ public class FallingRock : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        float b = PlayerPrefs.GetFloat("soundLevel");
+
+        toFlesh1.volume = b;
+        toFlesh2.volume = b;
+        toGround2.volume = b;
+        toGround2.volume = b; 
+
+
         if (isGiveDamage && !other.CompareTag("Meteor"))
         {
             isGiveDamage = false;
             StartCoroutine(SetLayer());
-            int a = Random.Range(0, 3);
 
             if (other.CompareTag("Player"))
             {
                 other.GetComponent<KamHealth>().GetDamage(damage, 6);
-                //ete çarpma ses kodu
+
+                if (FirstOOP.FiftyChance())
+                    toFlesh1.Play();
+                else
+                    toFlesh2.Play();
             }
 
             if(other.CompareTag("Enemy"))
             {
                 other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 6);
-                //ete çarpma ses kodu
+
+                if (FirstOOP.FiftyChance())
+                    toFlesh1.Play();
+                else
+                    toFlesh2.Play();
             }
 
             if (oneTime && other.CompareTag("Ground"))
@@ -44,7 +62,11 @@ public class FallingRock : MonoBehaviour
                 oneTime = false;
                 isGiveDamage = false;
                 gameObject.layer = 10;  //FallRock
-                //yere çarpma ses kodu
+
+                if (FirstOOP.FiftyChance())
+                    toGround1.Play();               
+                else
+                    toGround2.Play();               
             }
         }
     }

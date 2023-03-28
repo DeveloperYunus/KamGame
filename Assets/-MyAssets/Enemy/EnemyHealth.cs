@@ -63,6 +63,24 @@ public class EnemyHealth : MonoBehaviour
 
     void Die() 
     {
+        if (GetComponent<MeleeAI>() || GetComponent<RangedAI>())
+        {
+            if (FirstOOP.FiftyChance())
+                AudioManager.instance.PlaySound("EnmyDie");
+            else
+                AudioManager.instance.PlaySound("EnmyDie1");
+        }
+        else if (GetComponent<RngdBossAI>())
+        {
+            AudioManager.instance.PlaySound("EnmyDie2");
+        }
+        else if (GetComponent<MleBossAI>())
+        {
+            AudioManager.instance.PlaySound("EnmyDie");
+            AudioManager.instance.PlaySound("EnmyDie1");
+        }
+
+
         KamHealth.instance.GainExp(expValue);                       //Kam'ýn içinden +7xp yazan text cýkartýr
 
         Instantiate(dieParicle, transform.position, Quaternion.Euler(-90, 0, 0));

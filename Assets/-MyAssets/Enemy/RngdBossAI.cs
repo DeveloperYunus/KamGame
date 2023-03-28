@@ -149,6 +149,8 @@ public class RngdBossAI : MonoBehaviour
     }
     void MeleeAttack()
     {
+        AudioManager.instance.PlaySound("RngSwoosh");
+
         if (target.position.x - transform.position.x > 0) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
         else enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
 

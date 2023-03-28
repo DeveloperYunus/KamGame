@@ -29,6 +29,12 @@ BÖLÜM ÜRETÝM AÞAMALARI
 
 GÖREVLER
 	sesleri ekle
+		- Wolf 
+		- Normal Fight 
+		- Game Won
+		- Mini Boss appear
+
+	Ses Optimizasyonunu yap
 	14 bölümü bitir
 
 	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun

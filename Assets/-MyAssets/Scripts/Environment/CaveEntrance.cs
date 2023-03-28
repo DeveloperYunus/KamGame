@@ -9,6 +9,7 @@ public class CaveEntrance : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AudioManager.inCave = true;
+            AudioManager.instance.inCaveTimer = 1.5f;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -16,6 +17,7 @@ public class CaveEntrance : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             AudioManager.inCave = false;
+            AudioManager.instance.inCaveTimer = 1.5f;
         }
     }
 }

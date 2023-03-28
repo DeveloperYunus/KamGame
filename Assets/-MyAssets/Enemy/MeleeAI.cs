@@ -123,6 +123,8 @@ public class MeleeAI : MonoBehaviour
 
     void Attack()
     {
+        Invoke(nameof(AttackSD), 0.33f);
+
         canTurn = false;
 
         if (target.position.x - transform.position.x > 0)
@@ -157,6 +159,13 @@ public class MeleeAI : MonoBehaviour
         return Vector2.SqrMagnitude(enemyBody.position - target.position) < seRngSquare;
     }
 
+    void AttackSD()                         //Saldýrý sesi gecikmesi için gerekli
+    {
+        if (FirstOOP.FiftyChance())
+            AudioManager.instance.PlaySound("Swosh1");
+        else
+            AudioManager.instance.PlaySound("Swosh2");
+    }
 
     private void OnDrawGizmosSelected()
     {

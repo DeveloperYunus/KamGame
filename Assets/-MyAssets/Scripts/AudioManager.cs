@@ -1,16 +1,19 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     public Slider sl;                                   //soundslider
+    public bool isBurning;                              //Yanan levelleri gelince bunu etkinleþtirecez ve yanma bg sesi çalacak
     public Sound[] sounds;
     public static AudioManager instance;
     [HideInInspector] public float currentVolume;       //bu her ses ayarýnda güncellensin
 
     public static bool inCave;                          //magaranýn içindemiyiz dýþýndamýyýz
-    float bgTimer, inCaveTimer;                         //background müziklerinin timer kýsmý ve magaraya girince hesaplamalarý ksýtlý süreliðine yapmasý için süre sayacý
+    [HideInInspector] public float inCaveTimer;         //magaraya girince hesaplamalarý ksýtlý süreliðine yapmasý için süre sayacý
+    float bgTimer;                                      //background müziklerinin timer kýsmý sayacý 
     float inCaveSound;
     string currentBGMelody;
 
@@ -26,8 +29,7 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         currentVolume = PlayerPrefs.GetFloat("soundLevel");
-        sl.value = currentVolume;
-        print(PlayerPrefs.GetFloat("soundLevel"));
+        sl.value = currentVolume * 10;
 
         inCaveSound = 0;
         inCaveTimer = 0;
@@ -45,20 +47,24 @@ public class AudioManager : MonoBehaviour
     {
         if (bgTimer < 0)
         {
-            if (FirstOOP.FiftyChance())
+            if (!isBurning)
             {
-                //bgTimer = clip'in uzunluðu + 2;
-                PlaySound("forestBG1");
-                currentBGMelody = "forestBG1";
-            }
-            else
-            {
-                //bgTimer = clip'in uzunluðu + 2;
-                PlaySound("forestBG2");
-                currentBGMelody = "forestBG2";
+                if (FirstOOP.FiftyChance())
+                {
+                    bgTimer = GetClip("Forest1").length;
+                    PlaySound("Forest1");
+                    currentBGMelody = "Forest1";
+                }
+                else
+                {
+                    bgTimer = GetClip("Forest2").length;
+                    PlaySound("Forest2");
+                    currentBGMelody = "Forest2";
+                }
             }
         }
-        else bgTimer -= Time.deltaTime;
+        else 
+            bgTimer -= Time.deltaTime;
 
         if (inCaveTimer > 0)
         {
@@ -66,20 +72,18 @@ public class AudioManager : MonoBehaviour
 
             if (inCave)
             {
-                inCaveTimer = 1.5f;
+                inCaveSound = Mathf.Lerp(inCaveSound, 1, 0.06f);
+                PlaySoundOne("Cave");
 
-                inCaveSound = Mathf.Lerp(inCaveSound, 1, 0.1f);
-                PlaySound("caveBG");
-
-                SetSound(currentBGMelody, 1 - inCaveSound);             //mevcut bg yi sýfýra doðru götür
-                SetSound("caveBG", inCaveSound);
+                SetSound(currentBGMelody, (1 - inCaveSound) * currentVolume);             //mevcut bg yi sýfýra doðru götür
+                SetSound("Cave", inCaveSound * currentVolume);
             }
             else
             {
-                inCaveSound = Mathf.Lerp(inCaveSound, 0, 0.1f);
+                inCaveSound = Mathf.Lerp(inCaveSound, 0, 0.06f);
 
-                SetSound(currentBGMelody, 1 - inCaveSound);
-                SetSound("caveBG", inCaveSound);
+                SetSound(currentBGMelody, (1 - inCaveSound) * currentVolume);
+                SetSound("Cave", inCaveSound * currentVolume);
             }
         }
     }
@@ -91,6 +95,19 @@ public class AudioManager : MonoBehaviour
         SetSound(name, currentVolume);
         s.source.Play();
     }
+    /// <summary>   Hali hazýrda çalmakta olan seslei caldýrmaz.   </summary>
+    public void PlaySoundOne(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return;
+
+        if (!s.source.isPlaying)                                                    //eðer bu ses çalmýyorsa bu sesi çal
+        {   
+            SetSound(name, currentVolume);
+            s.source.Play();
+        }
+    }
+
     public void StopSound(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);                  
@@ -103,14 +120,18 @@ public class AudioManager : MonoBehaviour
         if (s == null) return;
         s.source.volume = volume * s.volume;
     }
+    public AudioClip GetClip(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null) return null;
+        return s.clip;
+    }
 
     public void SetGV()                     //Level select menu'deki SetGlobalVolume() fontksiyonu için yazýldý
     {
         PlaySound("slider");
-        currentVolume = sl.value;
+        currentVolume = sl.value * 0.1f;
         PlayerPrefs.SetFloat("soundLevel", currentVolume);
-
-        print(PlayerPrefs.GetFloat("soundLevel"));
 
         SetSound("bgMusic", currentVolume);
     }
