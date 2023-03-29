@@ -75,10 +75,11 @@ public class FirstScene : MonoBehaviour
 
     public void GoLevels(string index)
     {
+        AudioManager.instance.PlaySound("WoodBtn");
+
         sceneFade.GetComponent<RectTransform>().DOScale(1, 0);
         sceneFade.DOFade(1, 2f).OnComplete(() =>                        //sahneyi kapatan siyah ekran açýldýktan sonra
         {
-
             SceneManager.LoadScene(index);
         });
     }
@@ -109,6 +110,8 @@ public class FirstScene : MonoBehaviour
 
     public void ResetGame()
     {
+        AudioManager.instance.PlaySound("WoodBtn");
+
         yesTxt.transform.parent.GetComponent<RectTransform>().DOKill();
         yesTxt.transform.parent.GetComponent<RectTransform>().DOScale(1, 0.8f).SetEase(Ease.OutBack);
         yesTxt.transform.parent.GetComponent<RectTransform>().DOScale(0, 0.3f).SetEase(Ease.InBack).SetDelay(2f);
@@ -116,6 +119,8 @@ public class FirstScene : MonoBehaviour
 
     public void AbsouleteResetGame()
     {
+        AudioManager.instance.PlaySound("WoodBtn");
+
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("FirstLevel");
     }

@@ -15,11 +15,11 @@ public class LevelFinished : MonoBehaviour
     {
         caveTilemap.color = Color.white;
 
-        levelEndImg.DOFade(1, 0);
-        levelEndImg.GetComponent<RectTransform>().DOScale(1, 0);
+        levelEndImg.DOFade(1, 0).SetUpdate(true);
+        levelEndImg.GetComponent<RectTransform>().DOScale(1, 0).SetUpdate(true);
 
-        levelEndImg.DOFade(0, sceneOpenTime);
-        levelEndImg.GetComponent<RectTransform>().DOScale(0, 0).SetDelay(sceneOpenTime);
+        levelEndImg.DOFade(0, sceneOpenTime).SetUpdate(true);
+        levelEndImg.GetComponent<RectTransform>().DOScale(0, 0).SetDelay(sceneOpenTime).SetUpdate(true);
 
     }
 
@@ -27,10 +27,13 @@ public class LevelFinished : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            levelEndImg.DOFade(1, sceneCloseTime);
-            levelEndImg.GetComponent<RectTransform>().DOScale(1, 0);
+            PlayerPrefs.SetString("whichLevel", (int.Parse(SceneManager.GetActiveScene().name) + 1).ToString());        //mevcut levelin 1 fazlasýný kaydet
 
-            PlayerPrefs.SetInt("whichLevel", int.Parse(SceneManager.GetActiveScene().name) + 1);        //mevcut levelin 1 fazlasýný kaydet
+            levelEndImg.GetComponent<RectTransform>().DOScale(1, 0).SetUpdate(true);
+            levelEndImg.DOFade(1, sceneCloseTime).SetUpdate(true).OnComplete(()=> 
+            {
+                SceneManager.LoadScene(PlayerPrefs.GetString("whichLevel"));                                                //ve mevcut levelin 1 fazlasýný yükle
+            });
         }
     }
 }

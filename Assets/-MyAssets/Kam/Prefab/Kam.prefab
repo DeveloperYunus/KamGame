@@ -19825,7 +19825,6 @@ MonoBehaviour:
   slow: 0
   facingRight: 0
   isGrounded: 0
-  canMove: 0
   animSlow: 0
   kamText: {fileID: 0}
   textTarget: {fileID: 1026585289}

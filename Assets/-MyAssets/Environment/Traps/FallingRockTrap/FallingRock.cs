@@ -4,16 +4,15 @@ using DG.Tweening;
 
 public class FallingRock : MonoBehaviour
 {
-    public bool isGiveDamage;
-    public float damage;
+    [HideInInspector] public bool isGiveDamage;
+    [HideInInspector] public float damage;
+    [HideInInspector] public float liveTime;
 
     public AudioSource toFlesh1, toFlesh2;
     public AudioSource toGround1, toGround2;
 
     bool oneTime;
-    float zaman;
 
-    [HideInInspector] public float liveTime;
 
     private void Start()
     {
@@ -30,7 +29,6 @@ public class FallingRock : MonoBehaviour
         toFlesh2.volume = b;
         toGround2.volume = b;
         toGround2.volume = b; 
-
 
         if (isGiveDamage && !other.CompareTag("Meteor"))
         {

@@ -28,12 +28,15 @@ public class Cinematic : MonoBehaviour
     public void LanguageBtn(int index)
     {
         PlayerPrefs.SetInt("language", index);
+        AudioManager.instance.PlaySound("WoodBtn");
 
         if (index == 0) devamTxt.text = "Devam...";
         else            devamTxt.text = "Continue...";
     }
     public void Continue()
     {
+        AudioManager.instance.PlaySound("WoodBtn");
+
         UIpanel.DOFade(0, 1f);
 
         fadeImage.GetComponent<CanvasGroup>().DOFade(0, 3f).SetDelay(2f);

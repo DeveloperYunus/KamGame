@@ -159,11 +159,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGiveDamage: 0
   damage: 0
+  liveTime: 0
   toFlesh1: {fileID: 7213048028180525790}
   toFlesh2: {fileID: 8333016290166855685}
   toGround1: {fileID: 7964049485002470377}
   toGround2: {fileID: 8755444504808408799}
-  liveTime: 0
 --- !u!82 &7964049485002470377
 AudioSource:
   m_ObjectHideFlags: 0
@@ -184,8 +184,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 10
+  MinDistance: 5
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -280,8 +280,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 10
+  MinDistance: 5
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -376,8 +376,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 10
+  MinDistance: 5
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -472,8 +472,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 10
+  MinDistance: 5
+  MaxDistance: 20
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

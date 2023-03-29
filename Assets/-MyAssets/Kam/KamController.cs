@@ -26,7 +26,7 @@ public class KamController : MonoBehaviour
     [HideInInspector] public float slow;                                                        //hasar alýnca yavaþlamasý için (spike slow buna dahil)
     [HideInInspector] public int facingRight;
     [HideInInspector] public bool isGrounded;
-    [HideInInspector] public bool canMove;
+    [HideInInspector] public static bool canMove;
     Rigidbody2D rb;
     float moveInput;
     float soilTime;                         //ayaklardan çýkan toprak için
@@ -62,8 +62,7 @@ public class KamController : MonoBehaviour
         if (isGrounded)
         {
             extraJump = extraJumpValue;
-
-            
+          
             if (Mathf.Abs(rb.velocity.x) > 0.15f)
             {
                 if (footStpTmr <= 0.43f)
@@ -100,8 +99,7 @@ public class KamController : MonoBehaviour
 
         if (canMove)
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-                Jump();
-        
+                Jump();        
     }
     private void FixedUpdate()
     {

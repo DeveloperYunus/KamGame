@@ -260,7 +260,7 @@ public class BOSSAI : MonoBehaviour
     }
     void MeleeAttack()
     {
-        target.GetComponent<KamController>().canMove = false;
+        KamController.canMove = false;
         target.GetComponent<KamController>().StopRun();
 
         if (target.position.x - transform.position.x > 0)
@@ -293,7 +293,7 @@ public class BOSSAI : MonoBehaviour
     void ReleaseKam()
     {
         mleAtkPhase = 2;    //zaman normale dönsün
-        target.GetComponent<KamController>().canMove = true;        
+        KamController.canMove = true;        
     }
     public IEnumerator Meteor()
     {

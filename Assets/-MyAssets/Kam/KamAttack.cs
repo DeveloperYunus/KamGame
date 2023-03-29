@@ -60,7 +60,7 @@ public class KamAttack : MonoBehaviour
     }
     void Update()
     {
-        if (animTransition <= 0)
+        if (animTransition <= 0 && KamController.canMove)
         {
             if (kc.animSlow != 1)
                 kc.animSlow = 1;

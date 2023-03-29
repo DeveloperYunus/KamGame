@@ -50,11 +50,15 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Escape)) 
         {
+            AudioManager.instance.PlaySound("GamePause");
+
             gameObject.GetComponent<RectTransform>().DOKill();
             gameObject.GetComponent<CanvasGroup>().DOKill();
 
             if (!isPaused)      //þu anda kapalý o zaman açýlsýn
             {
+                KamController.canMove = false;
+
                 RegenXPBar();
                 RegenTexts();
                 gameObject.GetComponent<RectTransform>().DOScale(1f, 0f);
@@ -62,6 +66,8 @@ public class PauseMenu : MonoBehaviour
             }
             else      //þu anda açýk o zaman kapansýn
             {
+                KamController.canMove = true;
+
                 isSettingOpen = false;
                 gameObject.GetComponent<RectTransform>().DOScale(0f, 0f).SetDelay(1f).SetUpdate(true);
                 gameObject.GetComponent<CanvasGroup>().DOFade(0, 0.3f);
@@ -111,6 +117,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("skillPoint") > 0 && PlayerPrefs.GetInt(skillHolder) < 5)
         {
+            AudioManager.instance.PlaySound("SkillUp");
             PlayerPrefs.SetInt(skillHolder, PlayerPrefs.GetInt(skillHolder) + 1);
             PlayerPrefs.SetInt("skillPoint", PlayerPrefs.GetInt("skillPoint") - 1);
 
@@ -322,6 +329,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SelectLanguage(int index)                //0 = Turkish, 1 = English, ...
     {
+        AudioManager.instance.PlaySound("WoodBtn");
         PlayerPrefs.SetInt("language", index);
 
         switch (index)
@@ -343,6 +351,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void SettingsBtn()
     {
+        AudioManager.instance.PlaySound("WoodBtn");
         gamePnl.GetComponent<RectTransform>().DOKill();
         gamePnl.GetComponent<CanvasGroup>().DOKill();
 
@@ -372,6 +381,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void RestartLevel()
     {
+        AudioManager.instance.PlaySound("WoodBtn");
+
         skillHolder = null;
         PlayerPrefs.SetInt("bolt",1);
         PlayerPrefs.SetInt("thunder",0);
@@ -383,6 +394,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void QuitToMenu()                             //oyun sahnesinden ana menüye gider
     {
+        AudioManager.instance.PlaySound("WoodBtn");
 
     }
 }

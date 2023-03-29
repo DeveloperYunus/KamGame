@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
@@ -17,6 +16,8 @@ public class AudioManager : MonoBehaviour
     float inCaveSound;
     string currentBGMelody;
 
+    bool isSlFirst;                                     //Bu olmazsa oyun açýldýðýnda slider sesi çalýyor
+
     void Awake()
     {
         if (instance == null)
@@ -28,12 +29,6 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        currentVolume = PlayerPrefs.GetFloat("soundLevel");
-        sl.value = currentVolume * 10;
-
-        inCaveSound = 0;
-        inCaveTimer = 0;
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -42,6 +37,14 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
         }
+
+        isSlFirst = true;
+
+        currentVolume = PlayerPrefs.GetFloat("soundLevel");
+        sl.value = currentVolume * 10;
+
+        inCaveSound = 0;
+        inCaveTimer = 0;
     }
     private void Update()
     {
@@ -129,11 +132,16 @@ public class AudioManager : MonoBehaviour
 
     public void SetGV()                     //Level select menu'deki SetGlobalVolume() fontksiyonu için yazýldý
     {
-        PlaySound("slider");
+        if (!isSlFirst)
+            PlaySound("SoundSlider");
+
+        isSlFirst = false;
+
         currentVolume = sl.value * 0.1f;
         PlayerPrefs.SetFloat("soundLevel", currentVolume);
 
-        SetSound("bgMusic", currentVolume);
+        SetSound(currentBGMelody, (1 - inCaveSound) * currentVolume);             //mevcut bg yi sýfýra doðru götür
+        SetSound("Cave", inCaveSound * currentVolume);
     }
 }
 

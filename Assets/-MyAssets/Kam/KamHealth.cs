@@ -28,12 +28,14 @@ public class KamHealth : MonoBehaviour
     [Header("UI")]
     [Tooltip("Level geçiþ yada yenidoðmak için")]public GameObject transitionPnl;
     [Tooltip("4 sn hiç birþey olmazsa deaktif olsun")] public GameObject hpUI;
+    public float warSoundVlm;
     public Image screenBlood;
     public CinemachineVirtualCamera cmVC;
     
     public static bool dead;
     //int dieTime;                                              //kam 3 kez ölünce level tekrar baþlatýlabilir
-    float uiFadeTime, thirtyPrcnOfHp;                           //bloodyScreen için
+    float uiFadeTime, thirtyPrcnOfHp;                           //kam genel UI kýsmý zamanla ortadan kaybolsun diye ve bloodyScreen için
+    float warSoundTime;                                         //Kam savaþtan çýkýnca savaþ muziði sussun diye
 
     bool hpBelow;
     float timer, camOrthSize;                                   //zamanlayýcý ve cameranýn baþlangýçtaki ortho boyutu
@@ -96,7 +98,20 @@ public class KamHealth : MonoBehaviour
             }
         }
 
-        
+        if (warSoundTime > 0)     //zamanla warSound sönsün 
+        {
+            warSoundTime -= Time.deltaTime;
+            if (warSoundTime <= 0)  
+            {
+                hpUI.GetComponent<AudioSource>().DOKill();
+                hpUI.GetComponent<AudioSource>().DOFade(0f * PlayerPrefs.GetFloat("soundLevel"), 3f).OnComplete(() =>
+                {
+                    hpUI.GetComponent<AudioSource>().Stop();
+                });
+            }
+        }
+
+
         if (hpBelow)        //can %20'nin altýndamý (o zaman kalp atýþý animasyonunun baþlat)
         {
             timer += Time.deltaTime;            
@@ -247,7 +262,9 @@ public class KamHealth : MonoBehaviour
             }
         }
 
-        FadeUpHPUI();        
+        FadeUpHPUI();
+        WarSoundFade();
+
         hpSl.value = health;
         hpTxt.text = health.ToString("0.#");
 
@@ -306,6 +323,17 @@ public class KamHealth : MonoBehaviour
         hpUI.GetComponent<CanvasGroup>().DOFade(1, 0.7f);
         uiFadeTime = 7;
     }
+    public void WarSoundFade()
+    {
+        warSoundTime = 4f;
+
+        if (!hpUI.GetComponent<AudioSource>().isPlaying)
+            hpUI.GetComponent<AudioSource>().Play();       //müzik çalmýyorsa çalmaya baþlasýn
+
+        hpUI.GetComponent<AudioSource>().DOKill();
+        hpUI.GetComponent<AudioSource>().DOFade(warSoundVlm * PlayerPrefs.GetFloat("soundLevel"), 2f);
+    }
+
     IEnumerator Die()
     {
         AudioManager.instance.PlaySound("KamDie");

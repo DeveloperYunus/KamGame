@@ -27,19 +27,17 @@ BÖLÜM ÜRETÝM AÞAMALARI
 
 
 
-GÖREVLER
-	sesleri ekle
-		- Wolf 
-		- Normal Fight 
-		- Game Won
-		- Mini Boss appear
+GÖREVLER		
+	- 1. bölüme konuþmalarý ekle (2-3 cumle)
 
-	Ses Optimizasyonunu yap
+	5,10 ve 15. bölümlerde boss maðarasýna girerken Mini Boss appear sesi çýksýn
 	14 bölümü bitir
 
 	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
 	19. bölüme kadar tamamla
 
+	
+	20. bölümün seslerini ekle (BOSS dosyasýndadýr)		- Wolf, Game Won seslerinide ekle
 	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
 	20. bölümü bitir
 
