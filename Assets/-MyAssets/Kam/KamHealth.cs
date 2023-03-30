@@ -325,7 +325,7 @@ public class KamHealth : MonoBehaviour
     }
     public void WarSoundFade()
     {
-        warSoundTime = 4f;
+        warSoundTime = 5f;
 
         if (!hpUI.GetComponent<AudioSource>().isPlaying)
             hpUI.GetComponent<AudioSource>().Play();       //müzik çalmýyorsa çalmaya baþlasýn

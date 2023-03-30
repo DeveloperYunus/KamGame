@@ -15,20 +15,20 @@ Güç oranlamasý script'i + ayarlamasý		(Ranged ve Melee enemyler için)
 	Bölüm Baþý		: 4 spike 3 falling rock (maðaralarda)
 	Bütün bölümler  : Aralara hikayeyi ve güzel duygularý serpiþtir.
 
+
 BÖLÜM ÜRETÝM AÞAMALARI
-	1- Tile'lar yerleþtirilir
-	1- EnvProducer'lar yerleþtirilir
-	1- Baþlangýç ve son'a Wall'lar yerleþtirilir. (duvarlar - kam haritanýn sýnýrýndan düþmesin diye)
-	1- 2D Light lar yerleþtirilip ayarlanýr.
-	1- Enemyler yeleþtirilir.
-	1- Tuzaklar yerleþtirilecek
-	1- CheckPoint noktalarý yerleþtirilir.
-	- Var ise KAM'ýn konuþma colliderlarýnýn yerleþtir.
+	2- Tile'lar yerleþtirilir
+	2- EnvProducer'lar yerleþtirilir
+	2- Baþlangýç ve son'a Wall'lar yerleþtirilir. (duvarlar - kam haritanýn sýnýrýndan düþmesin diye)
+	2- 2D Light lar yerleþtirilip ayarlanýr.
+	2- Tuzaklar yerleþtirilecek
+	2- CheckPoint noktalarý yerleþtirilir.
+	2- Var ise KAM'ýn konuþma colliderlarýnýn yerleþtir.
+	2- Enemyler yeleþtirilir.
 
 
 
 GÖREVLER		
-	- 1. bölüme konuþmalarý ekle (2-3 cumle)
 
 	5,10 ve 15. bölümlerde boss maðarasýna girerken Mini Boss appear sesi çýksýn
 	14 bölümü bitir
@@ -36,7 +36,6 @@ GÖREVLER
 	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
 	19. bölüme kadar tamamla
 
-	
 	20. bölümün seslerini ekle (BOSS dosyasýndadýr)		- Wolf, Game Won seslerinide ekle
 	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
 	20. bölümü bitir

@@ -2368,7 +2368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spikes: {fileID: 2049077210460668828}
-  damage: 25
+  damage: 30
   spikeShadows:
   - {fileID: 2049077209914403445}
   - {fileID: 2049077209914403445}

@@ -4956,7 +4956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyRockPS: {fileID: 165279498004532612}
   stonePiece: {fileID: 745693257448903005, guid: 1ab064c3290a4ec4f9061bd8ff3baaf2, type: 3}
-  damageAmount: 25
+  damageAmount: 30
   minRockAmount: 3
   maxRockAmount: 5
   minOran: 0.5
