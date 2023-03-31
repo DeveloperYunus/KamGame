@@ -17,23 +17,20 @@ Güç oranlamasý script'i + ayarlamasý		(Ranged ve Melee enemyler için)
 
 
 BÖLÜM ÜRETÝM AÞAMALARI
-	2- Tile'lar yerleþtirilir
-	2- EnvProducer'lar yerleþtirilir
-	2- Baþlangýç ve son'a Wall'lar yerleþtirilir. (duvarlar - kam haritanýn sýnýrýndan düþmesin diye)
-	2- 2D Light lar yerleþtirilip ayarlanýr.
-	2- Tuzaklar yerleþtirilecek
-	2- CheckPoint noktalarý yerleþtirilir.
-	2- Var ise KAM'ýn konuþma colliderlarýnýn yerleþtir.
-	2- Enemyler yeleþtirilir.
+	- Tile'lar yerleþtirilir
+	- EnvProducer'lar yerleþtirilir
+	- Baþlangýç ve son'a Wall'lar yerleþtirilir. (duvarlar - kam haritanýn sýnýrýndan düþmesin diye)
+	- 2D Light lar yerleþtirilip ayarlanýr.
+	- Tuzaklar yerleþtirilecek
+	- CheckPoint noktalarý yerleþtirilir.
+	- Var ise KAM'ýn konuþma colliderlarýnýn yerleþtir.
+	- Enemyler yeleþtirilir.
 
 
 
 GÖREVLER		
 
-	5,10 ve 15. bölümlerde boss maðarasýna girerken Mini Boss appear sesi çýksýn
-	14 bölümü bitir
-
-	Karanlýk bölümlerde Kam ýn asasýnda elektrik particle effect'i ve ýþýk olsun
+	15. bölüm ve sonrasýnda karanlýk bölüm tilelarýný kullan ve kam ýn asasýnda elektrikli particle effect ile ýþýk olsun
 	19. bölüme kadar tamamla
 
 	20. bölümün seslerini ekle (BOSS dosyasýndadýr)		- Wolf, Game Won seslerinide ekle

@@ -282,8 +282,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000091552734, y: -0.0006685257}
-  m_Size: {x: 1.9960728, y: 3.5746021}
+  m_Offset: {x: -0.000091552734, y: 0.040467262}
+  m_Size: {x: 1.9960728, y: 3.6568737}
   m_Direction: 0
 --- !u!50 &692932624
 Rigidbody2D:
@@ -514,19 +514,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc14941a336c2e041a2ac18c2063d018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 8
   nextWaypointDistance: 2.3
   seekTime: 0.5
-  seeRange: 10
+  seeRange: 14
   slow: 0
-  jumpHeight: 0.5
+  jumpHeight: 0.4
   jumpForce: 6.5
   groundCheckPos: {fileID: 4608209149560611537}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
   swordColl: {fileID: 8265230274449688708}
-  atkDamage: 25
+  atkDamage: 40
   atkSpeed: 3
   pushStrong: 4
   atkSprint: 4
@@ -543,8 +543,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
-  armour: 25
+  health: 500
+  armour: 30
   sl: {fileID: 8612147640680035609}
   hpTxt: {fileID: 8124991312203060503}
   expValue: 50
@@ -786,11 +786,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 9.745312, y: -4.3782816}
-      - {x: 12.555433, y: -0.67806506}
+    - - {x: 11.9694605, y: -4.8556437}
+      - {x: 15.979755, y: -2.4777706}
       - {x: 9.522725, y: 2.3702297}
-      - {x: 0.35588944, y: 1.2582657}
-      - {x: -1.285419, y: -3.4163918}
+      - {x: 0.047756493, y: 0.68243355}
+      - {x: -0.52707934, y: -3.5332077}
 --- !u!1 &8265230273486856596
 GameObject:
   m_ObjectHideFlags: 0
@@ -814,7 +814,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265230273486856596}
-  m_LocalRotation: {x: 0, y: 0, z: 0.91407096, w: -0.4055542}
+  m_LocalRotation: {x: 0, y: 0, z: 0.91407114, w: -0.4055541}
   m_LocalPosition: {x: 6.7100973, y: -2.5096211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -868,6 +868,7 @@ GameObject:
   - component: {fileID: 8265230273557270868}
   - component: {fileID: 8265230273557270869}
   - component: {fileID: 7646643878125950676}
+  - component: {fileID: 1590290477482078959}
   m_Layer: 8
   m_Name: MBoss (Child)
   m_TagString: Enemy
@@ -931,7 +932,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1256521107
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: e59139291ed391446bc87385db763199, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -968,8 +969,8 @@ MonoBehaviour:
   - {fileID: 8265230274449688731}
   - {fileID: 8265230273430072822}
   m_Bounds:
-    m_Center: {x: 0.18892956, y: 0.10762787, z: 0}
-    m_Extent: {x: 10.938096, y: 9.983879, z: 0}
+    m_Center: {x: 0.1889677, y: 0.10762596, z: 0}
+    m_Extent: {x: 10.9381, y: 9.983881, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1018,7 +1019,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265230273557270865}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -1046,6 +1047,32 @@ PolygonCollider2D:
       - {x: 1.3516778, y: 7.0431743}
       - {x: 0.79647493, y: 5.3241568}
       - {x: 1.9782256, y: 4.5241513}
+--- !u!61 &1590290477482078959
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265230273557270865}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.44407785, y: -7.7179165}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 18.003906, y: 22}
+    newSize: {x: 18.003906, y: 22}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.2723875, y: 3.416973}
+  m_EdgeRadius: 0
 --- !u!1 &8265230274449688708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265230274641184563}
-  m_LocalRotation: {x: -0, y: -0, z: 0.45400035, w: -0.8910016}
+  m_LocalRotation: {x: -0, y: -0, z: 0.45400012, w: -0.8910017}
   m_LocalPosition: {x: 4.270002, y: 0.15157652, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1339,7 +1366,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8265230275116215544}
-  m_LocalRotation: {x: 0, y: 0, z: -0.689397, w: 0.72438383}
+  m_LocalRotation: {x: 0, y: 0, z: -0.689397, w: 0.7243838}
   m_LocalPosition: {x: 3.968954, y: 0.03430295, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

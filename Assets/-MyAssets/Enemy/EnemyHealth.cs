@@ -72,10 +72,14 @@ public class EnemyHealth : MonoBehaviour
         }
         else if (GetComponent<RngdBossAI>())
         {
+            GameObject.Find("LeveEnd").GetComponent<LevelFinished>().EndLevel(3);                //Küçük bosslarý öldürünce level bitsin
+
             AudioManager.instance.PlaySound("EnmyDie2");
         }
         else if (GetComponent<MleBossAI>())
         {
+            GameObject.Find("LeveEnd").GetComponent<LevelFinished>().EndLevel(3);                //Küçük bosslarý öldürünce level bitsin
+
             AudioManager.instance.PlaySound("EnmyDie");
             AudioManager.instance.PlaySound("EnmyDie1");
         }

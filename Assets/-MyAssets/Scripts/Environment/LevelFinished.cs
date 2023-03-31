@@ -27,13 +27,18 @@ public class LevelFinished : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            PlayerPrefs.SetString("whichLevel", (int.Parse(SceneManager.GetActiveScene().name) + 1).ToString());        //mevcut levelin 1 fazlasýný kaydet
-
-            levelEndImg.GetComponent<RectTransform>().DOScale(1, 0).SetUpdate(true);
-            levelEndImg.DOFade(1, sceneCloseTime).SetUpdate(true).OnComplete(()=> 
-            {
-                SceneManager.LoadScene(PlayerPrefs.GetString("whichLevel"));                                                //ve mevcut levelin 1 fazlasýný yükle
-            });
+            EndLevel(0);
         }
+    }
+
+    public void EndLevel(float waitTime)
+    {
+        PlayerPrefs.SetString("whichLevel", (int.Parse(SceneManager.GetActiveScene().name) + 1).ToString());        //mevcut levelin 1 fazlasýný kaydet
+
+        levelEndImg.GetComponent<RectTransform>().DOScale(1, 0).SetUpdate(true).SetDelay(waitTime);
+        levelEndImg.DOFade(1, sceneCloseTime).SetUpdate(true).SetDelay(waitTime).OnComplete(() =>
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetString("whichLevel"));                                                //ve mevcut levelin 1 fazlasýný yükle
+        });
     }
 }

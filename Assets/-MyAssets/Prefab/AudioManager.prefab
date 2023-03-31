@@ -287,5 +287,11 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: BossAppear
+    clip: {fileID: 8300000, guid: cdcdec956896bb1499da92cf09786f66, type: 3}
+    volume: 0.7
+    pitch: 1.1
+    loop: 0
+    source: {fileID: 0}
   currentVolume: 0
   inCaveTimer: 0
