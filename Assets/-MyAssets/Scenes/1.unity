@@ -7540,6 +7540,7 @@ MonoBehaviour:
   levelEndImg: {fileID: 832691432}
   sceneOpenTime: 3
   sceneCloseTime: 3
+  bossCount: 0
   caveTilemap: {fileID: 622926894}
 --- !u!61 &934239827
 BoxCollider2D:

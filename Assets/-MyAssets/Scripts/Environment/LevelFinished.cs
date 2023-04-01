@@ -7,12 +7,17 @@ public class LevelFinished : MonoBehaviour
 {
     public CanvasGroup levelEndImg;
     public float sceneOpenTime, sceneCloseTime;
+    public int bossCount;               //5,10 ve 15. ölümlerde bosslar var ve bosslar ölünce diðer level'e geçiyoruz. Bu deðiþken levelde kaç boss olduðunu söylüyor
+                                        //tümm bosslarý öldürmemiz lazým
+    int deadBossCount;
+
 
     [Space(10)]
     public Tilemap caveTilemap;
 
     private void Start()
     {
+        deadBossCount = 0;
         caveTilemap.color = Color.white;
 
         levelEndImg.DOFade(1, 0).SetUpdate(true);
@@ -31,8 +36,25 @@ public class LevelFinished : MonoBehaviour
         }
     }
 
-    public void EndLevel(float waitTime)
+    void EndLevel(float waitTime)
     {
+        PlayerPrefs.SetString("whichLevel", (int.Parse(SceneManager.GetActiveScene().name) + 1).ToString());        //mevcut levelin 1 fazlasýný kaydet
+
+        levelEndImg.GetComponent<RectTransform>().DOScale(1, 0).SetUpdate(true).SetDelay(waitTime);
+        levelEndImg.DOFade(1, sceneCloseTime).SetUpdate(true).SetDelay(waitTime).OnComplete(() =>
+        {
+            SceneManager.LoadScene(PlayerPrefs.GetString("whichLevel"));                                                //ve mevcut levelin 1 fazlasýný yükle
+        });
+    }
+
+    public void EndLevelFromBoss(float waitTime)
+    {
+        deadBossCount++;
+
+        if (deadBossCount < bossCount)
+            return;
+
+
         PlayerPrefs.SetString("whichLevel", (int.Parse(SceneManager.GetActiveScene().name) + 1).ToString());        //mevcut levelin 1 fazlasýný kaydet
 
         levelEndImg.GetComponent<RectTransform>().DOScale(1, 0).SetUpdate(true).SetDelay(waitTime);
