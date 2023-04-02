@@ -293,5 +293,17 @@ MonoBehaviour:
     pitch: 1.1
     loop: 0
     source: {fileID: 0}
+  - name: FireBurn1
+    clip: {fileID: 8300000, guid: 90545c7f98a8e8e49804839c519b9783, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FireBurn2
+    clip: {fileID: 8300000, guid: 5de37b6defd89fd49821c911b162a09d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   currentVolume: 0
   inCaveTimer: 0

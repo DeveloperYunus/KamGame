@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-using UnityEngine.UI;
-using UnityEditor.Rendering;
 using UnityEngine.Rendering.Universal;
+using System.Collections.Generic;
 
 public class RangedAI : MonoBehaviour
 {
@@ -50,8 +47,14 @@ public class RangedAI : MonoBehaviour
     float time, lightMax, lightMin, lightNrml;                      //ýþýk yanýp sönmesi için
     Light2D lightt;
 
+    //Ranged Enemylerin içindeki yanma sesi global ses ile etkileþimli olsun diye alttaki satýr tanýmlandý
+    public static List<AudioSource> sources = new();
+
     void Start()
     {
+        sources.Add(GetComponent<AudioSource>());
+        GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("soundLevel");
+
         mask = (1 << 8) | (1 << 7) | (1 << 2) | (1 << 1);     //enemy layer ýný kaydeder    (enemy, transparanFX, dontClose, ignore raycast)
         mask = ~mask;                                         // "~" ifadesi ile tersini alýr (bu olmasa linecast sadece "8" nolu katmaný arar. Bu ifade ("~") varken sadece "8" nolu katmaný yoksayar)
 
@@ -194,6 +197,16 @@ public class RangedAI : MonoBehaviour
     }
 
 
+    public static void SetVolume()
+    {
+        int a = sources.Count;
+        float b = PlayerPrefs.GetFloat("soundLevel");
+
+        for (int i = 0; i < a; i++)
+        {
+            sources[i].volume = b;
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

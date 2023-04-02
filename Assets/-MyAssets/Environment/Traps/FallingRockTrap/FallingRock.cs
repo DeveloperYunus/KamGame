@@ -18,16 +18,17 @@ public class FallingRock : MonoBehaviour
     {
         oneTime = true;
         isGiveDamage = true;
+
         StartCoroutine(DieTimer());
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        float b = PlayerPrefs.GetFloat("soundLevel");
+        float b = PlayerPrefs.GetFloat("soundLevel");       //ses ayarýný yapmak için
 
         toFlesh1.volume = b;
         toFlesh2.volume = b;
-        toGround2.volume = b;
+        toGround1.volume = b;
         toGround2.volume = b; 
 
         if (isGiveDamage && !other.CompareTag("Meteor"))

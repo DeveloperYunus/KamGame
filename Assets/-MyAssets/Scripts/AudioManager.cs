@@ -132,22 +132,28 @@ public class AudioManager : MonoBehaviour
 
     public void SetGV()                     //Level select menu'deki SetGlobalVolume() fontksiyonu için yazýldý
     {
-        if (!isSlFirst)
-            PlaySound("SoundSlider");
-
-        isSlFirst = false;
-
         currentVolume = sl.value * 0.1f;
         PlayerPrefs.SetFloat("soundLevel", currentVolume);
 
         SetSound(currentBGMelody, (1 - inCaveSound) * currentVolume);             //mevcut bg yi sýfýra doðru götür
         SetSound("Cave", inCaveSound * currentVolume);
+
+        CampFire.SetVolume();
+        RangedAI.SetVolume();
+
+        if (!isSlFirst)     //awake kýsmýndaki set sl.value ile tetiklenmemesi için
+        {
+            PlaySound("SoundSlider");
+            KamHealth.instance.WarSoundSet();       //global ses güncellendiðinde bu da güncellensin
+        }
+
+        isSlFirst = false;
     }
 }
 
 
 
-[System.Serializable]
+[Serializable]
 public class Sound
 {
     public string name;

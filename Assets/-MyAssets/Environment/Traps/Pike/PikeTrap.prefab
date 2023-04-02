@@ -2367,7 +2367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 431640243f8a06c41a72d6f452e1d998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spikes: {fileID: 2049077210460668828}
+  spikes: {fileID: 2049077210460668831}
   damage: 30
   spikeShadows:
   - {fileID: 2049077209914403445}

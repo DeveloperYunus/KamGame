@@ -331,7 +331,12 @@ public class KamHealth : MonoBehaviour
             hpUI.GetComponent<AudioSource>().Play();       //müzik çalmýyorsa çalmaya baþlasýn
 
         hpUI.GetComponent<AudioSource>().DOKill();
-        hpUI.GetComponent<AudioSource>().DOFade(warSoundVlm * PlayerPrefs.GetFloat("soundLevel"), 2f);
+        hpUI.GetComponent<AudioSource>().DOFade(warSoundVlm * PlayerPrefs.GetFloat("soundLevel"), 2f).SetUpdate(true);
+    }
+    public void WarSoundSet()
+    {
+        hpUI.GetComponent<AudioSource>().DOKill();
+        hpUI.GetComponent<AudioSource>().DOFade(warSoundVlm * PlayerPrefs.GetFloat("soundLevel"), 0.5f).SetUpdate(true);
     }
 
     IEnumerator Die()

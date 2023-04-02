@@ -44,7 +44,7 @@ public class EnvProducter : MonoBehaviour
 
         if (!isForCave)
         {
-            range = (envDensity * 1.5f + 1);
+            range = (envDensity * 1.5f + 0.5f);
             negativeRng = -1 * range;
 
             if (checkGround)
@@ -217,7 +217,7 @@ public class EnvProducter : MonoBehaviour
         if (!isForCave)
         {
             Gizmos.color = UnityEngine.Color.red;
-            Gizmos.DrawLine(transform.position - new Vector3(envDensity * 1.5f + 1, 3, 0), transform.position + new Vector3(envDensity * 1.5f + 1, -3, 0));
+            Gizmos.DrawLine(transform.position - new Vector3(envDensity * 1.5f + 0.5f, 3, 0), transform.position + new Vector3(envDensity * 1.5f + 0.5f, -3, 0));
             Gizmos.DrawLine(transform.position, transform.position - new Vector3(0, 3, 0));
         }
         else

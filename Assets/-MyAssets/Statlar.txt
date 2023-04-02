@@ -29,10 +29,7 @@ BÖLÜM ÜRETÝM AÞAMALARI
 
 
 GÖREVLER		
-
-	15. bölüm ve sonrasýnda karanlýk bölüm tilelarýný kullan ve kam ýn asasýnda elektrikli particle effect ile ýþýk olsun
-	19. bölüme kadar tamamla
-
+	
 	20. bölümün seslerini ekle (BOSS dosyasýndadýr)		- Wolf, Game Won seslerinide ekle
 	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
 	20. bölümü bitir

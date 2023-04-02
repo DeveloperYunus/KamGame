@@ -81,6 +81,5 @@ Time.timeScale i görmezden gelmek için ".SetUpdate(true);" kullan
 
 
 
-
 CTRL + K + C yorum satýrý yapar
 CTRL + K + U yorum satýrýný normal satýr yapar
