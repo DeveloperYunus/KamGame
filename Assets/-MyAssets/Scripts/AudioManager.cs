@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class AudioManager : MonoBehaviour
 {
     public Slider sl;                                   //soundslider
-    public bool isBurning;                              //Yanan levelleri gelince bunu etkinleþtirecez ve yanma bg sesi çalacak
     public Sound[] sounds;
     public static AudioManager instance;
     [HideInInspector] public float currentVolume;       //bu her ses ayarýnda güncellensin
@@ -50,7 +49,7 @@ public class AudioManager : MonoBehaviour
     {
         if (bgTimer < 0)
         {
-            if (!isBurning)
+            if (!LevelFinished.isDarkLevels)
             {
                 if (FirstOOP.FiftyChance())
                 {
@@ -64,6 +63,12 @@ public class AudioManager : MonoBehaviour
                     PlaySound("Forest2");
                     currentBGMelody = "Forest2";
                 }
+            }
+            else
+            {
+                bgTimer = GetClip("Burning").length;
+                PlaySound("Burning");
+                currentBGMelody = "Burning";
             }
         }
         else 

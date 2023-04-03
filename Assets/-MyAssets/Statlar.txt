@@ -29,7 +29,7 @@ BÖLÜM ÜRETÝM AÞAMALARI
 
 
 GÖREVLER		
-	
+
 	20. bölümün seslerini ekle (BOSS dosyasýndadýr)		- Wolf, Game Won seslerinide ekle
 	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
 	20. bölümü bitir

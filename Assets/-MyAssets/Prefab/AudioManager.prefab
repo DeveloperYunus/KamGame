@@ -91,13 +91,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ElkTrap1
     clip: {fileID: 8300000, guid: 6c8572bdc90e5f94c8e6968e5d1c0fc1, type: 3}
-    volume: 0.4
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ElkTrap2
     clip: {fileID: 8300000, guid: aba8fb1c7a347744f9e91541192e166a, type: 3}
-    volume: 0.4
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}

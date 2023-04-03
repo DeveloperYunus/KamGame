@@ -7,14 +7,24 @@ public class LevelFinished : MonoBehaviour
 {
     public CanvasGroup levelEndImg;
     public float sceneOpenTime, sceneCloseTime;
+
+    [Space(10)]
     public int bossCount;               //5,10 ve 15. ölümlerde bosslar var ve bosslar ölünce diðer level'e geçiyoruz. Bu deðiþken levelde kaç boss olduðunu söylüyor
                                         //tümm bosslarý öldürmemiz lazým
     int deadBossCount;
 
-
     [Space(10)]
     public Tilemap caveTilemap;
 
+    [Space(10)]
+    public bool isDarkLevel;
+    public static bool isDarkLevels;
+
+
+    private void Awake()
+    {
+        isDarkLevels = isDarkLevel;         //eðer karanlýk level ise falling leaf kapansýn ateþ külleri gözüksün ve kam'ýn asasý elektrik ile yansýn
+    }
     private void Start()
     {
         deadBossCount = 0;
@@ -25,7 +35,6 @@ public class LevelFinished : MonoBehaviour
 
         levelEndImg.DOFade(0, sceneOpenTime).SetUpdate(true);
         levelEndImg.GetComponent<RectTransform>().DOScale(0, 0).SetDelay(sceneOpenTime).SetUpdate(true);
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
