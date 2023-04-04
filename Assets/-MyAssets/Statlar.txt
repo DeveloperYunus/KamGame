@@ -27,13 +27,9 @@ BÖLÜM ÜRETÝM AÞAMALARI
 	- Enemyler yeleþtirilir.
 
 
-
 GÖREVLER		
-
 	20. bölümün seslerini ekle (BOSS dosyasýndadýr)		- Wolf, Game Won seslerinide ekle
 	20. bölümdeki boss için özel can (dark souls gibi) bar'ý yap
-	20. bölümü bitir
-
 
 
 	Uzun zaman önce, orta asyanýn bozkýrlarýnda ve yem yeþil ormanlarýnda yaþayan cengaver göçebe halklarýn koruyucusu; þair, din adamý ve alimliðiyle meþhur, yaþlarýný ve yaþayýþlarýný 
