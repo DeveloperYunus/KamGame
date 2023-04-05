@@ -28,11 +28,21 @@ public class Meteor : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
-                other.GetComponent<KamHealth>().GetDamage(damage, 6);        //6 = BOSS's meteor
+                if (FirstOOP.FiftyChance())
+                    AudioManager.instance.PlaySound("MetFlesh1");
+                else
+                    AudioManager.instance.PlaySound("MetFlesh2");
+
+                other.GetComponent<KamHealth>().GetDamage(damage, 1);        //6 = BOSS's meteor
             }
 
             if (!other.CompareTag("Meteor"))
             {
+                if (FirstOOP.FiftyChance())
+                    AudioManager.instance.PlaySound("MetGround1");
+                else
+                    AudioManager.instance.PlaySound("MetGround2");
+
                 Explode();
             }
         }

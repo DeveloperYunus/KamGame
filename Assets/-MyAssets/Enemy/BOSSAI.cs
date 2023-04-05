@@ -31,10 +31,10 @@ public class BOSSAI : MonoBehaviour
     public GameObject swordColl;                                //MeleeAI saldýrý için
     public GameObject fireBall;                                 //ranged saldýrý için
     public Transform muzzle;
-    [Tooltip("FireBall = 1x damage, claw = 3x damage")]public float atkDamage;
+    [Tooltip("FireBall = 1x damage, claw = 2x damage")]public float atkDamage;
     public float atkSpeed;
 
-    EnemyHealth eHp;
+    BOSSHealth bHp;
     Animator anim;
     bool canAtk;
     bool chaseCase;
@@ -63,6 +63,9 @@ public class BOSSAI : MonoBehaviour
     float time, lightMax, lightMin, lightNrml;                  //ýþýk yanýp sönmesi için
     Light2D lightt;
 
+    AudioSource burnLoop;
+    bool firstSetSL = true;                                            //AudioManager de awake kýsmýndaki
+
     void Start()
     {
         mask = (1 << 8) | (1 << 7) | (1 << 2) | (1 << 1);     //enemy layer ýný kaydeder    (enemy, transparanFX, dontClose, ignore raycast)
@@ -90,11 +93,11 @@ public class BOSSAI : MonoBehaviour
         target = GameObject.Find("Kam").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        eHp = GetComponent<EnemyHealth>();
+        bHp = GetComponent<BOSSHealth>();
         anim = GetComponentInChildren<Animator>();
-        swordColl.GetComponent<EnemySword>().damage = atkDamage * 3;
+        swordColl.GetComponent<EnemySword>().damage = atkDamage * 2;
         swordColl.GetComponent<EnemySword>().dmgKind = 5;                       //1= normal saldýrý, 2= stan atn saldýrý,  5 = BOSS 
-        eHp = GetComponent<EnemyHealth>();
+        burnLoop = GetComponent<AudioSource>();
 
         startPos = transform.position;
         enemyBody = transform.GetChild(0);
@@ -106,16 +109,16 @@ public class BOSSAI : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Time.time > hpRegenTime && eHp.health < eHp.sl.maxValue)        //can yenilenmesi kodu
+        if (Time.time > hpRegenTime && bHp.health < bHp.sl.maxValue)        //can yenilenmesi kodu
         {
             hpRegenTime = Time.time + 1f;
-            eHp.health += 1;
+            bHp.health += 1;
 
-            if (eHp.health > eHp.sl.maxValue)
-                eHp.health = eHp.sl.maxValue;
+            if (bHp.health > bHp.sl.maxValue)
+                bHp.health = bHp.sl.maxValue;
 
-            eHp.sl.value = eHp.health;
-            eHp.hpTxt.text = eHp.health.ToString("0.#");
+            bHp.sl.value = bHp.health;
+            bHp.hpTxt.text = bHp.health.ToString("0.#");
         }
 
         if (time < Time.time)   //ýþýk parlamasý için
@@ -160,7 +163,7 @@ public class BOSSAI : MonoBehaviour
         if (chaseCase)//kovalýyosam koþ
         {
             float ab = speed * Time.deltaTime;
-            rb.AddForce(new Vector2(ab * direction.x, 0));
+            rb.AddForce(new Vector2(ab * direction.x, ab * direction.y * 4));
 
             if (rb.velocity.x > 0.08f) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
             else if (rb.velocity.x < -0.08f) enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
@@ -170,7 +173,7 @@ public class BOSSAI : MonoBehaviour
 
     void UpdatePath()
     {
-        if (bossPhase != 1  && eHp.health <= (eHp.sl.maxValue * 0.4f))
+        if (bossPhase != 1  && bHp.health <= (bHp.sl.maxValue * 0.4f))
         {
             bossPhase = 1;
             //bir ses gelsin ve faz deðiþikliði olduðunu hissettir
@@ -200,7 +203,7 @@ public class BOSSAI : MonoBehaviour
                     }
                     else
                     {
-                        if (whichAtk < 3)   //bu kod ile her 4 saldýrýda 1 Kam'ý yakýnýna ýþýnlayýp hasar verecek (her 4 * saldýrý hýzý süresinde 1 kez)
+                        if (whichAtk < 2)   //bu kod ile her 4 saldýrýda 1 Kam'ý yakýnýna ýþýnlayýp hasar verecek (her 4 * saldýrý hýzý süresinde 1 kez)
                         {
                             whichAtk++;
                             StartCoroutine(Meteor());
@@ -281,10 +284,17 @@ public class BOSSAI : MonoBehaviour
         anim.SetTrigger("mleAtk");
         Invoke(nameof(AttackReset), atkSpeed);
         Invoke(nameof(CallKam), 0.7f);
+        Invoke(nameof(MleAtkSound), 1.2f);
         Invoke(nameof(ReleaseKam), 1.5f);
+    }
+    void MleAtkSound()
+    {
+        AudioManager.instance.PlaySound("BBswosh");
     }
     void CallKam()
     {
+        AudioManager.instance.PlaySound("BBCall");
+
         if (target.position.x - transform.position.x > 0)        
             target.DOMove(new Vector2(transform.position.x + 3.2f, transform.position.y - 0.5f), 0.8f).SetEase(Ease.OutBack);     //KAM hýzla BOSS un önüne gelsin        
         else        
@@ -297,6 +307,8 @@ public class BOSSAI : MonoBehaviour
     }
     public IEnumerator Meteor()
     {
+        AudioManager.instance.PlaySound("BBCallMeteor");
+
         if (target.position.x - transform.position.x > 0)
         {
             enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
@@ -346,6 +358,18 @@ public class BOSSAI : MonoBehaviour
         return target.name == checkWall.transform.name;
     }
 
+
+    public void SoundSetter()
+    {
+        if (firstSetSL)
+        {
+            firstSetSL = false;
+            return;
+        }
+        float a = PlayerPrefs.GetFloat("soundLevel");               //bu alttaki 3 satýr ses seviyesi deðiþince muziklerin seviyeside ayarlansýn diye
+        burnLoop.volume = a;
+        AudioManager.instance.SetSound("BossMusic", a);
+    }
 
     private void OnDrawGizmosSelected()
     {

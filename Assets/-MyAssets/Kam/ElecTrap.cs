@@ -37,9 +37,13 @@ public class ElecTrap : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") && isActive)          //aktif olduktan sonra hasar versin diye
+        if (other.CompareTag("Enemy") && isActive && other.GetComponentInParent<EnemyHealth>())          //aktif olduktan sonra hasar versin diye
         {
             other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 3);
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+            other.GetComponentInParent<BOSSHealth>().GetDamage(damage, 1);
         }
 
         if (other.CompareTag("Enemy") && !isActive)          //tuzaðý aktifleþtirmek için

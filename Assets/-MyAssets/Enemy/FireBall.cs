@@ -47,11 +47,17 @@ public class FireBall : MonoBehaviour
 
     void Explode()
     {
-        if (FirstOOP.FiftyChance())
-            AudioManager.instance.PlaySound("FireBallExp1");
+        if (dmgKind == 6) //6 == BOSS'un fireball'u
+        {
+            AudioManager.instance.PlaySound("BBFireBallExp");
+        }
         else
-            AudioManager.instance.PlaySound("FireBallExp2");
-
+        {
+            if (FirstOOP.FiftyChance())
+                AudioManager.instance.PlaySound("FireBallExp1");
+            else
+                AudioManager.instance.PlaySound("FireBallExp2");
+        }
 
         GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;

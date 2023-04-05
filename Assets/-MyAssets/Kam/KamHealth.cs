@@ -226,14 +226,19 @@ public class KamHealth : MonoBehaviour
                 else a = 1;
                 StartCoroutine(kc.StopWalkAndPush(0.7f, new Vector2(a, 0.8f), pushStrong));
             }
-            else if (dmgKind == 5)
+            else if (dmgKind == 5)                   //BOSS ranged atak
             {
                 anim.SetTrigger("hit");
                 StartCoroutine(kc.SetSlow(0.2f, 1.3f));
 
                 CinemachineShake.instance.ShakeCamera(2.4f, 1.5f, 1.2f);
             }
-            else if (dmgKind == 6)                  //kazýk ve düþen taþlar tuzaklarý
+            else if (dmgKind == 6)                  //BOSS melee atak
+            {
+                AudioManager.instance.PlaySound("BBSlash");
+                CinemachineShake.instance.ShakeCamera(2.5f, 1f, 0.7f);
+            }
+            else if (dmgKind == 7)                  //kazýk ve düþen taþlar tuzaklarý
             {
                 CinemachineShake.instance.ShakeCamera(2.5f, 1f, 0.7f);
             }

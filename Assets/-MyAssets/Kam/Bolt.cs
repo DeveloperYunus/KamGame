@@ -35,9 +35,13 @@ public class Bolt : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && other.GetComponentInParent<EnemyHealth>())
         {
             other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 1);
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+            other.GetComponentInParent<BOSSHealth>().GetDamage(damage, 1);
         }
         Explode();
     }

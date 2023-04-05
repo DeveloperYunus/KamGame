@@ -38,7 +38,7 @@ public class FallingRock : MonoBehaviour
 
             if (other.CompareTag("Player"))
             {
-                other.GetComponent<KamHealth>().GetDamage(damage, 6);
+                other.GetComponent<KamHealth>().GetDamage(damage, 7);
 
                 if (FirstOOP.FiftyChance())
                     toFlesh1.Play();
@@ -48,7 +48,7 @@ public class FallingRock : MonoBehaviour
 
             if(other.CompareTag("Enemy"))
             {
-                other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 6);
+                other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 7);
 
                 if (FirstOOP.FiftyChance())
                     toFlesh1.Play();

@@ -35,9 +35,13 @@ public class Thunder : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && other.GetComponentInParent<EnemyHealth>())
         {
             other.GetComponentInParent<EnemyHealth>().GetDamage(damage, 2);
+        }
+        else if (other.CompareTag("Enemy"))
+        {
+            other.GetComponentInParent<BOSSHealth>().GetDamage(damage, 1);
         }
         GetComponent<Collider2D>().enabled = false;
         thunderExp.GetComponent<ParticleSystem>().Play();

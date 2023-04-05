@@ -9651,7 +9651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543559667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.15, y: 0.66, z: 0}
+  m_LocalPosition: {x: 0.15, y: 2.3300002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19292,9 +19292,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5685477905266950162}
   - component: {fileID: 4751943454522029925}
+  - component: {fileID: 1362058945}
   - component: {fileID: 757425130978323342}
   - component: {fileID: 4306507523844769888}
-  - component: {fileID: 2353654594701222094}
+  - component: {fileID: 7298743951652370472}
   - component: {fileID: 1083700119365442970}
   m_Layer: 8
   m_Name: BOSS
@@ -19343,6 +19344,102 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!82 &1362058945
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009666535756909757}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f003c83c26b021448bbd088c5e5a07a6, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 6
+  MaxDistance: 25
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &757425130978323342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19387,21 +19484,21 @@ MonoBehaviour:
   rangedRange: 10
   nextWaypointDistance: 2
   seekTime: 0.5
-  seeRange: 13
+  seeRange: 50
   swordColl: {fileID: 1086681896514561245}
   fireBall: {fileID: 3898168114219470250, guid: dc439ec6f44cf0f4baa9863d5395d696, type: 3}
   muzzle: {fileID: 1543559668}
-  atkDamage: 20
-  atkSpeed: 2.5
+  atkDamage: 70
+  atkSpeed: 2
   meteor: {fileID: 7435714842919811885, guid: f396433cf7ea7904fbe3ec1c73c233cf, type: 3}
-  originPos: {x: 186, y: 40}
-  meteorDamage: 12
-  horizontalRng: 12
-  numOfMeteor: 1
-  speedX: 4
+  originPos: {x: 116.4, y: 9.8}
+  meteorDamage: 60
+  horizontalRng: 33.4
+  numOfMeteor: 40
+  speedX: 6
   cmCam: {fileID: 0}
   transSpeed: 0.15
---- !u!114 &2353654594701222094
+--- !u!114 &7298743951652370472
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19410,14 +19507,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1009666535756909757}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
+  m_Script: {fileID: 11500000, guid: ea8cbc454c131c841a11e0aa8896a2b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 350
-  armour: 25
-  sl: {fileID: 1086681895525195291}
-  hpTxt: {fileID: 1086681896239512894}
-  expValue: 100
+  health: 1500
+  armour: 50
+  sl: {fileID: 0}
+  hpTxt: {fileID: 0}
+  expValue: 200
   dieParicle: {fileID: 1816764360390699195, guid: 8de6207d37fdc9d4bbcf8124a2d46fcc, type: 3}
 --- !u!114 &1083700119365442970
 MonoBehaviour:
@@ -19790,7 +19887,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19861,7 +19958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086681895907174820}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.67, z: 0}
   m_LocalScale: {x: 0.4084, y: 0.4084, z: 0.4084}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -19942,8 +20039,8 @@ MonoBehaviour:
   - {fileID: 1086681894804842037}
   - {fileID: 1086681896331601735}
   m_Bounds:
-    m_Center: {x: 0.35922766, y: 2.9002686, z: 0}
-    m_Extent: {x: 5.6551337, y: 7.2789726, z: 0}
+    m_Center: {x: 0.35922194, y: 2.9002666, z: 0}
+    m_Extent: {x: 5.655126, y: 7.2789726, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -20016,7 +20113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1086681896232157367
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20035,7 +20132,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0099983215, y: 4.720001}
+  m_AnchoredPosition: {x: 0.0099983215, y: 6.3900013}
   m_SizeDelta: {x: 6.4563, y: 0.7705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1086681896232157368
@@ -20366,7 +20463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086681896857692407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 0.11, z: 0}
+  m_LocalPosition: {x: 0.04, y: 1.7800001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
