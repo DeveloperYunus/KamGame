@@ -247,13 +247,13 @@ public class BOSSAI : MonoBehaviour
         if (target.position.x - transform.position.x > 0) enemyBody.localScale = new Vector3(-bodyScale, bodyScale, 1);
         else enemyBody.localScale = new Vector3(bodyScale, bodyScale, 1);
 
-        Vector3 difference = target.position - transform.position;
+        Vector3 difference = target.position - muzzle.position;
         float distance = difference.magnitude;
         Vector2 direction = difference / distance;
         direction.Normalize();
 
         GameObject a = Instantiate(fireBall, muzzle.position, Quaternion.identity);
-        a.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x, direction.y - 0.1f) * 7;                  //merminin hedef yeri
+        a.GetComponent<Rigidbody2D>().velocity = direction * 9f;                  //merminin hedef yeri
         a.GetComponent<FireBall>().damage = atkDamage;
         a.GetComponent<FireBall>().dmgKind = 6;                         //BOSS's meteor ve fireball
 
@@ -296,9 +296,9 @@ public class BOSSAI : MonoBehaviour
         AudioManager.instance.PlaySound("BBCall");
 
         if (target.position.x - transform.position.x > 0)        
-            target.DOMove(new Vector2(transform.position.x + 3.2f, transform.position.y - 0.5f), 0.8f).SetEase(Ease.OutBack);     //KAM hýzla BOSS un önüne gelsin        
+            target.DOMove(new Vector2(transform.position.x + 3.2f, transform.position.y + 1.5f), 0.8f).SetEase(Ease.OutBack);     //KAM hýzla BOSS un önüne gelsin        
         else        
-            target.DOMove(new Vector2(transform.position.x - 3.2f, transform.position.y - 0.5f), 0.8f).SetEase(Ease.OutBack);        
+            target.DOMove(new Vector2(transform.position.x - 3.2f, transform.position.y + 1.5f), 0.8f).SetEase(Ease.OutBack);        
     }
     void ReleaseKam()
     {

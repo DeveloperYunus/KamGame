@@ -48,7 +48,7 @@ public class BOSSHealth : MonoBehaviour
             Die();
         }
 
-        sl.enabled = true;
+        sl.gameObject.SetActive(true);
         sl.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
         sl.value = health;
         hpTxt.text = health.ToString("0.##");

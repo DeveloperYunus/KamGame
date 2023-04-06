@@ -27,9 +27,43 @@ BÖLÜM ÜRETÝM AÞAMALARI
 	- Enemyler yeleþtirilir.
 
 
-GÖREVLER		
-	20. bölümde boss ve kam 1-2 cümle konuþsunlar
-	21. seviyede son 1-2 fotoðraf ve kamýn fedakarlýðýna vurgu yapýlsýn ardýndan oyunun outro'su aksýn
+Boss Figth
+		B- Bunca yolu ölmek içinmi geldin, ihtiyar
+		K- Hayýr, kurtarmaya geldim.
+
+		B- Hiçliðimi kurtaracaksýn, bu gelecekte sana ve halkýna yer yok. Baþaramayacaksýn!
+		K- Baþardýðýmý görmiyeceksin,
+
+		B-Beni yensen bile Tamunun kapýsýný kapatamazsýn.
+		K-Ama o kapýnýn baþýnda bekleyebilirim.
+
+		B-Sonsuzluðunu feda mý edeceksin?
+		K-Sen ne anlarsýn fedakarlýktan.
+---------------------------------------------------------------------------------
+		B-Did you come all this way just to die, old man?
+		K-No, I came to save.
+
+		B-Will you save nothingness, there's no place for you or your people in the future. You won't succeed!
+		K-You won't see me succeed.
+
+		B-Even if you defeat me, you can't close the door of Tamu.
+		K-But I can wait at the door.
+
+		B-Are you going to sacrifice your eternity?
+		K-What do you know about sacrifice?
+
+
+Outro		
+		-Bu destan da burada sona erdi, Yýldýrým Kam'ýn ustasýnýn verdiði týlsým ile kutsanmýþ ömrünü, kapatmaya gücü yetmediði kapýnýn önünde nihayetsiz bir metanet ile, 
+		halkýný ve sevdiklerini korumak için sonsuza dek harcadýðý anlatýlýr.
+		-Kimi yaþlýlar Kam'ýn hala o kapýda savaþtýðýný söyler. En karanlýk gecelerde ve en þiddetli fýrtýnalarda gökyüzünde çakan yýldýrýmlarýn onun büyüleri olduðunu anlatýrlar.
+--------------------------------------------------------------------------------
+		-This epic ends here. It tells the story of Yýldýrým Kam, who, with the charm given by his master, spent his blessed life in endless courage at the door that he couldn't
+		close, to protect his people and loved ones forever.
+		-Some elders say that Kam is still fighting at that door. They tell that the thunder strikes in the sky during the darkest nights and the fiercest storms are his spells.
+
+		Fps'Ý SINIRLAR
+
 
 
 	Uzun zaman önce, orta asyanýn bozkýrlarýnda ve yem yeþil ormanlarýnda yaþayan cengaver göçebe halklarýn koruyucusu; þair, din adamý ve alimliðiyle meþhur, yaþlarýný ve yaþayýþlarýný 

@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class BOSSLevelSound : MonoBehaviour
 {
+    public AudioClip trTalk, enTalk;
     bool firstTime;
 
     private void Start()
@@ -15,6 +17,7 @@ public class BOSSLevelSound : MonoBehaviour
             firstTime = false;
             AudioManager.instance.PlaySound("WolfHowling");
 
+            BossFightTalk();
             Invoke(nameof(WarMusic), 3);
         }
     }
@@ -22,5 +25,19 @@ public class BOSSLevelSound : MonoBehaviour
     void WarMusic()
     {
         AudioManager.instance.PlaySound("BossMusic");
+    }
+
+    void BossFightTalk()
+    {
+        if (PlayerPrefs.GetInt("language") == 0)
+        {
+            GetComponent<AudioSource>().clip = trTalk;
+        }
+        else
+        {
+            GetComponent<AudioSource>().clip = enTalk;
+        }
+
+        GetComponent<AudioSource>().PlayDelayed(5);
     }
 }

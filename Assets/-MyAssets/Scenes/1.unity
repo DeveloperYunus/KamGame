@@ -7542,6 +7542,7 @@ MonoBehaviour:
   sceneCloseTime: 3
   bossCount: 0
   caveTilemap: {fileID: 622926894}
+  isDarkLevel: 0
 --- !u!61 &934239827
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8428,6 +8429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77081dba4545a25429796092a157f52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInCave: 0
 --- !u!60 &1156626043
 PolygonCollider2D:
   m_ObjectHideFlags: 0

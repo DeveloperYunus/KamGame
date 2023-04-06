@@ -24,7 +24,6 @@ public class PauseMenu : MonoBehaviour
 
     bool isSettingOpen;
 
-
     [Header("Cooldown Image")]
     public Image[] cldwnImg;
 
