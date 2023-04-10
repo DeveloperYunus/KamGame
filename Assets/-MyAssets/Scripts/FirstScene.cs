@@ -1,6 +1,4 @@
 using DG.Tweening;
-using System;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -80,6 +78,7 @@ public class FirstScene : MonoBehaviour
         sceneFade.GetComponent<RectTransform>().DOScale(1, 0);
         sceneFade.DOFade(1, 2f).OnComplete(() =>                        //sahneyi kapatan siyah ekran açýldýktan sonra
         {
+            Destroy(AudioManager.instance);
             SceneManager.LoadScene(index);
         });
     }
@@ -88,12 +87,15 @@ public class FirstScene : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("firsOpen") == 0)     //oyun ilk kez açýlýyorsa Cinematic sahnesine gitsin
         {
+            PlayerPrefs.SetFloat("soundLevel", 0.5f);       //ses ayarlansýn
+            PlayerPrefs.SetInt("bolt", 1);
+            Application.targetFrameRate = 55;
+
             sceneFade.DOKill();
 
             sceneFade.GetComponent<RectTransform>().DOScale(1, 0);
             sceneFade.DOFade(1, 2f).OnComplete(() =>                        //sahneyi kapatan siyah ekran açýldýktan sonra
             {
-
                 PlayerPrefs.SetInt("firsOpen", 1);
                 PlayerPrefs.SetInt("language", 1);      //dili ingilizceye ayarla
                 SceneManager.LoadScene("Cinematic");

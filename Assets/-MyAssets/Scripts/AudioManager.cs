@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
@@ -19,14 +20,16 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null)
+        /*if (instance == null)                         //bu kýsým aktif olursa slider sýkýntýsý çýkýyor
             instance = this;
         else
         {
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);      //*/
+
+        instance = this;
 
         foreach (Sound s in sounds)
         {
@@ -39,7 +42,7 @@ public class AudioManager : MonoBehaviour
 
         isSlFirst = true;
 
-        currentVolume = PlayerPrefs.GetFloat("soundLevel");
+        currentVolume = PlayerPrefs.GetFloat("soundLevel", 0.5f);
         sl.value = currentVolume * 10;
 
         inCaveSound = 0;

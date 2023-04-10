@@ -166,7 +166,7 @@ public class KamAttack : MonoBehaviour
             direction.Normalize();
 
             a.GetComponent<Rigidbody2D>().velocity = direction * boltSpeed;
-            a.GetComponent<Bolt>().damage = boltDmg * PlayerPrefs.GetInt("bolt");
+            a.GetComponent<Bolt>().damage = boltDmg * PlayerPrefs.GetInt("bolt", 1);
         }
         else
         {

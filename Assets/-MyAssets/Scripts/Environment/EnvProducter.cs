@@ -59,14 +59,15 @@ public class EnvProducter : MonoBehaviour
                 ProduceCaveEnv();
         }
     }
-    private void Update()
+
+    /*private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Space)) 
         {
             DeleteChild();
             print("silinecek");
         }
-    }
+    }//*/
 
     void ProduceEnv()
     {

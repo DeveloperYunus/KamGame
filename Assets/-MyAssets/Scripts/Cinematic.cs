@@ -39,6 +39,8 @@ public class Cinematic : MonoBehaviour
 
         UIpanel.DOFade(0, 1f);
 
+        fadeImage.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
         fadeImage.GetComponent<CanvasGroup>().DOFade(0, 3f).SetDelay(2f);
         StartCoroutine(MovePictue());
     }
@@ -65,5 +67,10 @@ public class Cinematic : MonoBehaviour
 
         yield return new WaitForSeconds(20);
         fadeImage.GetComponent<CanvasGroup>().DOFade(1, 3f).OnComplete(() => SceneManager.LoadScene("1"));
+    }
+
+    public void PassScene()
+    {
+        fadeImage.GetComponent<CanvasGroup>().DOFade(1, 1.5f).OnComplete(() => SceneManager.LoadScene("1"));
     }
 }

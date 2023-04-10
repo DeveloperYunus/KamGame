@@ -52,7 +52,7 @@ public class EnemyHealth : MonoBehaviour
         sl.GetComponent<CanvasGroup>().DOFade(1, 0.5f);
         sl.GetComponent<CanvasGroup>().DOFade(0, 1.5f).SetDelay(5f);
         sl.value = health;
-        hpTxt.text = health.ToString("0.##");
+        hpTxt.text = health.ToString("0.#");
     }
     void ShowDmgTxt(float dmg)
     {

@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class PauseMenu : MonoBehaviour
     [Header("Setting Panels")]
     public GameObject settingsPnl;
     public GameObject gamePnl;
+    public CanvasGroup levelFinishPnl;
 
     bool isSettingOpen;
 
@@ -41,6 +43,11 @@ public class PauseMenu : MonoBehaviour
         gameObject.GetComponent<RectTransform>().DOScale(0f, 0f);
         gameObject.GetComponent<CanvasGroup>().DOFade(0, 0f);
 
+        gamePnl.GetComponent<CanvasGroup>().DOFade(0, 0f);                       //bu ve alltaki 4 satýr settins panelleride kapatýr ki tekrar açýldýðýnda kapalý gözüksünler
+        settingsPnl.GetComponent<CanvasGroup>().DOFade(0, 0f);
+        gamePnl.GetComponent<RectTransform>().DOScale(0, 0f);
+        settingsPnl.GetComponent<RectTransform>().DOScale(0, 0f);
+
         RegenXPBar();
         OpenSkillImg();
         RegenTexts();
@@ -60,7 +67,7 @@ public class PauseMenu : MonoBehaviour
 
                 RegenXPBar();
                 RegenTexts();
-                gameObject.GetComponent<RectTransform>().DOScale(1f, 0f);
+                gameObject.GetComponent<RectTransform>().DOScale(1f, 0f).SetUpdate(true);
                 gameObject.GetComponent<CanvasGroup>().DOFade(1, 0.2f).SetUpdate(true);
             }
             else      //þu anda açýk o zaman kapansýn
@@ -126,7 +133,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void RegenTexts(int skillID = -1)
     {
-        skillsLevel[0].text = PlayerPrefs.GetInt("bolt").ToString();
+        skillsLevel[0].text = PlayerPrefs.GetInt("bolt", 1).ToString();
         skillsLevel[1].text = PlayerPrefs.GetInt("thunder").ToString();
         skillsLevel[2].text = PlayerPrefs.GetInt("trap").ToString();
         skillsLevel[3].text = PlayerPrefs.GetInt("barrier").ToString();
@@ -160,7 +167,7 @@ public class PauseMenu : MonoBehaviour
                     returnTxt = "<color=#53ecec>ÞÝMÞEK TOPU</color> (Sol Fare Tuþu)\n\n   Bu temel büyü fare simgesinin olduðu yere doðru ateþlenir\n\nHasar  ";
 
                     if (PlayerPrefs.GetInt("bolt") != 5)
-                        returnTxt += ka.boltDmg * PlayerPrefs.GetInt("bolt") + "  >>  " + ka.boltDmg * (PlayerPrefs.GetInt("bolt") + 1);
+                        returnTxt += ka.boltDmg * PlayerPrefs.GetInt("bolt", 1) + "  >>  " + ka.boltDmg * (PlayerPrefs.GetInt("bolt", 1) + 1);
                     else
                         returnTxt += "<color=#53ecec>" + ka.boltDmg * PlayerPrefs.GetInt("bolt") + "</color>" + "  (Max)";
                     break;
@@ -382,18 +389,27 @@ public class PauseMenu : MonoBehaviour
     {
         AudioManager.instance.PlaySound("WoodBtn");
 
-        skillHolder = null;
+        Time.timeScale = 1f;
+
+        levelFinishPnl.DOFade(1, 1).OnComplete(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+        levelFinishPnl.GetComponent<RectTransform>().DOScale(1, 0);
+
+        /*skillHolder = null;
         PlayerPrefs.SetInt("bolt",1);
         PlayerPrefs.SetInt("thunder",0);
         PlayerPrefs.SetInt("trap",0);
         PlayerPrefs.SetInt("barrier", 0);
         PlayerPrefs.SetInt("skillPoint", 10);
 
-        RegenTexts();
+        RegenTexts();*/
     }
     public void QuitToMenu()                             //oyun sahnesinden ana menüye gider
     {
         AudioManager.instance.PlaySound("WoodBtn");
 
+        Time.timeScale = 1f;
+
+        levelFinishPnl.DOFade(1, 1).OnComplete(() => SceneManager.LoadScene("FirstLevel"));
+        levelFinishPnl.GetComponent<RectTransform>().DOScale(1, 0);
     }
 }
