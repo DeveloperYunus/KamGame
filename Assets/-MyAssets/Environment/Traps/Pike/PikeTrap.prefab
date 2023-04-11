@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209165698645}
   - component: {fileID: 2049077209165698646}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: pikeShadow (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209316444247}
   - component: {fileID: 2049077209316444200}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: pikeShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209463978404}
   - component: {fileID: 2049077209463978403}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Spike3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209555802832}
   - component: {fileID: 2049077209555802833}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Spike5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209914403446}
   - component: {fileID: 2049077209914403447}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: pikeShadow (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077209999922617}
   - component: {fileID: 2049077209999922618}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: long_wood_spike_05 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210193947728}
   - component: {fileID: 2049077210193947729}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: long_wood_spike_05 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210260750854}
   - component: {fileID: 2049077210260750872}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: pikeShadow (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,7 +682,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210274306785}
   - component: {fileID: 2049077210274306786}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Spike5 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 7435385454015258563}
   - component: {fileID: 1354703951575101861}
   - component: {fileID: 6280083986486797007}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1342,7 +1342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210469082384}
   - component: {fileID: 2049077210469082385}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: long_wood_spike_05 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1425,7 +1425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2049077210530465542}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: SpikeShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1464,7 +1464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210567471432}
   - component: {fileID: 2049077210567471433}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Spike4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1548,7 +1548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210615369120}
   - component: {fileID: 2049077210615369121}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: long_wood_spike_05 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1632,7 +1632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210620592825}
   - component: {fileID: 2049077210620592826}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1716,7 +1716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210833767101}
   - component: {fileID: 2049077210833767102}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Spike5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1800,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210868676647}
   - component: {fileID: 2049077210868676664}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: long_wood_spike_05 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,7 +1884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210910575965}
   - component: {fileID: 2049077210910575966}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: pikeShadow (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1968,7 +1968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077210969476613}
   - component: {fileID: 2049077210969476614}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: pikeShadow (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2052,7 +2052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077211143443757}
   - component: {fileID: 2049077211143443758}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: long_wood_spike_05 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2136,7 +2136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077211147526721}
   - component: {fileID: 2049077211147526722}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: pikeShadow (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2220,7 +2220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077211172541986}
   - component: {fileID: 2049077211172541985}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Sprite Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2304,7 +2304,7 @@ GameObject:
   - component: {fileID: 2049077211219491445}
   - component: {fileID: 2049077211219491446}
   - component: {fileID: 2049077211219491447}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: PikeTrap
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -2388,7 +2388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2049077211279334326}
   - component: {fileID: 2049077211279334327}
-  m_Layer: 1
+  m_Layer: 2
   m_Name: Spike2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

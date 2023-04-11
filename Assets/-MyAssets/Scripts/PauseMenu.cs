@@ -23,8 +23,14 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsPnl;
     public GameObject gamePnl;
     public CanvasGroup levelFinishPnl;
+    public TextMeshProUGUI currentEpisode;                                  //bulunduðumuz bölümü gösterir
 
     bool isSettingOpen;
+
+
+    public Slider soundSL;
+    bool isSlFirst;                                     //Bu olmazsa oyun açýldýðýnda slider sesi çalýyor
+
 
     [Header("Cooldown Image")]
     public Image[] cldwnImg;
@@ -34,11 +40,18 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = false;
         isSettingOpen = false;
+        isSlFirst = true;
 
         skillHolder = null;
         xpSl.maxValue = 100;
 
+        if (PlayerPrefs.GetInt("language") == 0)
+            currentEpisode.text = SceneManager.GetActiveScene().name + ". Bölüm";
+        else
+            currentEpisode.text = "Level " + SceneManager.GetActiveScene().name;
+
         ka = GameObject.Find("Kam").GetComponent<KamAttack>();
+        soundSL.value = PlayerPrefs.GetFloat("soundLevel", 0.5f) * 10;
 
         gameObject.GetComponent<RectTransform>().DOScale(0f, 0f);
         gameObject.GetComponent<CanvasGroup>().DOFade(0, 0f);
@@ -385,6 +398,23 @@ public class PauseMenu : MonoBehaviour
             settingsPnl.GetComponent<RectTransform>().DOScale(1, 0f).SetUpdate(true);
         }
     }
+    public void SetGV()                     //Level select menu'deki SetGlobalVolume() fontksiyonu için yazýldý
+    {
+        AudioManager.instance.SetGV(soundSL.value * 0.1f);
+
+        CampFire.SetVolume();
+        RangedAI.SetVolume();
+
+        if (!isSlFirst)     //awake kýsmýndaki set sl.value ile tetiklenmemesi için
+        {
+            AudioManager.instance.PlaySound("SoundSlider");
+            KamHealth.instance.WarSoundSet();       //global ses güncellendiðinde bu da güncellensin
+        }
+
+        isSlFirst = false;
+    }
+
+
     public void RestartLevel()
     {
         AudioManager.instance.PlaySound("WoodBtn");

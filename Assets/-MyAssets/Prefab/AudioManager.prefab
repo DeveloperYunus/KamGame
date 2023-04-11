@@ -44,8 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3ebb398d1ea8c4fadeebc77c0770c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sl: {fileID: 0}
-  isBurning: 0
   sounds:
   - name: StaffSwo1
     clip: {fileID: 8300000, guid: 673684bea2874f94f9ea8cdd96a36cf1, type: 3}

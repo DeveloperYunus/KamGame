@@ -39,7 +39,7 @@ public class FirstScene : MonoBehaviour
         levelBtnsHldr.DOFade(0, 0);
         levelBtnsHldr.GetComponent<RectTransform>().DOScale(0, 0);
 
-        int a = PlayerPrefs.GetInt("whichLevel", 1);
+        int a = int.Parse(PlayerPrefs.GetString("whichLevel"));
 
         for (int i = 0; i < a; i++)
         {
@@ -125,5 +125,10 @@ public class FirstScene : MonoBehaviour
 
         PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("FirstLevel");
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

@@ -1,11 +1,8 @@
 using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
-    public Slider sl;                                   //soundslider
     public Sound[] sounds;
     public static AudioManager instance;
     [HideInInspector] public float currentVolume;       //bu her ses ayarýnda güncellensin
@@ -16,11 +13,10 @@ public class AudioManager : MonoBehaviour
     float inCaveSound;
     string currentBGMelody;
 
-    bool isSlFirst;                                     //Bu olmazsa oyun açýldýðýnda slider sesi çalýyor
 
     void Awake()
     {
-        /*if (instance == null)                         //bu kýsým aktif olursa slider sýkýntýsý çýkýyor
+        /*if (instance == null)                         
             instance = this;
         else
         {
@@ -40,10 +36,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
 
-        isSlFirst = true;
-
         currentVolume = PlayerPrefs.GetFloat("soundLevel", 0.5f);
-        sl.value = currentVolume * 10;
 
         inCaveSound = 0;
         inCaveTimer = 0;
@@ -138,24 +131,13 @@ public class AudioManager : MonoBehaviour
         return s.clip;
     }
 
-    public void SetGV()                     //Level select menu'deki SetGlobalVolume() fontksiyonu için yazýldý
+    public void SetGV(float gv)
     {
-        currentVolume = sl.value * 0.1f;
+        currentVolume = gv;                                                       //   0 < gv < 1
         PlayerPrefs.SetFloat("soundLevel", currentVolume);
 
         SetSound(currentBGMelody, (1 - inCaveSound) * currentVolume);             //mevcut bg yi sýfýra doðru götür
         SetSound("Cave", inCaveSound * currentVolume);
-
-        CampFire.SetVolume();
-        RangedAI.SetVolume();
-
-        if (!isSlFirst)     //awake kýsmýndaki set sl.value ile tetiklenmemesi için
-        {
-            PlaySound("SoundSlider");
-            KamHealth.instance.WarSoundSet();       //global ses güncellendiðinde bu da güncellensin
-        }
-
-        isSlFirst = false;
     }
 }
 

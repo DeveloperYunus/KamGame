@@ -1,7 +1,6 @@
 using Cinemachine;
 using DG.Tweening;
 using System.Collections;
-using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -139,16 +138,17 @@ public class KamHealth : MonoBehaviour
             }
         }
 
+        /*if (Input.GetKeyDown(KeyCode.F))                                  //build alýrken sýfýrlanacak
+            StartCoroutine(Die());
 
-
-        if (Input.GetKeyUp(KeyCode.R))      //build alýrken sýfýrlanacak
+        if (Input.GetKeyUp(KeyCode.R))      
         {
-            PlayerPrefs.SetInt("expValue",0);                //xp deðerimi sýfýrlar artýr
-            PlayerPrefs.SetInt("skillPoint", 0);             //yetenek puanýmý 1 artýr
+            PlayerPrefs.SetInt("expValue",0);                               //xp deðerimi sýfýrlar artýr
+            PlayerPrefs.SetInt("skillPoint", 0);                            //yetenek puanýmý 1 artýr
             PlayerPrefs.SetInt("level", 1);
             exp = 0;
             print("level sýfýrla, (bu kýsým silinecek)");
-        }
+        }//*/
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

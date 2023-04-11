@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a593b6dd64a3a1e4aaa4bf4f03093b08
+guid: afdb5da7d38a934428cffa9429b21305
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -120,40 +120,19 @@ TextureImporter:
       name: Staff
       rect:
         serializedVersion: 2
-        x: 59
-        y: 73
-        width: 167
-        height: 1408
-      alignment: 9
-      pivot: {x: 0.54081833, y: 0.5960196}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ad91311a899c954ea9eb8f8874ba1cb
-      internalID: -1239910736
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Hand
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 1040
-        width: 109
-        height: 85
+        x: 17
+        y: 30
+        width: 161
+        height: 1134
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35b0ebd248c56f148af68c9deebe3c7b
-      internalID: -1068132643
+      spriteID: 83f2dad647948854c9be4afe8c0d3a8b
+      internalID: 1685200488
       vertices: []
       indices: 
       edges: []
@@ -162,19 +141,19 @@ TextureImporter:
       name: MetalCircle
       rect:
         serializedVersion: 2
-        x: 262
-        y: 958
-        width: 58
-        height: 58
+        x: 209
+        y: 777
+        width: 62
+        height: 63
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26c4fff784b08094cbe479b6384a7689
-      internalID: 1361817789
+      spriteID: ae439513b5405ba44a153e048a959792
+      internalID: 1446148197
       vertices: []
       indices: 
       edges: []
@@ -183,19 +162,19 @@ TextureImporter:
       name: Rope
       rect:
         serializedVersion: 2
-        x: 272
-        y: 857
+        x: 221
+        y: 669
         width: 29
-        height: 84
-      alignment: 9
-      pivot: {x: 0.5690108, y: 0.8970831}
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11fe2c5e98c69334595223f21c0ca3cc
-      internalID: 1781366108
+      spriteID: 53ec668a4c72ba34da30edb42c61a760
+      internalID: 866357614
       vertices: []
       indices: 
       edges: []
@@ -204,82 +183,82 @@ TextureImporter:
       name: RopeTeeth
       rect:
         serializedVersion: 2
-        x: 258
-        y: 757
-        width: 56
-        height: 94
-      alignment: 9
-      pivot: {x: 0.55956215, y: 0.8903237}
+        x: 204
+        y: 562
+        width: 60
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 929d92690790c6f4485db51b7fa78f6d
-      internalID: -865518058
+      spriteID: 0b9f264d2c59b5d44a3087cec27923ed
+      internalID: -293451142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1
+      name: String
       rect:
         serializedVersion: 2
-        x: 267
-        y: 678
-        width: 17
-        height: 61
-      alignment: 9
-      pivot: {x: 0.5284837, y: 0.9048142}
+        x: 214
+        y: 477
+        width: 19
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5fc0cef4d3b8ce45aaf70bd6be61b87
-      internalID: 1977038255
+      spriteID: b19340c855ed71f4991dd34e6bcbf403
+      internalID: 1850443753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 2
+      name: String1
       rect:
         serializedVersion: 2
-        x: 295
-        y: 685
-        width: 14
-        height: 51
-      alignment: 9
-      pivot: {x: 0.5518777, y: 0.9224782}
+        x: 244
+        y: 485
+        width: 16
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7480cf99a5966d84ea72f66f3ab11763
-      internalID: -721448412
+      spriteID: 0f9012c034a0fd94394f8ce6a865a848
+      internalID: 1620987518
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 3
+      name: String2
       rect:
         serializedVersion: 2
-        x: 321
-        y: 681
-        width: 14
-        height: 55
-      alignment: 9
-      pivot: {x: 0.5000022, y: 0.9269664}
+        x: 272
+        y: 480
+        width: 16
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53b140fbcf9ce894abda00767aa088b8
-      internalID: -1717595632
+      spriteID: 359b63070ae8f544381be316816d7ecb
+      internalID: 99177232
       vertices: []
       indices: 
       edges: []
@@ -295,14 +274,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      3: -1717595632
-      2: -721448412
-      Staff: -1239910736
-      RopeTeeth: -865518058
-      MetalCircle: 1361817789
-      1: 1977038255
-      Rope: 1781366108
-      Hand: -1068132643
+      String1: 1620987518
+      Staff: 1685200488
+      RopeTeeth: -293451142
+      String: 1850443753
+      MetalCircle: 1446148197
+      Rope: 866357614
+      String2: 99177232
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

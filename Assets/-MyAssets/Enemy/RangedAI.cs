@@ -204,7 +204,7 @@ public class RangedAI : MonoBehaviour
 
         for (int i = 0; i < a; i++)
         {
-            sources[i].volume = b;
+            if (sources[i]) sources[i].volume = b;
         }
     }
     private void OnDrawGizmosSelected()
