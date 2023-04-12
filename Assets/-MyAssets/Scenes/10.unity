@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpText: {fileID: 8039446386701979356, guid: ac3d53b96c3e2784a91d3026aeee27a0, type: 3}
-  objCountInPool: 20
+  objCountInPool: 15
 --- !u!114 &340072717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1968,7 +1968,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 618881638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.01, y: -32.5, z: 0}
+  m_LocalPosition: {x: 77.6, y: -32.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28370,6 +28370,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1373658953, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373658953, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2603272709557383373, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2992973064448129221, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4267641928682105225, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -28457,6 +28473,14 @@ PrefabInstance:
     - target: {fileID: 4267641928682105237, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988392133392333137, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6988392133392333137, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e53c840eb3bf31042b511975ad2ced89, type: 3}

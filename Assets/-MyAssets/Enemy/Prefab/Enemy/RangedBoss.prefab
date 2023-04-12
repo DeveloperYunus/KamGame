@@ -42,7 +42,7 @@ ParticleSystem:
   m_GameObject: {fileID: 67171126}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 1.2
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -867,7 +867,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 50
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1321,9 +1321,9 @@ ParticleSystem:
         ctime5: 0
         ctime6: 0
         ctime7: 0
-        atime0: 24687
-        atime1: 38553
-        atime2: 53771
+        atime0: 30662
+        atime1: 40356
+        atime2: 55687
         atime3: 65535
         atime4: 65535
         atime5: 0
@@ -5919,7 +5919,7 @@ MonoBehaviour:
   fireBall: {fileID: 1648301384536504856, guid: 6592c249539795c4389332e337ba0fdc, type: 3}
   muzzle: {fileID: 3648301426989797839}
   atkDamage: 20
-  atkSpeed: 1
+  atkSpeed: 0.7
 --- !u!114 &1970788491328979767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5932,8 +5932,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a6ba75e507d60438170dc95015a39c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 400
-  armour: 20
+  health: 500
+  armour: 25
   sl: {fileID: 6003283973945061144}
   hpTxt: {fileID: 7470228875207653747}
   expValue: 60

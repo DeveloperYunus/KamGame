@@ -107,7 +107,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -19659,7 +19659,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -24812,7 +24812,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970306863566}
-  m_LocalRotation: {x: 5.150335e-10, y: -5.725147e-10, z: 0.66052073, w: 0.75080776}
+  m_LocalRotation: {x: 5.150336e-10, y: -5.725148e-10, z: 0.66052085, w: 0.7508078}
   m_LocalPosition: {x: 1.8781661, y: 0.0026374012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24845,7 +24845,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970328485920}
-  m_LocalRotation: {x: -5.3082844e-10, y: -1.1139938e-10, z: 0.9899017, w: 0.14175591}
+  m_LocalRotation: {x: -5.308285e-10, y: -1.113994e-10, z: 0.98990166, w: 0.14175583}
   m_LocalPosition: {x: 3.98, y: -2.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -25097,8 +25097,8 @@ MonoBehaviour:
   - {fileID: 1296502971817482859}
   - {fileID: 1296502970787904730}
   m_Bounds:
-    m_Center: {x: 0.36399746, y: -0.13521719, z: 0.0000000088522025}
-    m_Extent: {x: 4.4576583, y: 7.5084214, z: 0.000000027856153}
+    m_Center: {x: 0.36399746, y: -0.13521767, z: -0.000000010186499}
+    m_Extent: {x: 4.457659, y: 7.508422, z: 0.000000019620694}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -25327,7 +25327,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296502970938125818}
-  m_LocalRotation: {x: -5.096942e-10, y: 6.3853206e-10, z: 0.006726592, w: 0.99997735}
+  m_LocalRotation: {x: -5.096943e-10, y: 6.3853206e-10, z: 0.006726502, w: 0.99997735}
   m_LocalPosition: {x: 1.85, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -30383,7 +30383,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3543606255284440814}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -30392,14 +30392,14 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 1
   m_FalloffIntensity: 0.49
-  m_Color: {r: 0.02352941, g: 1, b: 1, a: 0.44705883}
+  m_Color: {r: 0.2865789, g: 1, b: 1, a: 0.44705883}
   m_Intensity: 0.7
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000005342d446035f62ac93fde44a2936522a
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 2
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
@@ -30550,7 +30550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5762907091324199470
 Transform:
   m_ObjectHideFlags: 0

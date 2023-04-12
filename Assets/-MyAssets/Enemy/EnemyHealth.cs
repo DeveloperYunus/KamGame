@@ -87,7 +87,7 @@ public class EnemyHealth : MonoBehaviour
         KamHealth.instance.GainExp(expValue);                       //Kam'ýn içinden +7xp yazan text cýkartýr
 
         Instantiate(dieParicle, transform.position, Quaternion.Euler(-90, 0, 0));
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, 0.06f);
     }
 
     IEnumerator ResetDrag(float time)

@@ -16,16 +16,16 @@ public class ElkLight : MonoBehaviour
 
         time = 0;
         lightNrml = lightt.intensity;
-        lightMin = lightNrml - 0.15f;
-        lightMax = lightNrml + 0.15f;
+        lightMin = lightNrml - 0.1f;
+        lightMax = lightNrml + 0.1f;
     }
 
     void FixedUpdate()
     {
         if (time < Time.time)   //ýþýk parlamasý için
         {
-            time += 0.07f;
-            FirstOOP.LightSparkling(lightt, lightMax, lightMin, lightNrml, 0.05f);
+            time += 0.04f;
+            FirstOOP.LightSparkling(lightt, lightMax, lightMin, lightNrml, 0.01f);
         }
     }
 }

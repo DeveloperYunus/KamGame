@@ -58,7 +58,6 @@ public class KamHealth : MonoBehaviour
 
         health = 100 + 15 * PlayerPrefs.GetInt("level", 1);
         armour = 10 + 2 * PlayerPrefs.GetInt("level", 1);
-        thirtyPrcnOfHp = hpSl.maxValue * 0.3f;
 
         percentArmour = armour * 0.01f;
         hpTxt.text = health.ToString();
@@ -84,7 +83,7 @@ public class KamHealth : MonoBehaviour
             else
                 screenBlood.DOFade(0, 0.5f);
 
-            if (health > hpSl.maxValue * 0.2f) hpBelow = false;             //can %20 den büyükse camera içeri dýþarý yapmasýn
+            if (health > hpSl.maxValue * 0.1f) hpBelow = false;             //can %10 den büyükse camera içeri dýþarý yapmasýn
         }
 
         if (uiFadeTime > 0)     //zamanla uý kýsmý gözden kaybolur
@@ -111,7 +110,7 @@ public class KamHealth : MonoBehaviour
         }
 
 
-        if (hpBelow)        //can %20'nin altýndamý (o zaman kalp atýþý animasyonunun baþlat)
+        if (hpBelow)        //can %10'nin altýndamý (o zaman kalp atýþý animasyonunun baþlat)
         {
             timer += Time.deltaTime;            
 
@@ -273,13 +272,14 @@ public class KamHealth : MonoBehaviour
         hpSl.value = health;
         hpTxt.text = health.ToString("0.#");
 
+        thirtyPrcnOfHp = hpSl.maxValue * 0.3f;
         if (health <= thirtyPrcnOfHp)                                  //ekrandaki screenBlood ýn transparanlýðýný artýrýr yada azaltýr
         {
             screenBlood.DOKill();
             screenBlood.DOFade((thirtyPrcnOfHp - health) / thirtyPrcnOfHp, 0.2f);
         }
 
-        if (health < hpSl.maxValue * 0.2f)      //cameranýn kalp atýþý için
+        if (health < hpSl.maxValue * 0.1f)      //cameranýn kalp atýþý için
         {
             AudioManager.instance.PlaySoundOne("HeartBeat");
             hpBelow = true;
@@ -310,6 +310,11 @@ public class KamHealth : MonoBehaviour
 
                 health = 100 + 15 * PlayerPrefs.GetInt("level");
                 armour = 10 + 2 * PlayerPrefs.GetInt("level");
+
+                screenBlood.DOKill();
+                screenBlood.DOFade(0, 0f);                                  
+                AudioManager.instance.StopSound("HeartBeat");               //can arttý kalp atýþ iþlemi dursun
+                hpBelow = false;
 
                 percentArmour = armour * 0.01f;                 //can ve zýrh güncellendikten sonra UI ve hesaplama kýsýmlarýda güncellensin
                 hpTxt.text = health.ToString("0.#");
@@ -360,13 +365,18 @@ public class KamHealth : MonoBehaviour
         GetComponent<KamAttack>().RebornBarrier(3);                         //öldükten sonra doðunca 3 sn hasar almasýn
 
         health = hpSl.maxValue;
-        hpBelow = false;
+
         hpSl.value = health;
         hpTxt.text = health.ToString("0.#");
 
         Time.timeScale = 1;
         yield return new WaitForSeconds(1f);
+        hpBelow = false;
+        AudioManager.instance.StopSound("HeartBeat");               //can arttý kalp atýþ iþlemi dursun
+
+        screenBlood.DOKill();
         screenBlood.DOFade(0, 0f);
+
         transitionPnl.GetComponent<RectTransform>().DOScale(0, 0).SetDelay(0.5f);
         transitionPnl.GetComponent<CanvasGroup>().DOFade(0, 0.2f).SetDelay(0.3f);
     }

@@ -14671,7 +14671,7 @@ MonoBehaviour:
   fireExp: {fileID: 7416172242416241670}
   damage: 0
   dmgKind: 0
-  destroyTime: 5
+  destroyTime: 3
   canDmg: 0
 --- !u!114 &711810450
 MonoBehaviour:

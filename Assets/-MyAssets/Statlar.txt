@@ -63,3 +63,10 @@ Outro
 	Their ages and ways of life were unknown to anyone. People used to call them Kam. Before the era that people would later call BC, there were many KAMs, and they guided 
 	people and protected nature all over Asia... Until the fire arised in the north from Tamu. Many of them sacrificed themselves to stop this great evilness with their blood 
 	and lives. However, we will only accompany one of these great selfless individuals on his journey. The old ones used to call him KAM, but we will call him YILDIRIM.
+
+
+
+
+Buglar
+	- Kam'ýn thunder skili 15. level boss savaþlarýnda gözükmyor ve hasar vermiyor
+	- Kam elecktrap windows çýktýsýnda patlamýyor
